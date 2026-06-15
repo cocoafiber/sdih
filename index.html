@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sustainable Design Impact Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1a1a3a;
+      --navy-mid: #22224a;
+      --navy-deep: #12122a;
+      --purple: #7c3aed;
+      --purple-light: #a855f7;
+      --purple-accent: #9333ea;
+      --white: #ffffff;
+      --off-white: #f5f4f8;
+      --text: #ffffff;
+      --text-muted: rgba(255,255,255,0.6);
+      --border: rgba(255,255,255,0.1);
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body: 'Jost', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--text); background: var(--navy); overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--navy-deep);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 68px;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo img {
+      height: 36px; width: auto;
+      filter: invert(1);
+    }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a {
+      color: var(--text); text-decoration: none; font-size: 13px;
+      font-weight: 300; letter-spacing: 0.08em; opacity: 0.7; transition: opacity 0.2s, color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--purple-light); }
+    .nav-details {
+      padding: 10px 28px; background: var(--purple); color: var(--white) !important;
+      opacity: 1 !important; font-size: 13px !important; font-weight: 400 !important;
+      letter-spacing: 0.08em !important; transition: background 0.25s !important;
+    }
+    .nav-details:hover { background: var(--purple-accent) !important; }
+    .nav-social { display: flex; gap: 16px; align-items: center; }
+    .nav-social a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .nav-social a:hover { color: var(--purple-light); }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 100vh; padding-top: 68px;
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center; text-align: center;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      /* REPLACE WITH: background-image: url('images/hero.jpg'); background-size: cover; background-position: center; */
+      background: linear-gradient(160deg, #2a1a5a 0%, #1a1a4a 40%, #120a2a 100%);
+    }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(20, 20, 60, 0.65);
+    }
+    .hero-content {
+      position: relative; z-index: 2; max-width: 900px; padding: 0 48px;
+      animation: fadeUp 1.2s ease both;
+    }
+    .hero-content h1 {
+      font-family: var(--font-display); font-size: clamp(42px, 7vw, 88px);
+      font-weight: 400; color: var(--white); line-height: 1.1; margin-bottom: 24px;
+    }
+    .hero-divider {
+      width: 60px; height: 2px; background: var(--purple-light);
+      margin: 0 auto 24px;
+    }
+    .hero-subtitle {
+      font-size: 16px; color: rgba(255,255,255,0.75); font-weight: 300;
+      letter-spacing: 0.12em; text-transform: uppercase;
+    }
+
+    /* ── EVENT DETAILS ── */
+    #events {
+      background: var(--navy-mid); padding: 80px 48px;
+      border-top: 1px solid var(--border);
+    }
+    .events-inner { max-width: 1200px; margin: 0 auto; }
+    .event-hero-title {
+      font-family: var(--font-display); font-size: clamp(28px, 4vw, 48px);
+      font-weight: 400; color: var(--white); margin-bottom: 8px; line-height: 1.2;
+    }
+    .event-subtitle { font-size: 14px; color: var(--text-muted); font-weight: 300; letter-spacing: 0.1em; margin-bottom: 48px; }
+    .event-grid {
+      display: grid; grid-template-columns: 1fr 1fr 1fr 200px;
+      gap: 0; border-top: 1px solid var(--border);
+    }
+    .event-col { padding: 40px 32px; border-right: 1px solid var(--border); }
+    .event-col:last-child { border-right: none; display: flex; align-items: center; justify-content: center; }
+    .event-col-label {
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 16px;
+    }
+    .event-col-value {
+      font-family: var(--font-display); font-size: 22px; font-weight: 400;
+      color: var(--white); line-height: 1.4;
+    }
+    .btn-purple {
+      display: inline-block; padding: 16px 36px; background: var(--purple);
+      color: var(--white); text-decoration: none; font-size: 13px;
+      font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;
+      transition: background 0.25s; text-align: center;
+    }
+    .btn-purple:hover { background: var(--purple-accent); }
+
+    /* ── ABOUT ── */
+    #about { padding: 120px 48px; background: var(--navy); }
+    .about-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+    .about-left h2 {
+      font-family: var(--font-display); font-size: clamp(32px, 4vw, 52px);
+      font-weight: 400; color: var(--white); line-height: 1.15; margin-bottom: 16px;
+    }
+    .about-left h2 strong { font-weight: 500; color: var(--purple-light); }
+    .about-date { font-size: 16px; color: var(--text-muted); font-weight: 300; margin-bottom: 40px; }
+    .about-right p {
+      font-size: 16px; line-height: 1.85; color: rgba(255,255,255,0.7);
+      font-weight: 300; margin-bottom: 20px;
+    }
+    .about-right p strong { color: var(--white); font-weight: 500; }
+    .read-more {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 13px; letter-spacing: 0.1em; color: var(--purple-light);
+      text-decoration: none; margin-top: 8px; transition: gap 0.2s;
+    }
+    .read-more::after { content: '→'; font-size: 16px; }
+    .read-more:hover { gap: 20px; }
+
+    /* ── GALLERY ── */
+    #gallery { padding: 80px 0; background: var(--navy-deep); }
+    .gallery-label {
+      text-align: center; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--purple-light); margin-bottom: 48px; padding: 0 48px;
+    }
+    .gallery-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto; gap: 4px; max-width: 100%;
+    }
+    .gallery-item {
+      overflow: hidden; position: relative;
+      /* REPLACE WITH: <img src="images/gallery-N.jpg" style="width:100%;height:100%;object-fit:cover;" /> */
+      background: var(--navy-mid); aspect-ratio: 4/3;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+    }
+    .gallery-item:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+    .gallery-item:hover img { transform: scale(1.04); }
+
+    /* ── PRESS ── */
+    #press { padding: 100px 48px; background: var(--navy); }
+    .press-inner { max-width: 1200px; margin: 0 auto; }
+    .press-header { margin-bottom: 64px; }
+    .press-header h2 {
+      font-family: var(--font-display); font-size: clamp(36px, 5vw, 56px);
+      font-weight: 400; color: var(--white); position: relative; display: inline-block;
+    }
+    .press-header h2::after {
+      content: ''; display: block; width: 60px; height: 2px;
+      background: var(--purple-light); margin-top: 16px;
+    }
+    .press-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
+    .press-card {
+      background: var(--navy-mid); padding: 40px 36px;
+      transition: background 0.3s; text-decoration: none; display: block;
+    }
+    .press-card:hover { background: rgba(124, 58, 237, 0.15); }
+    .press-source {
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--purple-light); margin-bottom: 14px;
+    }
+    .press-title {
+      font-family: var(--font-display); font-size: 22px; font-weight: 400;
+      color: var(--white); line-height: 1.3; margin-bottom: 16px;
+    }
+    .press-excerpt { font-size: 14px; color: var(--text-muted); font-weight: 300; line-height: 1.7; margin-bottom: 20px; }
+    .press-link {
+      font-size: 12px; letter-spacing: 0.1em; color: var(--purple-light);
+      text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .press-link::after { content: '→'; }
+
+    /* ── AWARD ── */
+    #award { padding: 120px 48px; background: var(--navy-deep); text-align: center; }
+    .award-inner { max-width: 720px; margin: 0 auto; }
+    .award-label { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--purple-light); margin-bottom: 24px; }
+    .award-title { font-family: var(--font-display); font-size: clamp(36px, 5vw, 64px); font-weight: 400; color: var(--white); margin-bottom: 24px; line-height: 1.1; }
+    .award-body { font-size: 16px; color: var(--text-muted); font-weight: 300; line-height: 1.85; margin-bottom: 48px; }
+
+    /* ── CONTACT ── */
+    #contact { padding: 100px 48px; background: var(--navy-mid); }
+    .contact-inner { max-width: 700px; margin: 0 auto; }
+    .contact-inner h2 {
+      font-family: var(--font-display); font-size: clamp(36px, 5vw, 52px);
+      font-weight: 400; color: var(--white); margin-bottom: 12px;
+    }
+    .contact-inner p { font-size: 15px; color: var(--text-muted); font-weight: 300; margin-bottom: 48px; }
+    .email-row { display: flex; gap: 0; margin-bottom: 16px; }
+    .email-input {
+      flex: 1; padding: 16px 20px; background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border); color: var(--white);
+      font-family: var(--font-body); font-size: 14px; font-weight: 300; outline: none;
+    }
+    .email-input::placeholder { color: rgba(255,255,255,0.3); }
+    .email-submit {
+      padding: 16px 32px; background: var(--purple); color: var(--white);
+      border: none; font-family: var(--font-body); font-size: 13px;
+      font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;
+      cursor: pointer; transition: background 0.25s;
+    }
+    .email-submit:hover { background: var(--purple-accent); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy-deep); border-top: 1px solid var(--border);
+      padding: 48px; display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 24px;
+    }
+    .footer-logo img { height: 28px; width: auto; filter: invert(1); opacity: 0.6; }
+    .footer-links { display: flex; gap: 32px; }
+    .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--purple-light); }
+    .footer-social { display: flex; gap: 16px; }
+    .footer-social a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer-social a:hover { color: var(--purple-light); }
+    .footer-copy { width: 100%; font-size: 11px; color: rgba(255,255,255,0.2); letter-spacing: 0.06em; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      #home, #events, #about, #press, #award, #contact { padding-left: 24px; padding-right: 24px; }
+      .about-inner { grid-template-columns: 1fr; gap: 48px; }
+      .event-grid { grid-template-columns: 1fr 1fr; }
+      .press-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item:first-child { grid-column: span 2; }
+      footer { padding: 40px 24px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#">
+      <img src="images/sdih-logo.jpg" alt="Sustainable Design Impact Hub" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#award">Award</a></li>
+      <li><a href="#press">Press</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#events" class="nav-details">Details</a></li>
+    </ul>
+    <div class="nav-social">
+      <a href="#" aria-label="Instagram">&#9679;</a>
+      <a href="#" aria-label="LinkedIn">in</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-bg">
+      <!-- REPLACE WITH: <img src="images/hero.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" /> -->
+    </div>
+    <div class="hero-content">
+      <h1>Fostering Innovation<br>&amp; Collaboration 2026</h1>
+      <div class="hero-divider"></div>
+      <p class="hero-subtitle">Stay Ahead of the Sustainable Fashion Industry</p>
+    </div>
+  </section>
+
+  <!-- EVENT DETAILS -->
+  <section id="events">
+    <div class="events-inner">
+      <p style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--purple-light);margin-bottom:12px;">Fostering Innovation &amp; Collaboration 2026 — Stay Ahead of the Industry</p>
+      <h2 class="event-hero-title reveal">The Sustainable Design Impact Hub<br>in New York</h2>
+      <p class="event-subtitle reveal">17 September 2026 | Newlab, Brooklyn</p>
+      <div class="event-grid reveal">
+        <div class="event-col">
+          <p class="event-col-label">What</p>
+          <p class="event-col-value">1st Annual Sustainable Design Impact Hub in New York</p>
+        </div>
+        <div class="event-col">
+          <p class="event-col-label">When</p>
+          <p class="event-col-value">September 17, 2026</p>
+        </div>
+        <div class="event-col">
+          <p class="event-col-label">Where</p>
+          <p class="event-col-value">Brooklyn, New York</p>
+        </div>
+        <div class="event-col">
+          <a href="#contact" class="btn-purple">Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-inner">
+      <div class="about-left reveal">
+        <h2>The <strong>Sustainable Design Impact Hub</strong> in New York</h2>
+        <p class="about-date">17 September 2026 | Newlab</p>
+        <a href="#contact" class="read-more">Read More</a>
+      </div>
+      <div class="about-right reveal">
+        <p>With an emphasis on the <strong>intersection of Fashion &amp; Deep Tech</strong>, the Sustainable Design Impact Hub in New York is here to bridge gaps between lab and market while offering fresh insights on New York's fashion industry.</p>
+        <p>We believe NYC is not just a runway, but a hub for deep tech fashion innovation. Join us as we convene designers, scientists, entrepreneurs, and change-makers to shape the future of sustainable fashion.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <p class="gallery-label reveal">Materials Edition — Biella, Italy 2025</p>
+    <div class="gallery-grid reveal">
+      <!-- REPLACE EACH DIV WITH: <div class="gallery-item"><img src="images/gallery-N.jpg" alt="SDIH Event" /></div> -->
+      <div class="gallery-item">Photo 1</div>
+      <div class="gallery-item">Photo 2</div>
+      <div class="gallery-item">Photo 3</div>
+      <div class="gallery-item">Photo 4</div>
+      <div class="gallery-item">Photo 5</div>
+      <div class="gallery-item">Photo 6</div>
+      <div class="gallery-item">Photo 7</div>
+    </div>
+  </section>
+
+  <!-- PRESS -->
+  <section id="press">
+    <div class="press-inner">
+      <div class="press-header reveal">
+        <h2>Press</h2>
+      </div>
+      <div class="press-grid">
+        <a href="#" class="press-card reveal">
+          <p class="press-source">Exibart</p>
+          <h3 class="press-title">Sustainable Design Impact Hub | Next Generation Materials Edition</h3>
+          <p class="press-excerpt">Dal 29 al 30 maggio 2025 — Fondazione Sella, Lanificio Maurizio Sella, Biella, Italy.</p>
+          <span class="press-link">Read More</span>
+        </a>
+        <a href="#" class="press-card reveal reveal-delay-1">
+          <p class="press-source">The Biomimicry Institute</p>
+          <h3 class="press-title">2nd Annual Sustainable Design Impact Hub in Grenada – Virtual Presentation with Amanda Sturgeon</h3>
+          <p class="press-excerpt">Fostering Innovation &amp; Collaboration 2025 — exploring how biomimicry can transform fashion systems in Small Island Developing States.</p>
+          <span class="press-link">Read More</span>
+        </a>
+        <a href="#" class="press-card reveal">
+          <p class="press-source">Ebony Magazine</p>
+          <h3 class="press-title">Untapped, Unbothered, Unapologetic: Grenada's Creative Economy is Having a Global Moment</h3>
+          <p class="press-excerpt">On Grenada's Spice Island, Shannen-Kaylia Henry's Sustainable Fashion Hub merges heritage, innovation, and couture — shaping a bold new model for Caribbean luxury.</p>
+          <span class="press-link">Read More</span>
+        </a>
+        <a href="#" class="press-card reveal reveal-delay-1">
+          <p class="press-source">Caribbean Beat Magazine</p>
+          <h3 class="press-title">Shannen Henry: sustainable impact | Inspire</h3>
+          <p class="press-excerpt">Through sustainable practices and the promotion of circular product development, Grenadian-American entrepreneur Shannen Henry is helping preserve and uplift our islands.</p>
+          <span class="press-link">Read More</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AWARD -->
+  <section id="award">
+    <div class="award-inner reveal">
+      <p class="award-label">Award</p>
+      <h2 class="award-title">Recognizing Excellence in Sustainable Design</h2>
+      <p class="award-body">The Sustainable Design Impact Hub Award celebrates pioneering work at the intersection of fashion, technology, and sustainability. We honour individuals and organizations driving meaningful change in the creative industries.</p>
+      <a href="#contact" class="btn-purple">Learn More</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-inner">
+      <h2 class="reveal">Contact Us</h2>
+      <p class="reveal">To learn more, don't hesitate to get in touch.</p>
+      <div class="email-row reveal">
+        <input class="email-input" type="email" placeholder="Your Email Address" />
+        <button class="email-submit">Submit</button>
+      </div>
+      <p style="font-size:13px;color:var(--text-muted);margin-top:16px;">Or email us directly: <a href="mailto:team@sustainabledesignimpacthub.com" style="color:var(--purple-light);">team@sustainabledesignimpacthub.com</a></p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <img src="images/sdih-logo.jpg" alt="Sustainable Design Impact Hub" />
+    </div>
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#events">Events</a>
+      <a href="#award">Award</a>
+      <a href="#press">Press</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-social">
+      <a href="#" aria-label="Instagram">&#9679;</a>
+      <a href="#" aria-label="LinkedIn">in</a>
+    </div>
+    <p class="footer-copy">© 2026 Sustainable Design Impact Hub. All Rights Reserved. | <a href="#" style="color:rgba(255,255,255,0.2);">Privacy Policy</a></p>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => observer.observe(el));
+
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+      navLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+    });
+  </script>
+</body>
+</html>
