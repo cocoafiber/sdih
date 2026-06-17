@@ -267,6 +267,52 @@
       text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px;
     }
     .press-link::after { content: '→'; }
+    /* ── LOGO MARQUEE ── */
+#logo-marquee {
+  background: var(--navy-deep);
+  padding: 64px 0;
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.marquee-label {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--purple-light);
+  margin-bottom: 36px;
+  padding: 0 24px;
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: scrollLogos 30s linear infinite;
+}
+
+.marquee-track span {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 4vw, 44px);
+  color: rgba(255,255,255,0.68);
+  margin: 0 42px;
+  white-space: nowrap;
+}
+
+@keyframes scrollLogos {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
 
     /* ── AWARD ── */
     #award { padding: 120px 48px; background: var(--navy-deep); text-align: center; }
@@ -526,6 +572,36 @@
       </div>
     </div>
   </section>
+  <!-- LOGO MARQUEE -->
+<section id="logo-marquee">
+  <p class="marquee-label">Past speakers, partners, and institutions include</p>
+
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>Mercedes-Benz</span>
+      <span>Yale</span>
+      <span>Columbia</span>
+      <span>Cornell</span>
+      <span>Parsons</span>
+      <span>FIT</span>
+      <span>Newlab</span>
+      <span>Biomimicry Institute</span>
+      <span>CFDA</span>
+      <span>Modern Meadow</span>
+
+      <span>Mercedes-Benz</span>
+      <span>Yale</span>
+      <span>Columbia</span>
+      <span>Cornell</span>
+      <span>Parsons</span>
+      <span>FIT</span>
+      <span>Newlab</span>
+      <span>Biomimicry Institute</span>
+      <span>CFDA</span>
+      <span>Modern Meadow</span>
+    </div>
+  </div>
+</section>
 
   <!-- AWARD -->
   <section id="award">
