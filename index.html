@@ -63,13 +63,12 @@
       position: relative; overflow: hidden;
       display: flex; align-items: center; justify-content: center; text-align: center;
     }
-    .hero-bg {
-      position: absolute; inset: 0;
-      /* REPLACE WITH: background-image: url('images/hero.jpg'); background-size: cover; background-position: center; */
-      background: background-image: url('images/hero-fashion-deep-tech.jpg');
-background-size: cover;
-background-position: center;
-     } 
+    .hero-bg {position: absolute; 
+    inset: 0;
+    background-image: url('images/hero-fashion-deep-tech.jpg');
+    background-size: cover;
+    background-position: center;
+    }
     .hero-bg::after {
       content: ''; position: absolute; inset: 0;
       background: rgba(20, 20, 60, 0.65);
