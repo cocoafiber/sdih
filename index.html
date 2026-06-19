@@ -45,14 +45,22 @@
     .nav-links a {
       color: var(--text); text-decoration: none; font-size: 13px;
       font-weight: 300; letter-spacing: 0.08em; opacity: 0.7; transition: opacity 0.2s, color 0.2s;
-    }
-    .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--purple-light); }
-    .nav-details {
-      padding: 10px 28px; background: var(--purple); color: var(--white) !important;
-      opacity: 1 !important; font-size: 13px !important; font-weight: 400 !important;
-      letter-spacing: 0.08em !important; transition: background 0.25s !important;
-    }
-    .nav-details:hover { background: var(--purple-accent) !important; }
+    
+      .nav-sponsor {
+  padding: 10px 22px;
+  background: #304d8f;
+  color: white !important;
+  border-radius: 6px;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase;
+  transition: all .25s ease;
+}
+
+.nav-sponsor:hover {
+  background: #4063ad;
+}
     .nav-social { display: flex; gap: 16px; align-items: center; }
     .nav-social a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; transition: color 0.2s; }
     .nav-social a:hover { color: var(--purple-light); }
@@ -394,7 +402,7 @@
       <li><a href="#award">Award</a></li>
       <li><a href="#press">Press</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="#events" class="nav-details">Details</a></li>
+      <li><a href="#contact" class="nav-sponsor">Become a Sponsor</a></li>
     </ul>
     <div class="nav-social">
       <a href="#" aria-label="Instagram">&#9679;</a>
