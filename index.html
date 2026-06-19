@@ -28,6 +28,87 @@
 
     html { scroll-behavior: smooth; }
     body { font-family: var(--font-body); color: var(--text); background: var(--navy); overflow-x: hidden; }
+    /* ── SPONSOR MODAL ── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 18, 42, 0.88);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-box {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  background: var(--navy-mid);
+  border: 1px solid var(--border);
+  padding: 44px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.modal-box h2 {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.modal-box p {
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.modal-box input,
+.modal-box select,
+.modal-box textarea {
+  width: 100%;
+  margin-bottom: 14px;
+  padding: 14px 16px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+
+.modal-box input::placeholder,
+.modal-box textarea::placeholder {
+  color: rgba(255,255,255,0.45);
+}
+
+.modal-box button[type="submit"] {
+  width: 100%;
+  padding: 15px 24px;
+  background: var(--purple);
+  color: var(--white);
+  border: none;
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
 
     /* ── NAV ── */
     nav {
@@ -681,6 +762,40 @@
       sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
       navLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
     });
+    <div id="sponsor-modal" class="modal-overlay">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeSponsorForm()">×</button>
+    <h2>Become a Sponsor</h2>
+    <p>Share your details and our team will follow up with the partnership deck and next steps.</p>
+
+    <form name="sponsor-inquiry" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="sponsor-inquiry">
+
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="text" name="organization" placeholder="Organization" required>
+      <select name="sponsorship-level" required>
+        <option value="">Interested Sponsorship Level</option>
+        <option value="$1,000">$1,000</option>
+        <option value="$3,000">$3,000</option>
+        <option value="$5,000">$5,000</option>
+        <option value="$10,000">$10,000</option>
+        <option value="Not sure yet">Not sure yet</option>
+      </select>
+      <textarea name="message" placeholder="Tell us a little about your interest" rows="4"></textarea>
+
+      <button type="submit">Submit Inquiry</button>
+    </form>
+  </div>
+</div>
+    function openSponsorForm(event) {
+  event.preventDefault();
+  document.getElementById('sponsor-modal').classList.add('active');
+}
+
+function closeSponsorForm() {
+  document.getElementById('sponsor-modal').classList.remove('active');
+}
   </script>
 </body>
 </html>
