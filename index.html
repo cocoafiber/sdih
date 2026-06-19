@@ -772,7 +772,9 @@
     </form>
   </div>
 </div>
-    function openSponsorForm(event) {
+
+  <script>
+        function openSponsorForm(event) {
   event.preventDefault();
   document.getElementById('sponsor-modal').classList.add('active');
 }
@@ -780,8 +782,6 @@
 function closeSponsorForm() {
   document.getElementById('sponsor-modal').classList.remove('active');
 }
-
-  <script>
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
