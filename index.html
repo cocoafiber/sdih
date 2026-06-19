@@ -746,22 +746,7 @@
     </div>
     <p class="footer-copy">© 2026 Sustainable Design Impact Hub. All Rights Reserved. | <a href="#" style="color:rgba(255,255,255,0.2);">Privacy Policy</a></p>
   </footer>
-
-  <script>
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-    }, { threshold: 0.08 });
-    reveals.forEach(el => observer.observe(el));
-
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
-      navLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
-    });
-    <div id="sponsor-modal" class="modal-overlay">
+      <div id="sponsor-modal" class="modal-overlay">
   <div class="modal-box">
     <button class="modal-close" onclick="closeSponsorForm()">×</button>
     <h2>Become a Sponsor</h2>
@@ -795,6 +780,22 @@
 function closeSponsorForm() {
   document.getElementById('sponsor-modal').classList.remove('active');
 }
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => observer.observe(el));
+
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+      navLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+    });
+
   </script>
 </body>
 </html>
