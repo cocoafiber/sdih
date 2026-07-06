@@ -338,6 +338,36 @@
     gap: 48px;
   }
 }
+/* ── SPEAKERS ── */
+#speakers { padding: 120px 48px; background: var(--navy-deep); }
+.speakers-inner { max-width: 1200px; margin: 0 auto; }
+.speakers-header { text-align: center; margin-bottom: 64px; }
+.speakers-header h2 {
+  font-family: var(--font-display); font-size: clamp(36px, 5vw, 56px);
+  font-weight: 400; color: var(--white);
+}
+.speakers-header p {
+  font-size: 15px; color: var(--text-muted); font-weight: 300;
+  max-width: 520px; margin: 16px auto 0;
+}
+.speaker-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px;
+}
+.speaker-card { text-align: center; }
+.speaker-photo {
+  width: 100%; aspect-ratio: 1/1; border-radius: 50%; overflow: hidden;
+  margin: 0 auto 20px; background: var(--navy-mid); max-width: 200px;
+}
+.speaker-photo img { width: 100%; height: 100%; object-fit: cover; }
+.speaker-name {
+  font-family: var(--font-display); font-size: 22px; font-weight: 400;
+  color: var(--white); margin-bottom: 4px;
+}
+.speaker-role {
+  font-size: 12px; color: var(--purple-light); letter-spacing: 0.06em;
+  text-transform: uppercase; margin-bottom: 2px;
+}
+.speaker-company { font-size: 13px; color: var(--text-muted); font-weight: 300; }
     /* ── PRESS ── */
     #press { padding: 100px 48px; background: var(--navy); }
     .press-inner { max-width: 1200px; margin: 0 auto; }
@@ -480,6 +510,7 @@
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
       .gallery-item:first-child { grid-column: span 2; }
       footer { padding: 40px 24px; flex-direction: column; align-items: flex-start; }
+      .speaker-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
     }
   </style>
 </head>
@@ -639,6 +670,41 @@
 
     </div>
 
+  </div>
+</section>
+<!-- SPEAKERS -->
+<section id="speakers">
+  <div class="speakers-inner">
+    <div class="speakers-header reveal">
+      <h2>Featured Speakers 2026</h2>
+      <p>Meet the designers, scientists, and industry leaders shaping the future of sustainable fashion.</p>
+    </div>
+    <div class="speaker-grid reveal">
+      <div class="speaker-card">
+        <div class="speaker-photo"><img src="images/karen pearson" alt="Karen Pearson,PhD" /></div>
+        <p class="speaker-name">Karen Pearson</p>
+        <p class="speaker-role">Chair / FIT Sustainability Council</p>
+        <p class="speaker-company">Fashion Institute of Technology</p>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><img src="images/LarissaShepher.jpg" alt="Larissa Shepherd, PhD" /></div>
+        <p class="speaker-name">Larissa Shepher</p>
+        <p class="speaker-role">Professor / Fiber Science and Apparel Design</p>
+        <p class="speaker-company">Cornell University/p>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><img src="images/RazGodelink.jpg" alt="Raz Godelink" /></div>
+        <p class="speaker-name">Raz Godelink</p>
+        <p class="speaker-role">Professor / Role</p>
+        <p class="speaker-company">Parsons School of Design</p>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-photo"><img src="images/shannenhenry.jpg" alt="Shannen Henry" /></div>
+        <p class="speaker-name">Shannen Henry</p>
+        <p class="speaker-role">Founder / CEO at CocoaFiber</p>
+        <p class="speaker-company">CocoaFiber</p>
+      </div>
+    </div>
   </div>
 </section>
 
