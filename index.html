@@ -511,6 +511,81 @@
       .gallery-item:first-child { grid-column: span 2; }
       footer { padding: 40px 24px; flex-direction: column; align-items: flex-start; }
       .speaker-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+
+      /* ==========================
+   TEAM SECTION
+========================== */
+
+.team-section{
+    padding:100px 8%;
+    background:#fff;
+}
+
+.team-section .section-header{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 70px;
+}
+
+.team-section .section-header h2{
+    font-size:42px;
+    margin-bottom:18px;
+}
+
+.team-section .section-header p{
+    color:#666;
+    line-height:1.7;
+}
+
+.team-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:50px;
+}
+
+.team-card{
+    text-align:center;
+}
+
+.team-card img{
+    width:180px;
+    height:180px;
+    object-fit:cover;
+    border-radius:50%;
+
+    /* Black & White */
+    filter:grayscale(100%);
+    transition:.35s ease;
+}
+
+.team-card:hover img{
+    filter:grayscale(0%);
+}
+
+.team-card h3{
+    margin-top:24px;
+    margin-bottom:8px;
+    font-size:22px;
+}
+
+.team-role{
+    color:#777;
+    margin-bottom:22px;
+    line-height:1.5;
+}
+
+.team-email{
+    color:#111;
+    text-decoration:none;
+    font-weight:600;
+    border-bottom:1px solid transparent;
+    transition:.3s;
+}
+
+.team-email:hover{
+    border-color:#111;
+}
+
     }
   </style>
 </head>
@@ -824,6 +899,83 @@
       <a href="#contact" class="btn-purple">Learn More</a>
     </div>
   </section>
+
+  <!-- TEAM SECTION -->
+<section id="team" class="team-section">
+
+    <div class="section-header">
+        <h2>Meet the New York Team</h2>
+        <p>
+            The team curating and delivering the 2026 Sustainable Design Impact Hub:
+            Fashion x Deep Tech at Newlab.
+        </p>
+    </div>
+
+    <div class="team-grid">
+
+        <!-- Team Member -->
+        <div class="team-card">
+            <img src="images/team/shannen.jpg" alt="Shannen Henry">
+
+            <h3>Shannen Henry</h3>
+
+            <p class="team-role">
+                Founder & Executive Director
+            </p>
+
+            <a href="mailto:shannen@sustainabledesignimpacthub.com" class="team-email">
+                ✉ Email
+            </a>
+        </div>
+
+        <!-- Team Member -->
+        <div class="team-card">
+            <img src="images/team/jane.jpg" alt="Anna Ho">
+
+            <h3>Anna Ho</h3>
+
+            <p class="team-role">
+                Partnerships
+            </p>
+
+            <a href="mailto:anna.ho@sustainabledesignimpacthub.com" class="team-email">
+                ✉ Email
+            </a>
+        </div>
+
+        <!-- Team Member -->
+        <div class="team-card">
+            <img src="images/team/john.jpg" alt="Jesse Adler">
+
+            <h3>Jesse Adler</h3>
+
+            <p class="team-role">
+                Innovation Gallery Coordinator
+            </p>
+
+            <a href="mailto:jesse@sustainabledesignimpacthub.com" class="team-email">
+                ✉ Email
+            </a>
+        </div>
+
+        <!-- Team Member -->
+        <div class="team-card">
+            <img src="images/team/emily.jpg" alt="Alysia Charles">
+
+            <h3>Alysia Charles</h3>
+
+            <p class="team-role">
+                Assistant Spacial & Experience Design
+            </p>
+
+            <a href="mailto:alysia.charles@sustainabledesignimpacthub.com" class="team-email">
+                ✉ Email
+            </a>
+        </div>
+
+    </div>
+
+</section>
 
   <!-- CONTACT -->
   <section id="contact">
