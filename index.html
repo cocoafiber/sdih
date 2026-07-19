@@ -585,8 +585,83 @@
 .team-email:hover{
     border-color:#111;
 }
+/* ==========================
+   INNOVATION GALLERY
+========================== */
 
+.innovation-gallery-section {
+    padding: 110px 8%;
+    background: #0b2f2d;
+    color: #ffffff;
+}
+
+.innovation-gallery-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.innovation-gallery-section .section-label {
+    margin-bottom: 18px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.75;
+}
+
+.innovation-gallery-section h2 {
+    margin: 0 0 28px;
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1;
+}
+
+.innovation-gallery-intro {
+    max-width: 780px;
+    margin-bottom: 24px;
+    font-size: 24px;
+    line-height: 1.45;
+}
+
+.innovation-gallery-section p {
+    max-width: 780px;
+    margin-bottom: 22px;
+    font-size: 17px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.innovation-gallery-button {
+    display: inline-block;
+    margin-top: 22px;
+    padding: 16px 24px;
+    background: #ffffff;
+    color: #0b2f2d;
+    text-decoration: none;
+    font-weight: 700;
+    border: 1px solid #ffffff;
+    transition: 0.3s ease;
+}
+
+.innovation-gallery-button:hover {
+    background: transparent;
+    color: #ffffff;
+}
+
+@media (max-width: 700px) {
+    .innovation-gallery-section {
+        padding: 80px 6%;
     }
+
+    .innovation-gallery-intro {
+        font-size: 21px;
+    }
+
+    .innovation-gallery-button {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+}
   </style>
 </head>
 <body>
@@ -664,6 +739,35 @@
       </div>
     </div>
   </section>
+
+    <!-- LOGO MARQUEE -->
+<section id="logo-marquee">
+  <p class="marquee-label">Past speakers, partners, and institutions include</p>
+
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>Zegna Group</span>
+      <span>Banca Sella</span>
+      <span>United Nations Fashion Lifestyle Network</span>
+      <span>Swarovski</span>
+      <span>Biomimicry Institute</span>
+      <span>North Sails</span>
+      <span>Lauretana</span>
+      <span>Menabrea</span>
+      <span>Silversands</span>
+      <span>Orange Fiber Brand</span>
+
+     <span>Zegna Group</span>
+      <span>Banca Sella</span>
+      <span>United Nations Fashion Lifestyle Network</span>
+      <span>Swarovski</span>
+      <span>Biomimicry Institute</span>
+      <span>North Sails</span>
+      <span>Lauretana</span>
+      <span>Menabrea</span>
+      <span>Silversands</span>
+      <span>Orange Fiber Brand</span>
+    </div>
   <!-- SPEAKERS -->
 <section id="speakers">
   <div class="speakers-inner">
@@ -794,35 +898,44 @@
 
     </div>
 </section>
+<!-- INNOVATION GALLERY SECTION -->
+<section id="innovation-gallery" class="innovation-gallery-section">
 
-  <!-- GALLERY -->
-  <section id="gallery">
-    <p class="gallery-label reveal">Materials Edition — Biella, Italy 2025</p>
-    <div class="gallery-grid reveal">
-      <!-- REPLACE EACH DIV WITH: <div class="gallery-item"><img src="images/gallery-N.jpg" alt="SDIH Event" /></div> -->
-      <div class="gallery-item">
-  <img src="images/biella-113.jpg" alt="SDIH Biella" />
-</div>
-      <div class="gallery-item">
-  <img src="images/biella-269.jpg" alt="SDIH Biella" />
-</div>
-      <div class="gallery-item">
-  <img src="images/biella-359.jpg" alt="SDIH Biella" />
-</div>
-      <div class="gallery-item">
-  <img src="images/biella-367.jpg" alt="SDIH Biella" />
-</div>
-     <div class="gallery-item">
-  <img src="images/biella-538.jpg" alt="SDIH Biella" />
-</div>
-      <div class="gallery-item">
-  <img src="images/biella-544.jpg" alt="SDIH Biella" />
-</div>
-      <div class="images/BIELLA-412.jpg">SDIH Biella</div>
+    <div class="innovation-gallery-content">
+
+        <p class="section-label">Fashion x Deep Tech</p>
+
+        <h2>Innovation Gallery</h2>
+
+        <p class="innovation-gallery-intro">
+            The Sustainable Design Impact Hub Innovation Gallery is a curated
+            presentation of design-forward deep tech built in New York.
+        </p>
+
+        <p>
+            The gallery will spotlight emerging companies, materials, products,
+            and technologies shaping the future of fashion, manufacturing,
+            mobility, and the built environment. Designed as an elevated
+            exhibition rather than a traditional trade show, the space will
+            bring founders and their work into direct conversation with
+            investors, brands, designers, researchers, and industry leaders.
+        </p>
+
+        <p>
+            We are especially interested in New York-based innovations that
+            demonstrate strong design thinking, technical ambition, and the
+            potential to create meaningful environmental or social impact.
+        </p>
+
+        <a href="YOUR-APPLICATION-LINK-HERE"
+           class="innovation-gallery-button"
+           target="_blank"
+           rel="noopener noreferrer">
+            Innovation Gallery Exhibitor Application
+        </a>
+
     </div>
-  </section>
 
-  </div>
 </section>
 
   <!-- PRESS -->
@@ -859,36 +972,6 @@
       </div>
     </div>
   </section>
-  <!-- LOGO MARQUEE -->
-<section id="logo-marquee">
-  <p class="marquee-label">Past speakers, partners, and institutions include</p>
-
-  <div class="marquee">
-    <div class="marquee-track">
-      <span>Zegna Group</span>
-      <span>Banca Sella</span>
-      <span>United Nations Fashion Lifestyle Network</span>
-      <span>Swarovski</span>
-      <span>Biomimicry Institute</span>
-      <span>North Sails</span>
-      <span>Lauretana</span>
-      <span>Menabrea</span>
-      <span>Silversands</span>
-      <span>Orange Fiber Brand</span>
-
-     <span>Zegna Group</span>
-      <span>Banca Sella</span>
-      <span>United Nations Fashion Lifestyle Network</span>
-      <span>Swarovski</span>
-      <span>Biomimicry Institute</span>
-      <span>North Sails</span>
-      <span>Lauretana</span>
-      <span>Menabrea</span>
-      <span>Silversands</span>
-      <span>Orange Fiber Brand</span>
-    </div>
-  </div>
-</section>
 
   <!-- AWARD -->
   <section id="award">
@@ -897,6 +980,32 @@
       <h2 class="award-title">Recognizing Excellence in Sustainable Design</h2>
       <p class="award-body">The Sustainable Design Impact Hub Award celebrates pioneering work at the intersection of fashion, technology, and sustainability. We honour individuals and organizations driving meaningful change in the creative industries.</p>
       <a href="#contact" class="btn-purple">Learn More</a>
+    </div>
+  </section>
+    <!-- GALLERY -->
+  <section id="gallery">
+    <p class="gallery-label reveal">Materials Edition — Biella, Italy 2025</p>
+    <div class="gallery-grid reveal">
+      <!-- REPLACE EACH DIV WITH: <div class="gallery-item"><img src="images/gallery-N.jpg" alt="SDIH Event" /></div> -->
+      <div class="gallery-item">
+  <img src="images/biella-113.jpg" alt="SDIH Biella" />
+</div>
+      <div class="gallery-item">
+  <img src="images/biella-269.jpg" alt="SDIH Biella" />
+</div>
+      <div class="gallery-item">
+  <img src="images/biella-359.jpg" alt="SDIH Biella" />
+</div>
+      <div class="gallery-item">
+  <img src="images/biella-367.jpg" alt="SDIH Biella" />
+</div>
+     <div class="gallery-item">
+  <img src="images/biella-538.jpg" alt="SDIH Biella" />
+</div>
+      <div class="gallery-item">
+  <img src="images/biella-544.jpg" alt="SDIH Biella" />
+</div>
+      <div class="images/BIELLA-412.jpg">SDIH Biella</div>
     </div>
   </section>
 
@@ -915,7 +1024,7 @@
 
         <!-- Team Member -->
         <div class="team-card">
-            <img src="images/team/shannen.jpg" alt="Shannen Henry">
+            <img src="images/ShannenHenry.jpg" alt="Shannen Henry">
 
             <h3>Shannen Henry</h3>
 
@@ -930,7 +1039,7 @@
 
         <!-- Team Member -->
         <div class="team-card">
-            <img src="images/team/jane.jpg" alt="Anna Ho">
+            <img src="images/annaho.jpg" alt="Anna Ho">
 
             <h3>Anna Ho</h3>
 
@@ -945,7 +1054,7 @@
 
         <!-- Team Member -->
         <div class="team-card">
-            <img src="images/team/john.jpg" alt="Jesse Adler">
+            <img src="images/jesseadler.jpg" alt="Jesse Adler">
 
             <h3>Jesse Adler</h3>
 
@@ -960,7 +1069,7 @@
 
         <!-- Team Member -->
         <div class="team-card">
-            <img src="images/team/emily.jpg" alt="Alysia Charles">
+            <img src="images/alysiacharles.jpg" alt="Alysia Charles">
 
             <h3>Alysia Charles</h3>
 
@@ -1062,4 +1171,4 @@ function closeSponsorForm() {
 
   </script>
 </body>
-</html>
+</html> }
