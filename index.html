@@ -3,12 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="The Sustainable Design Impact Hub convenes designers, scientists, founders, investors, and industry leaders at the intersection of fashion and deep tech."
+  />
   <title>Sustainable Design Impact Hub</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     :root {
       --navy: #1a1a3a;
@@ -20,706 +33,1397 @@
       --white: #ffffff;
       --off-white: #f5f4f8;
       --text: #ffffff;
-      --text-muted: rgba(255,255,255,0.6);
-      --border: rgba(255,255,255,0.1);
-      --font-display: 'Cormorant Garamond', serif;
-      --font-body: 'Jost', sans-serif;
+      --text-muted: rgba(255, 255, 255, 0.62);
+      --border: rgba(255, 255, 255, 0.1);
+      --font-display: "Cormorant Garamond", serif;
+      --font-body: "Jost", sans-serif;
+      --content-width: 1200px;
     }
 
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--font-body); color: var(--text); background: var(--navy); overflow-x: hidden; }
-    /* ── SPONSOR MODAL ── */
-.modal-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(18, 18, 42, 0.88);
-  z-index: 999;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.modal-overlay.active {
-  display: flex;
-}
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--navy);
+      overflow-x: hidden;
+    }
 
-.modal-box {
-  position: relative;
-  width: 100%;
-  max-width: 520px;
-  background: var(--navy-mid);
-  border: 1px solid var(--border);
-  padding: 44px;
-}
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
-.modal-close {
-  position: absolute;
-  top: 16px;
-  right: 18px;
-  background: none;
-  border: none;
-  color: var(--white);
-  font-size: 28px;
-  cursor: pointer;
-}
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
 
-.modal-box h2 {
-  font-family: var(--font-display);
-  font-size: 42px;
-  font-weight: 400;
-  color: var(--white);
-  margin-bottom: 12px;
-}
+    a {
+      color: inherit;
+    }
 
-.modal-box p {
-  color: var(--text-muted);
-  font-size: 15px;
-  line-height: 1.6;
-  margin-bottom: 28px;
-}
+    section {
+      scroll-margin-top: 68px;
+    }
 
-.modal-box input,
-.modal-box select,
-.modal-box textarea {
-  width: 100%;
-  margin-bottom: 14px;
-  padding: 14px 16px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid var(--border);
-  color: var(--white);
-  font-family: var(--font-body);
-  font-size: 14px;
-}
+    .container {
+      width: min(var(--content-width), calc(100% - 96px));
+      margin: 0 auto;
+    }
 
-.modal-box input::placeholder,
-.modal-box textarea::placeholder {
-  color: rgba(255,255,255,0.45);
-}
+    .section-kicker {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 14px;
+    }
 
-.modal-box button[type="submit"] {
-  width: 100%;
-  padding: 15px 24px;
-  background: var(--purple);
-  color: var(--white);
-  border: none;
-  font-family: var(--font-body);
-  font-size: 13px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-}
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 58px);
+      font-weight: 400;
+      line-height: 1.08;
+      color: var(--white);
+    }
+
+    .btn-purple {
+      display: inline-block;
+      padding: 16px 36px;
+      background: var(--purple);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: center;
+      border: 1px solid var(--purple);
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .btn-purple:hover,
+    .btn-purple:focus-visible {
+      background: var(--purple-accent);
+      border-color: var(--purple-accent);
+    }
 
     /* ── NAV ── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;
+      height: 68px;
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       background: var(--navy-deep);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 48px; height: 68px;
       border-bottom: 1px solid var(--border);
     }
+
     .nav-logo img {
-      height: 36px; width: auto;
+      height: 36px;
+      width: auto;
       filter: invert(1);
     }
+
     .nav-links {
-  display: flex;
-  align-items: center;
-  gap: 36px;
-  list-style: none;
-}
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
 
-.nav-links a {
-  color: var(--text);
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 300;
-  letter-spacing: 0.08em;
-  opacity: 0.7;
-  transition: opacity 0.2s, color 0.2s;
-}
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      opacity: 0.72;
+      transition: opacity 0.2s ease, color 0.2s ease;
+    }
 
-.nav-sponsor {
-  padding: 10px 22px;
-  background: #304d8f;
-  color: white !important;
-  border-radius: 6px;
-  font-size: 12px !important;
-  font-weight: 500 !important;
-  letter-spacing: 0.08em !important;
-  text-transform: uppercase;
-  transition: all .25s ease;
-}
+    .nav-links a:hover,
+    .nav-links a.active {
+      opacity: 1;
+      color: var(--white);
+    }
 
-.nav-sponsor:hover {
-  background: #4063ad;
-}
-    .nav-social { display: flex; gap: 16px; align-items: center; }
-    .nav-social a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; transition: color 0.2s; }
-    .nav-social a:hover { color: var(--purple-light); }
+    .nav-sponsor {
+      padding: 10px 20px;
+      background: var(--purple);
+      color: var(--white) !important;
+      opacity: 1 !important;
+      font-size: 12px !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase;
+      transition: background 0.25s ease;
+    }
+
+    .nav-sponsor:hover {
+      background: var(--purple-accent);
+    }
+
+    .nav-social {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .nav-social a {
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s ease;
+    }
+
+    .nav-social a:hover {
+      color: var(--purple-light);
+    }
+
+    .mobile-menu-button {
+      display: none;
+      width: 42px;
+      height: 42px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--white);
+      cursor: pointer;
+      font-size: 20px;
+    }
 
     /* ── HERO ── */
     #home {
-      min-height: 100vh; padding-top: 68px;
-      position: relative; overflow: hidden;
-      display: flex; align-items: center; justify-content: center; text-align: center;
+      min-height: 100vh;
+      padding-top: 68px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
-    .hero-bg {position: absolute; 
-    inset: 0;
-    background-image: url('images/hero-fashion-deep-tech.jpg');
-    background-size: cover;
-    background-position: center;
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url("images/hero-fashion-deep-tech.jpg");
+      background-size: cover;
+      background-position: center;
     }
+
     .hero-bg::after {
-      content: ''; position: absolute; inset: 0;
-      background: rgba(20, 20, 60, 0.65);
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(18, 18, 42, 0.58),
+        rgba(18, 18, 42, 0.78)
+      );
     }
+
     .hero-content {
-      position: relative; z-index: 2; max-width: 900px; padding: 0 48px;
+      position: relative;
+      z-index: 2;
+      max-width: 940px;
+      padding: 0 48px;
       animation: fadeUp 1.2s ease both;
     }
+
     .hero-content h1 {
-      font-family: var(--font-display); font-size: clamp(42px, 7vw, 88px);
-      font-weight: 400; color: var(--white); line-height: 1.1; margin-bottom: 24px;
+      font-family: var(--font-display);
+      font-size: clamp(44px, 7vw, 88px);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.06;
+      margin-bottom: 24px;
     }
+
     .hero-divider {
-      width: 60px; height: 2px; background: var(--purple-light);
+      width: 60px;
+      height: 2px;
+      background: var(--purple-light);
       margin: 0 auto 24px;
     }
-        .hero-subtitle {
-      font-size: 16px; color: rgba(255,255,255,0.75); font-weight: 300;
-      letter-spacing: 0.12em; text-transform: uppercase;
+
+    .hero-subtitle {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.78);
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
-        .hero-cta {
+
+    .hero-cta {
       margin-top: 40px;
     }
+
     /* ── EVENT DETAILS ── */
     #events {
-      background: var(--navy-mid); padding: 80px 48px;
+      background: var(--navy-mid);
+      padding: 88px 0;
       border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
-    .events-inner { max-width: 1200px; margin: 0 auto; }
+
     .event-hero-title {
-      font-family: var(--font-display); font-size: clamp(28px, 4vw, 48px);
-      font-weight: 400; color: var(--white); margin-bottom: 8px; line-height: 1.2;
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4vw, 50px);
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 8px;
+      line-height: 1.15;
     }
-    .event-subtitle { font-size: 14px; color: var(--text-muted); font-weight: 300; letter-spacing: 0.1em; margin-bottom: 48px; }
+
+    .event-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      margin-bottom: 48px;
+    }
+
     .event-grid {
-      display: grid; grid-template-columns: 1fr 1fr 1fr 200px;
-      gap: 0; border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 200px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
-    .event-col { padding: 40px 32px; border-right: 1px solid var(--border); }
-    .event-col:last-child { border-right: none; display: flex; align-items: center; justify-content: center; }
+
+    .event-col {
+      padding: 40px 32px;
+      border-right: 1px solid var(--border);
+    }
+
+    .event-col:last-child {
+      border-right: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     .event-col-label {
-      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--text-muted); margin-bottom: 16px;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
     }
+
     .event-col-value {
-      font-family: var(--font-display); font-size: 22px; font-weight: 400;
-      color: var(--white); line-height: 1.4;
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.4;
     }
-    .btn-purple {
-      display: inline-block; padding: 16px 36px; background: var(--purple);
-      color: var(--white); text-decoration: none; font-size: 13px;
-      font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;
-      transition: background 0.25s; text-align: center;
-    }
-    .btn-purple:hover { background: var(--purple-accent); }
 
     /* ── ABOUT ── */
-    #about { padding: 120px 48px; background: var(--navy); }
-    .about-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
-    .about-left h2 {
-      font-family: var(--font-display); font-size: clamp(32px, 4vw, 52px);
-      font-weight: 400; color: var(--white); line-height: 1.15; margin-bottom: 16px;
+    #about {
+      padding: 120px 0;
+      background: var(--navy);
     }
-    .about-left h2 strong { font-weight: 500; color: var(--purple-light); }
-    .about-date { font-size: 16px; color: var(--text-muted); font-weight: 300; margin-bottom: 40px; }
-    .about-right p {
-      font-size: 16px; line-height: 1.85; color: rgba(255,255,255,0.7);
-      font-weight: 300; margin-bottom: 20px;
-    }
-    .about-right p strong { color: var(--white); font-weight: 500; }
-    .read-more {
-      display: inline-flex; align-items: center; gap: 12px;
-      font-size: 13px; letter-spacing: 0.1em; color: var(--purple-light);
-      text-decoration: none; margin-top: 8px; transition: gap 0.2s;
-    }
-    .read-more::after { content: '→'; font-size: 16px; }
-    .read-more:hover { gap: 20px; }
 
-    /* ── GALLERY ── */
-    #gallery { padding: 80px 0; background: var(--navy-deep); }
-    .gallery-label {
-      text-align: center; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
-      color: var(--purple-light); margin-bottom: 48px; padding: 0 48px;
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
     }
-    .gallery-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: auto auto; gap: 4px; max-width: 100%;
+
+    .about-left h2 {
+      font-family: var(--font-display);
+      font-size: clamp(34px, 4vw, 54px);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.12;
+      margin-bottom: 16px;
     }
-    .gallery-item {
-      overflow: hidden; position: relative;
-      /* REPLACE WITH: <img src="images/gallery-N.jpg" style="width:100%;height:100%;object-fit:cover;" /> */
-      background: var(--navy-mid); aspect-ratio: 4/3;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-      color: rgba(255,255,255,0.2);
+
+    .about-left h2 strong {
+      font-weight: 500;
+      color: var(--purple-light);
     }
-    .gallery-item:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-    .gallery-item:hover img { transform: scale(1.04); }
+
+    .about-date {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 40px;
+    }
+
+    .about-right p {
+      font-size: 16px;
+      line-height: 1.85;
+      color: rgba(255, 255, 255, 0.72);
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+
+    .about-right p strong {
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    .read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      color: var(--purple-light);
+      text-decoration: none;
+      margin-top: 8px;
+      transition: gap 0.2s ease;
+    }
+
+    .read-more::after {
+      content: "→";
+      font-size: 16px;
+    }
+
+    .read-more:hover {
+      gap: 20px;
+    }
+
+    /* ── LOGO MARQUEE ── */
+    #logo-marquee {
+      background: var(--navy-deep);
+      padding: 64px 0;
+      overflow: hidden;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .marquee-label {
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 36px;
+      padding: 0 24px;
+    }
+
+    .marquee {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: scrollLogos 24s linear infinite;
+    }
+
+    .marquee-track span {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 4vw, 44px);
+      color: rgba(255, 255, 255, 0.68);
+      margin: 0 42px;
+      white-space: nowrap;
+    }
+
+    @keyframes scrollLogos {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ── SPEAKERS ── */
+    #speakers {
+      padding: 120px 0;
+      background: var(--navy-deep);
+    }
+
+    .speakers-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .speakers-header h2 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 400;
+      color: var(--white);
+    }
+
+    .speakers-header p {
+      font-size: 15px;
+      color: var(--text-muted);
+      font-weight: 300;
+      max-width: 560px;
+      margin: 16px auto 0;
+      line-height: 1.7;
+    }
+
+    .speaker-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 42px 30px;
+    }
+
+    .speaker-card {
+      text-align: center;
+    }
+
+    .speaker-photo {
+      width: 100%;
+      max-width: 210px;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 20px;
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+    }
+
+    .speaker-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: filter 0.35s ease, transform 0.35s ease;
+    }
+
+    .speaker-card:hover .speaker-photo img {
+      filter: grayscale(0%);
+      transform: scale(1.03);
+    }
+
+    .speaker-name {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 5px;
+    }
+
+    .speaker-role {
+      font-size: 12px;
+      color: var(--purple-light);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+      line-height: 1.45;
+    }
+
+    .speaker-company {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.5;
+    }
 
     /* ── AGENDA ── */
-#agenda {
-  padding: 120px 48px;
-  background: var(--navy);
-}
-
-.schedule-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 100px;
-  align-items: start;
-}
-
-.section-label {
-  font-size: 16px;
-  color: var(--text-muted);
-  font-weight: 300;
-  margin-bottom: 40px;
-}
-
-.schedule-title {
-  font-family: var(--font-display);
-  font-size: clamp(48px, 6vw, 78px);
-  font-weight: 400;
-  color: var(--white);
-  line-height: 1.05;
-}
-
-.schedule-title span {
-  color: var(--purple-light);
-}
-
-.schedule-list {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-}
-
-.schedule-item {
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 24px;
-}
-
-.schedule-time {
-  display: block;
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--purple-light);
-  margin-bottom: 8px;
-}
-
-.schedule-item h3 {
-  font-family: var(--font-body);
-  font-size: 22px;
-  font-weight: 300;
-  color: rgba(255,255,255,0.78);
-  line-height: 1.5;
-}
-
-@media (max-width: 900px) {
-  .schedule-inner {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
-}
-/* ── SPEAKERS ── */
-#speakers { padding: 120px 48px; background: var(--navy-deep); }
-.speakers-inner { max-width: 1200px; margin: 0 auto; }
-.speakers-header { text-align: center; margin-bottom: 64px; }
-.speakers-header h2 {
-  font-family: var(--font-display); font-size: clamp(36px, 5vw, 56px);
-  font-weight: 400; color: var(--white);
-}
-.speakers-header p {
-  font-size: 15px; color: var(--text-muted); font-weight: 300;
-  max-width: 520px; margin: 16px auto 0;
-}
-.speaker-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px;
-}
-.speaker-card { text-align: center; }
-.speaker-photo {
-  width: 100%; aspect-ratio: 1/1; border-radius: 50%; overflow: hidden;
-  margin: 0 auto 20px; background: var(--navy-mid); max-width: 200px;
-}
-.speaker-photo img { width: 100%; height: 100%; object-fit: cover; }
-.speaker-name {
-  font-family: var(--font-display); font-size: 22px; font-weight: 400;
-  color: var(--white); margin-bottom: 4px;
-}
-.speaker-role {
-  font-size: 12px; color: var(--purple-light); letter-spacing: 0.06em;
-  text-transform: uppercase; margin-bottom: 2px;
-}
-.speaker-company { font-size: 13px; color: var(--text-muted); font-weight: 300; }
-    /* ── PRESS ── */
-    #press { padding: 100px 48px; background: var(--navy); }
-    .press-inner { max-width: 1200px; margin: 0 auto; }
-    .press-header { margin-bottom: 64px; }
-    .press-header h2 {
-      font-family: var(--font-display); font-size: clamp(36px, 5vw, 56px);
-      font-weight: 400; color: var(--white); position: relative; display: inline-block;
+    #agenda {
+      padding: 120px 0;
+      background: var(--navy);
     }
-    .press-header h2::after {
-      content: ''; display: block; width: 60px; height: 2px;
-      background: var(--purple-light); margin-top: 16px;
+
+    .schedule-inner {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 100px;
+      align-items: start;
     }
-    .press-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
-    .press-card {
-      background: var(--navy-mid); padding: 40px 36px;
-      transition: background 0.3s; text-decoration: none; display: block;
+
+    .agenda-intro .section-label {
+      font-size: 15px;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 22px;
     }
-    .press-card:hover { background: rgba(124, 58, 237, 0.15); }
-    .press-source {
-      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--purple-light); margin-bottom: 14px;
+
+    .schedule-title {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 6vw, 78px);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.05;
     }
-    .press-title {
-      font-family: var(--font-display); font-size: 22px; font-weight: 400;
-      color: var(--white); line-height: 1.3; margin-bottom: 16px;
+
+    .schedule-title span {
+      color: var(--purple-light);
     }
-    .press-excerpt { font-size: 14px; color: var(--text-muted); font-weight: 300; line-height: 1.7; margin-bottom: 20px; }
-    .press-link {
-      font-size: 12px; letter-spacing: 0.1em; color: var(--purple-light);
-      text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px;
+
+    .schedule-list {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
     }
-    .press-link::after { content: '→'; }
-    /* ── LOGO MARQUEE ── */
-#logo-marquee {
-  background: var(--navy-deep);
-  padding: 64px 0;
-  overflow: hidden;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
 
-.marquee-label {
-  text-align: center;
-  font-size: 11px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--purple-light);
-  margin-bottom: 36px;
-  padding: 0 24px;
-}
-
-.marquee {
-  width: 100%;
-  overflow: hidden;
-}
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: scrollLogos 30s linear infinite;
-}
-
-.marquee-track span {
-  font-family: var(--font-display);
-  font-size: clamp(24px, 4vw, 44px);
-  color: rgba(255,255,255,0.68);
-  margin: 0 42px;
-  white-space: nowrap;
-}
-
-@keyframes scrollLogos {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-    /* ── AWARD ── */
-    #award { padding: 120px 48px; background: var(--navy-deep); text-align: center; }
-    .award-inner { max-width: 720px; margin: 0 auto; }
-    .award-label { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--purple-light); margin-bottom: 24px; }
-    .award-title { font-family: var(--font-display); font-size: clamp(36px, 5vw, 64px); font-weight: 400; color: var(--white); margin-bottom: 24px; line-height: 1.1; }
-    .award-body { font-size: 16px; color: var(--text-muted); font-weight: 300; line-height: 1.85; margin-bottom: 48px; }
-
-    /* ── CONTACT ── */
-    #contact { padding: 100px 48px; background: var(--navy-mid); }
-    .contact-inner { max-width: 700px; margin: 0 auto; }
-    .contact-inner h2 {
-      font-family: var(--font-display); font-size: clamp(36px, 5vw, 52px);
-      font-weight: 400; color: var(--white); margin-bottom: 12px;
+    .schedule-item {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
     }
-    .contact-inner p { font-size: 15px; color: var(--text-muted); font-weight: 300; margin-bottom: 48px; }
-    .email-row { display: flex; gap: 0; margin-bottom: 16px; }
-    .email-input {
-      flex: 1; padding: 16px 20px; background: rgba(255,255,255,0.06);
-      border: 1px solid var(--border); color: var(--white);
-      font-family: var(--font-body); font-size: 14px; font-weight: 300; outline: none;
+
+    .schedule-time {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 8px;
     }
-    .email-input::placeholder { color: rgba(255,255,255,0.3); }
-    .email-submit {
-      padding: 16px 32px; background: var(--purple); color: var(--white);
-      border: none; font-family: var(--font-body); font-size: 13px;
-      font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;
-      cursor: pointer; transition: background 0.25s;
+
+    .schedule-item h3 {
+      font-family: var(--font-body);
+      font-size: 22px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.5;
     }
-    .email-submit:hover { background: var(--purple-accent); }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--navy-deep); border-top: 1px solid var(--border);
-      padding: 48px; display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 24px;
+    /* ── INNOVATION GALLERY ── */
+    #innovation-gallery {
+      padding: 120px 0;
+      background: var(--navy-mid);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
-    .footer-logo img { height: 28px; width: auto; filter: invert(1); opacity: 0.6; }
-    .footer-links { display: flex; gap: 32px; }
-    .footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--purple-light); }
-    .footer-social { display: flex; gap: 16px; }
-    .footer-social a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 14px; transition: color 0.2s; }
-    .footer-social a:hover { color: var(--purple-light); }
-    .footer-copy { width: 100%; font-size: 11px; color: rgba(255,255,255,0.2); letter-spacing: 0.06em; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); }
 
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
+    .innovation-gallery-content {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 100px;
+      align-items: start;
+    }
 
-    /* ── MOBILE ── */
-    @media (max-width: 900px) {
-      nav { padding: 0 24px; }
-      .nav-links { display: none; }
-      #home, #events, #about, #press, #award, #contact { padding-left: 24px; padding-right: 24px; }
-      .about-inner { grid-template-columns: 1fr; gap: 48px; }
-      .event-grid { grid-template-columns: 1fr 1fr; }
-      .press-grid { grid-template-columns: 1fr; }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-      .gallery-item:first-child { grid-column: span 2; }
-      footer { padding: 40px 24px; flex-direction: column; align-items: flex-start; }
-      .speaker-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
-    
-}
-
-/* ==========================
-   TEAM SECTION
-========================== */
-
-.team-section{
-    padding:100px 8%;
-    background:#fff;
-}
-
-.team-section .section-header{
-    text-align:center;
-    max-width:700px;
-    margin:0 auto 70px;
-}
-
-.team-section .section-header h2{
-    font-size:42px;
-    margin-bottom:18px;
-}
-
-.team-section .section-header p{
-    color:#666;
-    line-height:1.7;
-}
-
-.team-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-    gap:50px;
-}
-
-.team-card{
-    text-align:center;
-}
-
-.team-card img{
-    width:180px;
-    height:180px;
-    object-fit:cover;
-    border-radius:50%;
-
-    /* Black & White */
-    filter:grayscale(100%);
-    transition:.35s ease;
-}
-
-.team-card:hover img{
-    filter:grayscale(0%);
-}
-
-.team-card h3{
-    margin-top:24px;
-    margin-bottom:8px;
-    font-size:22px;
-}
-
-.team-role{
-    color:#777;
-    margin-bottom:22px;
-    line-height:1.5;
-}
-
-.team-email{
-    color:#111;
-    text-decoration:none;
-    font-weight:600;
-    border-bottom:1px solid transparent;
-    transition:.3s;
-}
-
-.team-email:hover{
-    border-color:#111;
-}
-/* ==========================
-   INNOVATION GALLERY
-========================== */
-
-.innovation-gallery-section {
-    padding: 110px 8%;
-    background: #0b2f2d;
-    color: #ffffff;
-}
-
-.innovation-gallery-content {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.innovation-gallery-section .section-label {
-    margin-bottom: 18px;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    opacity: 0.75;
-}
-
-.innovation-gallery-section h2 {
-    margin: 0 0 28px;
-    font-size: clamp(42px, 6vw, 72px);
-    line-height: 1;
-}
-
-.innovation-gallery-intro {
-    max-width: 780px;
-    margin-bottom: 24px;
-    font-size: 24px;
-    line-height: 1.45;
-}
-
-.innovation-gallery-section p {
-    max-width: 780px;
-    margin-bottom: 22px;
-    font-size: 17px;
-    line-height: 1.8;
-    color: rgba(255, 255, 255, 0.82);
-}
-
-.innovation-gallery-button {
-    display: inline-block;
-    margin-top: 22px;
-    padding: 16px 24px;
-    background: #ffffff;
-    color: #0b2f2d;
-    text-decoration: none;
-    font-weight: 700;
-    border: 1px solid #ffffff;
-    transition: 0.3s ease;
-}
-
-.innovation-gallery-button:hover {
-    background: transparent;
-    color: #ffffff;
-}
-
-@media (max-width: 700px) {
-    .innovation-gallery-section {
-        padding: 80px 6%;
+    .innovation-gallery-copy h2 {
+      font-family: var(--font-display);
+      font-size: clamp(44px, 6vw, 72px);
+      font-weight: 400;
+      line-height: 1.02;
+      color: var(--white);
     }
 
     .innovation-gallery-intro {
-        font-size: 21px;
+      margin-bottom: 24px;
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 1.35;
+      color: var(--white);
+    }
+
+    .innovation-gallery-body p {
+      margin-bottom: 20px;
+      color: var(--text-muted);
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
     }
 
     .innovation-gallery-button {
-        width: 100%;
-        text-align: center;
-        box-sizing: border-box;
+      margin-top: 12px;
     }
 
+    /* ── PRESS ── */
+    #press {
+      padding: 100px 0;
+      background: var(--navy);
+    }
+
+    .press-header {
+      margin-bottom: 64px;
+    }
+
+    .press-header h2 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 400;
+      color: var(--white);
+      position: relative;
+      display: inline-block;
+    }
+
+    .press-header h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 2px;
+      background: var(--purple-light);
+      margin-top: 16px;
+    }
+
+    .press-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+    }
+
+    .press-card {
+      background: var(--navy-mid);
+      padding: 40px 36px;
+      transition: background 0.3s ease;
+      text-decoration: none;
+      display: block;
+      min-height: 100%;
+    }
+
+    .press-card:hover {
+      background: rgba(124, 58, 237, 0.15);
+    }
+
+    .press-source {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 14px;
+    }
+
+    .press-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    .press-excerpt {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .press-link {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: var(--purple-light);
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .press-link::after {
+      content: "→";
+    }
+
+    /* ── AWARD ── */
+    #award {
+      padding: 120px 0;
+      background: var(--navy-deep);
+      text-align: center;
+    }
+
+    .award-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .award-label {
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 24px;
+    }
+
+    .award-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 24px;
+      line-height: 1.1;
+    }
+
+    .award-body {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.85;
+      margin-bottom: 48px;
+    }
+
+    /* ── PHOTO GALLERY ── */
+    #gallery {
+      padding: 80px 0;
+      background: var(--navy-deep);
+    }
+
+    .gallery-label {
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 48px;
+      padding: 0 48px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: minmax(220px, 1fr);
+      gap: 4px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      position: relative;
+      background: var(--navy-mid);
+      min-height: 260px;
+    }
+
+    .gallery-item:first-child {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.04);
+    }
+
+    /* ── TEAM ── */
+    #team {
+      padding: 120px 0;
+      background: var(--navy);
+      border-top: 1px solid var(--border);
+    }
+
+    .team-section .section-header {
+      margin-bottom: 64px;
+    }
+
+    .team-section .section-header h2 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .team-section .section-header p {
+      max-width: 640px;
+      color: var(--text-muted);
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+
+    .team-card {
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      text-align: left;
+    }
+
+    .team-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      margin-bottom: 22px;
+      filter: grayscale(100%);
+      transition: filter 0.35s ease, opacity 0.35s ease;
+    }
+
+    .team-card:hover img {
+      filter: grayscale(0%);
+      opacity: 0.96;
+    }
+
+    .team-card h3 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .team-role {
+      min-height: 42px;
+      color: var(--purple-light);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      line-height: 1.5;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .team-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.25s ease;
+    }
+
+    .team-email:hover {
+      color: var(--purple-light);
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      padding: 100px 0;
+      background: var(--navy-mid);
+    }
+
+    .contact-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .contact-inner h2 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .contact-inner > p {
+      font-size: 15px;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .email-form {
+      display: flex;
+      gap: 0;
+      margin-bottom: 16px;
+    }
+
+    .email-input {
+      flex: 1;
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 300;
+      outline: none;
+    }
+
+    .email-input::placeholder {
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .email-submit {
+      padding: 16px 32px;
+      background: var(--purple);
+      color: var(--white);
+      border: 1px solid var(--purple);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.25s ease;
+    }
+
+    .email-submit:hover {
+      background: var(--purple-accent);
+    }
+
+    .contact-direct {
+      font-size: 13px !important;
+      color: var(--text-muted) !important;
+      margin-top: 16px !important;
+      margin-bottom: 0 !important;
+    }
+
+    .contact-direct a {
+      color: var(--purple-light);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy-deep);
+      border-top: 1px solid var(--border);
+      padding: 48px;
+    }
+
+    .footer-inner {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-logo img {
+      height: 28px;
+      width: auto;
+      filter: invert(1);
+      opacity: 0.6;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.42);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--purple-light);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-social a {
+      color: rgba(255, 255, 255, 0.42);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s ease;
+    }
+
+    .footer-social a:hover {
+      color: var(--purple-light);
+    }
+
+    .footer-copy {
+      width: 100%;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.22);
+      letter-spacing: 0.06em;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .footer-copy a {
+      color: inherit;
+    }
+
+    /* ── SPONSOR MODAL ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(18, 18, 42, 0.9);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      position: relative;
+      width: 100%;
+      max-width: 540px;
+      max-height: 90vh;
+      overflow-y: auto;
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      padding: 44px;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .modal-box h2 {
+      font-family: var(--font-display);
+      font-size: 42px;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .modal-box p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .modal-box input,
+    .modal-box select,
+    .modal-box textarea {
+      width: 100%;
+      margin-bottom: 14px;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 14px;
+    }
+
+    .modal-box select option {
+      color: #111;
+    }
+
+    .modal-box input::placeholder,
+    .modal-box textarea::placeholder {
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    .modal-box button[type="submit"] {
+      width: 100%;
+      padding: 15px 24px;
+      background: var(--purple);
+      color: var(--white);
+      border: none;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .nav-links {
+        gap: 20px;
+      }
+
+      .speaker-grid,
+      .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        width: min(100% - 48px, var(--content-width));
+      }
+
+      nav {
+        padding: 0 24px;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        padding: 24px;
+        background: var(--navy-deep);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-social {
+        display: none;
+      }
+
+      .mobile-menu-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero-content {
+        padding: 0 24px;
+      }
+
+      .event-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .event-col:nth-child(2) {
+        border-right: none;
+      }
+
+      .event-col:nth-child(3),
+      .event-col:nth-child(4) {
+        border-top: 1px solid var(--border);
+      }
+
+      .about-inner,
+      .schedule-inner,
+      .innovation-gallery-content {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .speaker-grid,
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .press-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-item:first-child {
+        grid-column: span 2;
+      }
+
+      footer {
+        padding: 40px 24px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: min(100% - 32px, var(--content-width));
+      }
+
+      #events,
+      #about,
+      #speakers,
+      #agenda,
+      #innovation-gallery,
+      #press,
+      #award,
+      #team,
+      #contact {
+        padding-top: 80px;
+        padding-bottom: 80px;
+      }
+
+      .event-grid,
+      .speaker-grid,
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .event-col {
+        border-right: none;
+        border-top: 1px solid var(--border);
+      }
+
+      .event-col:first-child {
+        border-top: none;
+      }
+
+      .event-col:last-child {
+        justify-content: flex-start;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-item:first-child {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+
+      .email-form {
+        flex-direction: column;
+      }
+
+      .email-submit {
+        width: 100%;
+      }
+
+      .team-role {
+        min-height: auto;
+      }
+
+      .innovation-gallery-intro {
+        font-size: 24px;
+      }
+
+      .modal-box {
+        padding: 36px 24px 24px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
   </style>
 </head>
-<body>
 
+<body>
   <!-- NAV -->
   <nav>
-    <a class="nav-logo" href="#">
+    <a class="nav-logo" href="#home" aria-label="Sustainable Design Impact Hub home">
       <img src="images/sdih-logo.jpg" alt="Sustainable Design Impact Hub" />
     </a>
-    <ul class="nav-links">
+
+    <ul class="nav-links" id="nav-links">
       <li><a href="#home" class="active">Home</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#events">Events</a></li>
-      <li><a href="#award">Award</a></li>
+      <li><a href="#events">Event</a></li>
+      <li><a href="#speakers">Speakers</a></li>
+      <li><a href="#agenda">Agenda</a></li>
+      <li><a href="#innovation-gallery">Gallery</a></li>
       <li><a href="#press">Press</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#" class="nav-sponsor" onclick="openSponsorForm(event)">Become a Sponsor</a></li>
+      <li>
+        <a href="#" class="nav-sponsor" onclick="openSponsorForm(event)">
+          Become a Sponsor
+        </a>
+      </li>
     </ul>
+
     <div class="nav-social">
-      <a href="#" aria-label="Instagram">&#9679;</a>
+      <a href="#" aria-label="Instagram">●</a>
       <a href="#" aria-label="LinkedIn">in</a>
     </div>
+
+    <button
+      class="mobile-menu-button"
+      type="button"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="nav-links"
+      onclick="toggleMobileMenu(this)"
+    >
+      ☰
+    </button>
   </nav>
 
   <!-- HERO -->
   <section id="home">
-    <div class="hero-bg">
-      <!-- REPLACE WITH: <img src="images/hero.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" /> -->
-    </div>
-        <div class="hero-content">
-      <h1>Fostering Innovation<br>&amp; Collaboration 2026</h1>
+    <div class="hero-bg" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <h1>Fostering Innovation<br />&amp; Collaboration 2026</h1>
       <div class="hero-divider"></div>
       <p class="hero-subtitle">Stay Ahead of the Sustainable Fashion Industry</p>
-      <a href="https://luma.com/upsdshbs" target="_blank" rel="noopener" class="btn-purple hero-cta">Register Now</a>
+      <a
+        href="https://luma.com/upsdshbs"
+        target="_blank"
+        rel="noopener"
+        class="btn-purple hero-cta"
+      >
+        Register Now
+      </a>
     </div>
   </section>
 
   <!-- EVENT DETAILS -->
   <section id="events">
-    <div class="events-inner">
-      <p style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--purple-light);margin-bottom:12px;">Fostering Innovation &amp; Collaboration 2026 — Stay Ahead of the Industry</p>
-      <h2 class="event-hero-title reveal">The Sustainable Design Impact Hub<br>in New York</h2>
-      <p class="event-subtitle reveal">17 September 2026 | Newlab, Brooklyn</p>
+    <div class="container">
+      <p class="section-kicker">
+        Fostering Innovation &amp; Collaboration 2026
+      </p>
+
+      <h2 class="event-hero-title reveal">
+        The Sustainable Design Impact Hub<br />in New York
+      </h2>
+
+      <p class="event-subtitle reveal">
+        17 September 2026 | Newlab, Brooklyn
+      </p>
+
       <div class="event-grid reveal">
         <div class="event-col">
           <p class="event-col-label">What</p>
-          <p class="event-col-value">1st Annual Sustainable Design Impact Hub in New York</p>
+          <p class="event-col-value">
+            Sustainable Design Impact Hub: Fashion x Deep Tech
+          </p>
         </div>
+
         <div class="event-col">
           <p class="event-col-label">When</p>
           <p class="event-col-value">September 17, 2026</p>
         </div>
+
         <div class="event-col">
           <p class="event-col-label">Where</p>
-          <p class="event-col-value">Brooklyn, New York</p>
+          <p class="event-col-value">Newlab, Brooklyn, New York</p>
         </div>
+
         <div class="event-col">
           <a href="#contact" class="btn-purple">Details</a>
         </div>
@@ -729,246 +1433,316 @@
 
   <!-- ABOUT -->
   <section id="about">
-    <div class="about-inner">
+    <div class="container about-inner">
       <div class="about-left reveal">
-        <h2>The <strong>Sustainable Design Impact Hub</strong> in New York</h2>
+        <h2>
+          The <strong>Sustainable Design Impact Hub</strong> in New York
+        </h2>
         <p class="about-date">17 September 2026 | Newlab</p>
         <a href="#contact" class="read-more">Read More</a>
       </div>
+
       <div class="about-right reveal">
-        <p>With an emphasis on the <strong>intersection of Fashion &amp; Deep Tech</strong>, the Sustainable Design Impact Hub in New York is here to bridge gaps between lab and market while offering fresh insights on New York's fashion industry.</p>
-        <p>We believe NYC is not just a runway, but a hub for deep tech fashion innovation. Join us as we convene designers, scientists, entrepreneurs, and change-makers to shape the future of sustainable fashion.</p>
+        <p>
+          With an emphasis on the
+          <strong>intersection of Fashion &amp; Deep Tech</strong>, the
+          Sustainable Design Impact Hub in New York bridges the gap between lab
+          and market while offering fresh insight into New York's fashion and
+          innovation ecosystem.
+        </p>
+
+        <p>
+          We believe New York City is not only a runway, but a hub for deep-tech
+          fashion innovation. Join us as we convene designers, scientists,
+          entrepreneurs, investors, and industry leaders to shape the future of
+          sustainable fashion.
+        </p>
       </div>
     </div>
   </section>
 
-    <!-- LOGO MARQUEE -->
-<section id="logo-marquee">
-  <p class="marquee-label">Past speakers, partners, and institutions include</p>
+  <!-- LOGO MARQUEE -->
+  <section id="logo-marquee" aria-label="Past speakers, partners, and institutions">
+    <p class="marquee-label">Past speakers, partners, and institutions include</p>
 
-  <div class="marquee">
-    <div class="marquee-track">
-      <span>Zegna Group</span>
-      <span>Banca Sella</span>
-      <span>United Nations Fashion Lifestyle Network</span>
-      <span>Swarovski</span>
-      <span>Biomimicry Institute</span>
-      <span>North Sails</span>
-      <span>Lauretana</span>
-      <span>Menabrea</span>
-      <span>Silversands</span>
-      <span>Orange Fiber Brand</span>
+    <div class="marquee">
+      <div class="marquee-track">
+        <span>Zegna Group</span>
+        <span>Banca Sella</span>
+        <span>United Nations Fashion and Lifestyle Network</span>
+        <span>Swarovski</span>
+        <span>Biomimicry Institute</span>
+        <span>North Sails</span>
+        <span>Lauretana</span>
+        <span>Menabrea</span>
+        <span>Silversands</span>
+        <span>Orange Fiber</span>
 
-     <span>Zegna Group</span>
-      <span>Banca Sella</span>
-      <span>United Nations Fashion Lifestyle Network</span>
-      <span>Swarovski</span>
-      <span>Biomimicry Institute</span>
-      <span>North Sails</span>
-      <span>Lauretana</span>
-      <span>Menabrea</span>
-      <span>Silversands</span>
-      <span>Orange Fiber Brand</span>
+        <span>Zegna Group</span>
+        <span>Banca Sella</span>
+        <span>United Nations Fashion and Lifestyle Network</span>
+        <span>Swarovski</span>
+        <span>Biomimicry Institute</span>
+        <span>North Sails</span>
+        <span>Lauretana</span>
+        <span>Menabrea</span>
+        <span>Silversands</span>
+        <span>Orange Fiber</span>
+      </div>
     </div>
+  </section>
+
   <!-- SPEAKERS -->
-<section id="speakers">
-  <div class="speakers-inner">
-    <div class="speakers-header reveal">
-      <h2>Featured Speakers 2026</h2>
-      <p>Meet the designers, scientists, and industry leaders shaping the future of sustainable fashion.</p>
+  <section id="speakers">
+    <div class="container">
+      <div class="speakers-header reveal">
+        <h2>Featured Speakers 2026</h2>
+        <p>
+          Meet the designers, scientists, founders, and industry leaders shaping
+          the future of sustainable fashion.
+        </p>
+      </div>
+
+      <div class="speaker-grid reveal">
+        <article class="speaker-card">
+          <div class="speaker-photo">
+            <img src="images/KarenPearson.jpg" alt="Karen Pearson" />
+          </div>
+          <p class="speaker-name">Karen Pearson</p>
+          <p class="speaker-role">Chair, FIT Sustainability Council</p>
+          <p class="speaker-company">Fashion Institute of Technology</p>
+        </article>
+
+        <article class="speaker-card">
+          <div class="speaker-photo">
+            <img src="images/adambent.jpg" alt="Adam Bent" />
+          </div>
+          <p class="speaker-name">Adam Bent</p>
+          <p class="speaker-role">Chief Executive Officer</p>
+          <p class="speaker-company">Lonely Whale</p>
+        </article>
+
+        <article class="speaker-card">
+          <div class="speaker-photo">
+            <img src="images/LarissaShepherd.jpg" alt="Larissa Shepherd" />
+          </div>
+          <p class="speaker-name">Larissa Shepherd</p>
+          <p class="speaker-role">Professor, Fiber Science &amp; Apparel Design</p>
+          <p class="speaker-company">Cornell University</p>
+        </article>
+
+        <article class="speaker-card">
+          <div class="speaker-photo">
+            <img src="images/michellegabriel.jpg" alt="Michelle Gabriel" />
+          </div>
+          <p class="speaker-name">Michelle Gabriel</p>
+          <p class="speaker-role">Resident Fellow</p>
+          <p class="speaker-company">Yale Center for Business &amp; Environment</p>
+        </article>
+
+        <article class="speaker-card">
+          <div class="speaker-photo">
+            <img src="images/RazGodelink.jpg" alt="Raz Godelnik" />
+          </div>
+          <p class="speaker-name">Raz Godelnik</p>
+          <p class="speaker-role">Professor</p>
+          <p class="speaker-company">Parsons School of Design</p>
+        </article>
+
+        <article class="speaker-card">
+          <div class="speaker-photo">
+            <img src="images/martinstübler.jpg" alt="Martin Stübler" />
+          </div>
+          <p class="speaker-name">Martin Stübler</p>
+          <p class="speaker-role">Founder</p>
+          <p class="speaker-company">BioFluff / Savian</p>
+        </article>
+
+        <article class="speaker-card">
+          <div class="speaker-photo">
+            <img src="images/joshuakatcher.jpg" alt="Joshua Katcher" />
+          </div>
+          <p class="speaker-name">Joshua Katcher</p>
+          <p class="speaker-role">Strategic Initiatives Lead</p>
+          <p class="speaker-company">Canopy</p>
+        </article>
+
+        <article class="speaker-card">
+          <div class="speaker-photo">
+            <img src="images/francescabelluomini.jpg" alt="Francesca Belluomini" />
+          </div>
+          <p class="speaker-name">Francesca Belluomini</p>
+          <p class="speaker-role">Adjunct Professor &amp; Author</p>
+          <p class="speaker-company">Fashion Institute of Technology</p>
+        </article>
+
+        <article class="speaker-card">
+          <div class="speaker-photo">
+            <img src="images/stephaniedowns.jpg" alt="Stephanie Downs" />
+          </div>
+          <p class="speaker-name">Stephanie Downs</p>
+          <p class="speaker-role">Founder &amp; CEO</p>
+          <p class="speaker-company">Uncaged Innovations</p>
+        </article>
+
+        <article class="speaker-card">
+          <div class="speaker-photo">
+            <img src="images/serenawessely.jpg" alt="Serena Wessely" />
+          </div>
+          <p class="speaker-name">Serena Wessely</p>
+          <p class="speaker-role">Lab Manager</p>
+          <p class="speaker-company">Genspace</p>
+        </article>
+
+        <article class="speaker-card">
+          <div class="speaker-photo">
+            <img src="images/shannenhenry.jpg" alt="Shannen Henry" />
+          </div>
+          <p class="speaker-name">Shannen Henry</p>
+          <p class="speaker-role">Founder &amp; CEO</p>
+          <p class="speaker-company">CocoaFiber</p>
+        </article>
+      </div>
     </div>
-    <div class="speaker-grid reveal">
-      <div class="speaker-card">
-        <div class="speaker-photo"><img src="images/KarenPearson.jpg" alt="Karen Pearson,PhD" /></div>
-        <p class="speaker-name">Karen Pearson</p>
-        <p class="speaker-role">Chair / FIT Sustainability Council</p>
-        <p class="speaker-company">Fashion Institute of Technology</p>
-      </div>
-      <div class="speaker-card">
-        <div class="speaker-photo"><img src="images/adambent.jpg" alt="Adam Bent" /></div>
-        <p class="speaker-name">Adam Bent</p>
-        <p class="speaker-role"> CEO </p>
-        <p class="speaker-company">Lonely Whale</p>
-      </div>
-      <div class="speaker-card">
-        <div class="speaker-photo"><img src="images/LarissaShepherd.jpg" alt="Larissa Shepherd, PhD" /></div>
-        <p class="speaker-name">Larissa Shepherd</p>
-        <p class="speaker-role">Professor / Fiber Science and Apparel Design</p>
-        <p class="speaker-company">Cornell University</p>
-      </div>
-      <div class="speaker-card">
-        <div class="speaker-photo"><img src="images/michellegabriel.jpg" alt="Michelle Gabriel" /></div>
-        <p class="speaker-name">Michelle Gabriel</p>
-        <p class="speaker-role">Resident Fellow</p>
-        <p class="speaker-company">Yale Center for Business & Environment</p>
-      </div>
-      <div class="speaker-card">
-        <div class="speaker-photo"><img src="images/RazGodelink.jpg" alt="Raz Godelink" /></div>
-        <p class="speaker-name">Raz Godelink</p>
-        <p class="speaker-role">Professor / Role</p>
-        <p class="speaker-company">Parsons School of Design</p>
-      </div>
-      <div class="speaker-card">
-        <div class="speaker-photo"><img src="images/martinstübler.jpg" alt="Martin Stübler" /></div>
-        <p class="speaker-name">Martin Stübler</p>
-        <p class="speaker-role">Founder </p>
-        <p class="speaker-company">BioFluff Savian</p>
-      </div>
-      <div class="speaker-card">
-        <div class="speaker-photo"><img src="images/joshuakatcher.jpg" alt="Joshua Katcher" /></div>
-        <p class="speaker-name">Joshua Katcher</p>
-        <p class="speaker-role">Strategic Initiatives Lead</p>
-        <p class="speaker-company">Canopy</p>
-      </div>
-      <div class="speaker-card">
-        <div class="speaker-photo"><img src="images/francescabelluomini.jpg" alt="Francesca Belluomini" /></div>
-        <p class="speaker-name">Francesca Belluomini</p>
-        <p class="speaker-role">Adjunct Professor, Author </p>
-        <p class="speaker-company">Fashion Institute of Technology</p>
-      </div>
-      <div class="speaker-card">
-        <div class="speaker-photo"><img src="images/stephaniedowns.jpg" alt="Stephanie Downs" /></div>
-        <p class="speaker-name">Stephanie Downs</p>
-        <p class="speaker-role">Founder and CEO </p>
-        <p class="speaker-company">Uncaged Innovations</p>
-      </div>
-      <div class="speaker-card">
-        <div class="speaker-photo"><img src="images/serenawessely.jpg" alt="Serena Wessely" /></div>
-        <p class="speaker-name">Serena Wessely</p>
-        <p class="speaker-role">Lab Manager</p>
-        <p class="speaker-company">Genspace</p>
-      </div>
-      <div class="speaker-card">
-        <div class="speaker-photo"><img src="images/shannenhenry.jpg" alt="Shannen Henry" /></div>
-        <p class="speaker-name">Shannen Henry</p>
-        <p class="speaker-role">Founder / CEO at CocoaFiber</p>
-        <p class="speaker-company">CocoaFiber</p>
-      </div>
-  </div>
-</section>
+  </section>
+
   <!-- AGENDA -->
-<section id="agenda">
-  <div class="schedule-inner">
-
-    <p class="section-label">September 17, 2026</p>
-
-    <h2 class="schedule-title">Agenda</h2>
-
-    <div class="schedule-list">
-
-      <div class="schedule-item">
-        <span class="schedule-time">9:00 AM</span>
-        <div>
-          <h3>Registration & Welcome</h3>
-        </div>
+  <section id="agenda">
+    <div class="container schedule-inner">
+      <div class="agenda-intro reveal">
+        <p class="section-label">September 17, 2026</p>
+        <h2 class="schedule-title">Event <span>Agenda</span></h2>
       </div>
 
-      <div class="schedule-item">
-        <span class="schedule-time">9:30 AM</span>
-        <div>
+      <div class="schedule-list reveal">
+        <div class="schedule-item">
+          <span class="schedule-time">9:00 AM</span>
+          <h3>Registration &amp; Welcome</h3>
+        </div>
+
+        <div class="schedule-item">
+          <span class="schedule-time">9:30 AM</span>
           <h3>Opening Keynote</h3>
         </div>
-      </div>
 
-      <div class="schedule-item">
-        <span class="schedule-time">10:00 AM – 1:00 PM</span>
-        <div>
-          <h3>Panel Discussions, Workshops & Masterclasses</h3>
+        <div class="schedule-item">
+          <span class="schedule-time">10:00 AM – 1:00 PM</span>
+          <h3>Panel Discussions, Workshops &amp; Masterclasses</h3>
         </div>
-      </div>
 
-      <div class="schedule-item">
-        <span class="schedule-time">1:00 PM</span>
-        <div>
-          <h3>Lunch & Structured Networking</h3>
+        <div class="schedule-item">
+          <span class="schedule-time">1:00 PM</span>
+          <h3>Lunch &amp; Structured Networking</h3>
         </div>
-      </div>
 
-      <div class="schedule-item">
-        <span class="schedule-time">2:00 PM – 6:00 PM</span>
-        <div>
-          <h3>Panel Discussions & Fireside Chats</h3>
+        <div class="schedule-item">
+          <span class="schedule-time">2:00 PM – 6:00 PM</span>
+          <h3>Panel Discussions, Startup Pitches &amp; Fireside Chats</h3>
         </div>
-      </div>
 
-      <div class="schedule-item">
-        <span class="schedule-time">6:00 PM</span>
-        <div>
+        <div class="schedule-item">
+          <span class="schedule-time">6:00 PM</span>
           <h3>Closing Remarks</h3>
         </div>
       </div>
-
     </div>
-</section>
-<!-- INNOVATION GALLERY SECTION -->
-<section id="innovation-gallery" class="innovation-gallery-section">
+  </section>
 
-    <div class="innovation-gallery-content">
-
-        <p class="section-label">Fashion x Deep Tech</p>
-
+  <!-- INNOVATION GALLERY -->
+  <section id="innovation-gallery">
+    <div class="container innovation-gallery-content">
+      <div class="innovation-gallery-copy reveal">
+        <p class="section-kicker">Fashion x Deep Tech</p>
         <h2>Innovation Gallery</h2>
+      </div>
 
+      <div class="innovation-gallery-body reveal">
         <p class="innovation-gallery-intro">
-            The Sustainable Design Impact Hub Innovation Gallery is a curated
-            presentation of design-forward deep tech built in New York.
+          A curated presentation of design-forward deep tech built in New York.
         </p>
 
         <p>
-            The gallery will spotlight emerging companies, materials, products,
-            and technologies shaping the future of fashion, manufacturing,
-            mobility, and the built environment. Designed as an elevated
-            exhibition rather than a traditional trade show, the space will
-            bring founders and their work into direct conversation with
-            investors, brands, designers, researchers, and industry leaders.
+          The gallery will spotlight emerging companies, materials, products,
+          and technologies shaping the future of fashion, manufacturing,
+          mobility, and the built environment. Designed as an elevated
+          exhibition rather than a traditional trade show, the space will bring
+          founders and their work into direct conversation with investors,
+          brands, designers, researchers, and industry leaders.
         </p>
 
         <p>
-            We are especially interested in New York-based innovations that
-            demonstrate strong design thinking, technical ambition, and the
-            potential to create meaningful environmental or social impact.
+          We are especially interested in New York-based innovations that
+          demonstrate strong design thinking, technical ambition, and the
+          potential to create meaningful environmental or social impact.
         </p>
 
-        <a href="YOUR-APPLICATION-LINK-HERE"
-           class="innovation-gallery-button"
-           target="_blank"
-           rel="noopener noreferrer">
-            Innovation Gallery Exhibitor Application
+        <a
+          href="YOUR-APPLICATION-LINK-HERE"
+          class="btn-purple innovation-gallery-button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Exhibitor Application
         </a>
-
+      </div>
     </div>
-
-</section>
+  </section>
 
   <!-- PRESS -->
   <section id="press">
-    <div class="press-inner">
+    <div class="container">
       <div class="press-header reveal">
         <h2>Press</h2>
       </div>
+
       <div class="press-grid">
         <a href="#" class="press-card reveal">
           <p class="press-source">Exibart</p>
-          <h3 class="press-title">Sustainable Design Impact Hub | Next Generation Materials Edition</h3>
-          <p class="press-excerpt">Dal 29 al 30 maggio 2025 — Fondazione Sella, Lanificio Maurizio Sella, Biella, Italy.</p>
+          <h3 class="press-title">
+            Sustainable Design Impact Hub | Next Generation Materials Edition
+          </h3>
+          <p class="press-excerpt">
+            Dal 29 al 30 maggio 2025 — Fondazione Sella, Lanificio Maurizio
+            Sella, Biella, Italy.
+          </p>
           <span class="press-link">Read More</span>
         </a>
+
         <a href="#" class="press-card reveal reveal-delay-1">
           <p class="press-source">The Biomimicry Institute</p>
-          <h3 class="press-title">2nd Annual Sustainable Design Impact Hub in Grenada – Virtual Presentation with Amanda Sturgeon</h3>
-          <p class="press-excerpt">Fostering Innovation &amp; Collaboration 2025 — exploring how biomimicry can transform fashion systems in Small Island Developing States.</p>
+          <h3 class="press-title">
+            Sustainable Design Impact Hub in Grenada — Virtual Presentation
+          </h3>
+          <p class="press-excerpt">
+            Exploring how biomimicry can transform fashion systems in Small
+            Island Developing States.
+          </p>
           <span class="press-link">Read More</span>
         </a>
+
         <a href="#" class="press-card reveal">
           <p class="press-source">Ebony Magazine</p>
-          <h3 class="press-title">Untapped, Unbothered, Unapologetic: Grenada's Creative Economy is Having a Global Moment</h3>
-          <p class="press-excerpt">On Grenada's Spice Island, Shannen-Kaylia Henry's Sustainable Fashion Hub merges heritage, innovation, and couture — shaping a bold new model for Caribbean luxury.</p>
+          <h3 class="press-title">
+            Untapped, Unbothered, Unapologetic: Grenada's Creative Economy Is
+            Having a Global Moment
+          </h3>
+          <p class="press-excerpt">
+            On Grenada's Spice Island, the Sustainable Design Impact Hub merges
+            heritage, innovation, and couture.
+          </p>
           <span class="press-link">Read More</span>
         </a>
+
         <a href="#" class="press-card reveal reveal-delay-1">
           <p class="press-source">Caribbean Beat Magazine</p>
-          <h3 class="press-title">Shannen Henry: sustainable impact | Inspire</h3>
-          <p class="press-excerpt">Through sustainable practices and the promotion of circular product development, Grenadian-American entrepreneur Shannen Henry is helping preserve and uplift our islands.</p>
+          <h3 class="press-title">
+            Shannen Henry: Sustainable Impact
+          </h3>
+          <p class="press-excerpt">
+            Through sustainable practices and circular product development,
+            Shannen Henry is helping preserve and uplift Caribbean creative
+            industries.
+          </p>
           <span class="press-link">Read More</span>
         </a>
       </div>
@@ -977,200 +1751,339 @@
 
   <!-- AWARD -->
   <section id="award">
-    <div class="award-inner reveal">
-      <p class="award-label">Award</p>
-      <h2 class="award-title">Recognizing Excellence in Sustainable Design</h2>
-      <p class="award-body">The Sustainable Design Impact Hub Award celebrates pioneering work at the intersection of fashion, technology, and sustainability. We honour individuals and organizations driving meaningful change in the creative industries.</p>
-      <a href="#contact" class="btn-purple">Learn More</a>
+    <div class="container">
+      <div class="award-inner reveal">
+        <p class="award-label">Award</p>
+        <h2 class="award-title">
+          Recognizing Excellence in Sustainable Design
+        </h2>
+        <p class="award-body">
+          The Sustainable Design Impact Hub Award celebrates pioneering work at
+          the intersection of fashion, technology, and sustainability. We honor
+          individuals and organizations driving meaningful change across the
+          creative industries.
+        </p>
+        <a href="#contact" class="btn-purple">Learn More</a>
+      </div>
     </div>
   </section>
-    <!-- GALLERY -->
+
+  <!-- PHOTO GALLERY -->
   <section id="gallery">
     <p class="gallery-label reveal">Materials Edition — Biella, Italy 2025</p>
+
     <div class="gallery-grid reveal">
-      <!-- REPLACE EACH DIV WITH: <div class="gallery-item"><img src="images/gallery-N.jpg" alt="SDIH Event" /></div> -->
       <div class="gallery-item">
-  <img src="images/biella-113.jpg" alt="SDIH Biella" />
-</div>
+        <img src="images/biella-113.jpg" alt="SDIH Biella event" />
+      </div>
+
       <div class="gallery-item">
-  <img src="images/biella-269.jpg" alt="SDIH Biella" />
-</div>
+        <img src="images/biella-269.jpg" alt="SDIH Biella event" />
+      </div>
+
       <div class="gallery-item">
-  <img src="images/biella-359.jpg" alt="SDIH Biella" />
-</div>
+        <img src="images/biella-359.jpg" alt="SDIH Biella event" />
+      </div>
+
       <div class="gallery-item">
-  <img src="images/biella-367.jpg" alt="SDIH Biella" />
-</div>
-     <div class="gallery-item">
-  <img src="images/biella-538.jpg" alt="SDIH Biella" />
-</div>
+        <img src="images/biella-367.jpg" alt="SDIH Biella event" />
+      </div>
+
       <div class="gallery-item">
-  <img src="images/biella-544.jpg" alt="SDIH Biella" />
-</div>
-      <div class="images/BIELLA-412.jpg">SDIH Biella</div>
+        <img src="images/biella-538.jpg" alt="SDIH Biella event" />
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/biella-544.jpg" alt="SDIH Biella event" />
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/BIELLA-412.jpg" alt="SDIH Biella event" />
+      </div>
     </div>
   </section>
 
-  <!-- TEAM SECTION -->
-<section id="team" class="team-section">
-
-    <div class="section-header">
+  <!-- TEAM -->
+  <section id="team" class="team-section">
+    <div class="container">
+      <div class="section-header reveal">
         <h2>Meet the New York Team</h2>
         <p>
-            The team curating and delivering the 2026 Sustainable Design Impact Hub:
-            Fashion x Deep Tech at Newlab.
+          The team curating and delivering the 2026 Sustainable Design Impact
+          Hub: Fashion x Deep Tech at Newlab.
         </p>
+      </div>
+
+      <div class="team-grid reveal">
+        <article class="team-card">
+          <img src="images/ShannenHenry.jpg" alt="Shannen Henry" />
+          <h3>Shannen Henry</h3>
+          <p class="team-role">Founder &amp; Executive Director</p>
+          <a
+            href="mailto:shannen@sustainabledesignimpacthub.com"
+            class="team-email"
+          >
+            Email
+          </a>
+        </article>
+
+        <article class="team-card">
+          <img src="images/annaho.jpg" alt="Anna Ho" />
+          <h3>Anna Ho</h3>
+          <p class="team-role">Partnerships</p>
+          <a
+            href="mailto:anna.ho@sustainabledesignimpacthub.com"
+            class="team-email"
+          >
+            Email
+          </a>
+        </article>
+
+        <article class="team-card">
+          <img src="images/jesseadler.jpg" alt="Jesse Adler" />
+          <h3>Jesse Adler</h3>
+          <p class="team-role">Innovation Gallery Coordinator</p>
+          <a
+            href="mailto:jesse@sustainabledesignimpacthub.com"
+            class="team-email"
+          >
+            Email
+          </a>
+        </article>
+
+        <article class="team-card">
+          <img src="images/alysiacharles.jpg" alt="Alysia Charles" />
+          <h3>Alysia Charles</h3>
+          <p class="team-role">Assistant, Spatial &amp; Experience Design</p>
+          <a
+            href="mailto:alysia.charles@sustainabledesignimpacthub.com"
+            class="team-email"
+          >
+            Email
+          </a>
+        </article>
+      </div>
     </div>
-
-    <div class="team-grid">
-
-        <!-- Team Member -->
-        <div class="team-card">
-            <img src="images/ShannenHenry.jpg" alt="Shannen Henry">
-
-            <h3>Shannen Henry</h3>
-
-            <p class="team-role">
-                Founder & Executive Director
-            </p>
-
-            <a href="mailto:shannen@sustainabledesignimpacthub.com" class="team-email">
-                ✉ Email
-            </a>
-        </div>
-
-        <!-- Team Member -->
-        <div class="team-card">
-            <img src="images/annaho.jpg" alt="Anna Ho">
-
-            <h3>Anna Ho</h3>
-
-            <p class="team-role">
-                Partnerships
-            </p>
-
-            <a href="mailto:anna.ho@sustainabledesignimpacthub.com" class="team-email">
-                ✉ Email
-            </a>
-        </div>
-
-        <!-- Team Member -->
-        <div class="team-card">
-            <img src="images/jesseadler.jpg" alt="Jesse Adler">
-
-            <h3>Jesse Adler</h3>
-
-            <p class="team-role">
-                Innovation Gallery Coordinator
-            </p>
-
-            <a href="mailto:jesse@sustainabledesignimpacthub.com" class="team-email">
-                ✉ Email
-            </a>
-        </div>
-
-        <!-- Team Member -->
-        <div class="team-card">
-            <img src="images/alysiacharles.jpg" alt="Alysia Charles">
-
-            <h3>Alysia Charles</h3>
-
-            <p class="team-role">
-                Assistant Spacial & Experience Design
-            </p>
-
-            <a href="mailto:alysia.charles@sustainabledesignimpacthub.com" class="team-email">
-                ✉ Email
-            </a>
-        </div>
-
-    </div>
-
-</section>
+  </section>
 
   <!-- CONTACT -->
   <section id="contact">
-    <div class="contact-inner">
-      <h2 class="reveal">Contact Us</h2>
-      <p class="reveal">To learn more, don't hesitate to get in touch.</p>
-      <div class="email-row reveal">
-        <input class="email-input" type="email" placeholder="Your Email Address" />
-        <button class="email-submit">Submit</button>
+    <div class="container">
+      <div class="contact-inner">
+        <h2 class="reveal">Contact Us</h2>
+        <p class="reveal">
+          To learn more about attending, speaking, exhibiting, or partnering,
+          please get in touch.
+        </p>
+
+        <form
+          class="email-form reveal"
+          name="general-inquiry"
+          method="POST"
+          data-netlify="true"
+        >
+          <input type="hidden" name="form-name" value="general-inquiry" />
+          <input
+            class="email-input"
+            type="email"
+            name="email"
+            placeholder="Your Email Address"
+            aria-label="Your email address"
+            required
+          />
+          <button class="email-submit" type="submit">Submit</button>
+        </form>
+
+        <p class="contact-direct">
+          Or email us directly:
+          <a href="mailto:team@sustainabledesignimpacthub.com">
+            team@sustainabledesignimpacthub.com
+          </a>
+        </p>
       </div>
-      <p style="font-size:13px;color:var(--text-muted);margin-top:16px;">Or email us directly: <a href="mailto:team@sustainabledesignimpacthub.com" style="color:var(--purple-light);">team@sustainabledesignimpacthub.com</a></p>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-logo">
-      <img src="images/sdih-logo.jpg" alt="Sustainable Design Impact Hub" />
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="images/sdih-logo.jpg" alt="Sustainable Design Impact Hub" />
+      </div>
+
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#events">Event</a>
+        <a href="#speakers">Speakers</a>
+        <a href="#agenda">Agenda</a>
+        <a href="#press">Press</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">●</a>
+        <a href="#" aria-label="LinkedIn">in</a>
+      </div>
+
+      <p class="footer-copy">
+        © 2026 Sustainable Design Impact Hub. All Rights Reserved. |
+        <a href="#">Privacy Policy</a>
+      </p>
     </div>
-    <div class="footer-links">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#events">Events</a>
-      <a href="#award">Award</a>
-      <a href="#press">Press</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <div class="footer-social">
-      <a href="#" aria-label="Instagram">&#9679;</a>
-      <a href="#" aria-label="LinkedIn">in</a>
-    </div>
-    <p class="footer-copy">© 2026 Sustainable Design Impact Hub. All Rights Reserved. | <a href="#" style="color:rgba(255,255,255,0.2);">Privacy Policy</a></p>
   </footer>
-      <div id="sponsor-modal" class="modal-overlay">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeSponsorForm()">×</button>
-    <h2>Become a Sponsor</h2>
-    <p>Share your details and our team will follow up with the partnership deck and next steps.</p>
 
-    <form name="sponsor-inquiry" method="POST" data-netlify="true" onsubmit="event.preventDefault(); alert('Thank you. We received your sponsorship inquiry.'); closeSponsorForm();">
-      <input type="hidden" name="form-name" value="sponsor-inquiry">
+  <!-- SPONSOR MODAL -->
+  <div
+    id="sponsor-modal"
+    class="modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="sponsor-modal-title"
+    onclick="closeSponsorFormOnOverlay(event)"
+  >
+    <div class="modal-box">
+      <button
+        class="modal-close"
+        type="button"
+        onclick="closeSponsorForm()"
+        aria-label="Close sponsor form"
+      >
+        ×
+      </button>
 
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Email Address" required>
-      <input type="text" name="organization" placeholder="Organization" required>
-      <select name="sponsorship-level" required>
-        <option value="">Interested Sponsorship Level</option>
-        <option value="$1,000">$500</option>
-        <option value="$1,000">$1,000</option>
-        <option value="$3,000">$3,000</option>
-        <option value="$5,000">$5,000</option>
-        <option value="$10,000">$10,000</option>
-        <option value="Not sure yet">Not sure yet</option>
-      </select>
-      <textarea name="message" placeholder="Tell us a little about your interest" rows="4"></textarea>
+      <h2 id="sponsor-modal-title">Become a Sponsor</h2>
+      <p>
+        Share your details and our team will follow up with the partnership deck
+        and next steps.
+      </p>
 
-      <button type="submit">Submit Inquiry</button>
-    </form>
+      <form
+        name="sponsor-inquiry"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+      >
+        <input type="hidden" name="form-name" value="sponsor-inquiry" />
+
+        <p style="display: none;">
+          <label>
+            Do not fill this out:
+            <input name="bot-field" />
+          </label>
+        </p>
+
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Email Address" required />
+        <input
+          type="text"
+          name="organization"
+          placeholder="Organization"
+          required
+        />
+
+        <select name="sponsorship-level" required>
+          <option value="">Interested Sponsorship Level</option>
+          <option value="$500">$500</option>
+          <option value="$1,000">$1,000</option>
+          <option value="$3,000">$3,000</option>
+          <option value="$5,000">$5,000</option>
+          <option value="$10,000">$10,000</option>
+          <option value="Not sure yet">Not sure yet</option>
+        </select>
+
+        <textarea
+          name="message"
+          placeholder="Tell us a little about your interest"
+          rows="4"
+        ></textarea>
+
+        <button type="submit">Submit Inquiry</button>
+      </form>
+    </div>
   </div>
-</div>
 
   <script>
-        function openSponsorForm(event) {
-  event.preventDefault();
-  document.getElementById('sponsor-modal').classList.add('active');
-}
+    function openSponsorForm(event) {
+      event.preventDefault();
+      const modal = document.getElementById("sponsor-modal");
+      modal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
 
-function closeSponsorForm() {
-  document.getElementById('sponsor-modal').classList.remove('active');
-}
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-    }, { threshold: 0.08 });
-    reveals.forEach(el => observer.observe(el));
+    function closeSponsorForm() {
+      const modal = document.getElementById("sponsor-modal");
+      modal.classList.remove("active");
+      document.body.style.overflow = "";
+    }
 
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
-      navLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+    function closeSponsorFormOnOverlay(event) {
+      if (event.target.id === "sponsor-modal") {
+        closeSponsorForm();
+      }
+    }
+
+    function toggleMobileMenu(button) {
+      const navLinks = document.getElementById("nav-links");
+      const isOpen = navLinks.classList.toggle("open");
+      button.setAttribute("aria-expanded", String(isOpen));
+      button.textContent = isOpen ? "×" : "☰";
+    }
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeSponsorForm();
+      }
     });
 
+    const reveals = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08 }
+    );
+
+    reveals.forEach((element) => observer.observe(element));
+
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".nav-links a[href^='#']");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+
+      sections.forEach((section) => {
+        if (window.scrollY >= section.offsetTop - 120) {
+          current = section.id;
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.toggle(
+          "active",
+          link.getAttribute("href") === "#" + current
+        );
+      });
+    });
+
+    document.querySelectorAll(".nav-links a").forEach((link) => {
+      link.addEventListener("click", () => {
+        const nav = document.getElementById("nav-links");
+        const button = document.querySelector(".mobile-menu-button");
+
+        if (nav.classList.contains("open")) {
+          nav.classList.remove("open");
+          button.setAttribute("aria-expanded", "false");
+          button.textContent = "☰";
+        }
+      });
+    });
   </script>
 </body>
-</html> }
+</html>
