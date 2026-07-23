@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speaker Portal — SDIH Fashion × Deep Tech 2026</title>
+  <meta name="description" content="Private speaker portal for the Sustainable Design Impact Hub: Fashion × Deep Tech Edition at Newlab, Brooklyn.">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --navy:#0d0f2b;--navy-mid:#171934;--navy-soft:#202341;
+      --forest:#254b3f;--forest-light:#416f60;--purple:#72509a;
+      --purple-light:#a786c8;--gold:#c38a54;--cream:#f3efe8;
+      --white:#fff;--muted:#b4b6c8;--border:rgba(255,255,255,.11);
+      --border-accent:rgba(114,80,154,.34);--shadow:0 24px 60px rgba(0,0,0,.28);
+      --font-display:"Cormorant Garamond",Georgia,serif;
+      --font-body:"Jost",system-ui,sans-serif;--page-width:1120px
+    }
+    html{scroll-behavior:smooth;background:var(--navy)}
+    body{
+      min-height:100vh;
+      background:
+        radial-gradient(circle at 12% 4%,rgba(65,111,96,.16),transparent 34%),
+        radial-gradient(circle at 86% 10%,rgba(114,80,154,.14),transparent 32%),
+        var(--navy);
+      color:var(--white);font-family:var(--font-body);font-weight:300;
+      line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility
+    }
+    body.portal-locked{overflow:hidden}
+    a{color:inherit}button,input{font:inherit}
+    :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+    .portal-lock{
+      position:fixed;inset:0;z-index:2000;display:grid;place-items:center;padding:1.5rem;
+      background:
+        linear-gradient(rgba(13,15,43,.74),rgba(13,15,43,.92)),
+        radial-gradient(circle at 15% 12%,rgba(65,111,96,.38),transparent 38%),
+        radial-gradient(circle at 84% 16%,rgba(114,80,154,.32),transparent 34%),
+        var(--navy)
+    }
+    .portal-lock[hidden]{display:none}
+    .lock-shell{width:min(100%,500px)}
+    .lock-brand{text-align:center;margin-bottom:1.25rem;font-family:var(--font-display);font-size:.95rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cream)}
+    .lock-brand span{color:var(--gold)}
+    .lock-card{padding:2.6rem;background:rgba(23,25,52,.94);border:1px solid var(--border-accent);border-radius:18px;box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    .lock-eyebrow,.section-label,.mini-label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+    .lock-card h1{margin-top:.65rem;font-family:var(--font-display);font-size:clamp(2.6rem,7vw,4rem);font-weight:400;line-height:.98}
+    .lock-card h1 em{color:var(--purple-light);font-weight:400}
+    .lock-intro{margin:1rem 0 1.6rem;color:var(--muted);font-size:.95rem}
+    .lock-card label{display:block;margin-bottom:.5rem;font-size:.74rem;letter-spacing:.11em;text-transform:uppercase;color:var(--cream)}
+    .lock-card input{width:100%;padding:.95rem 1rem;color:var(--white);background:rgba(13,15,43,.9);border:1px solid var(--border);border-radius:9px}
+    .lock-card input:focus{border-color:var(--purple-light);box-shadow:0 0 0 3px rgba(167,134,200,.12);outline:none}
+    .lock-error{min-height:1.5rem;margin:.55rem 0 .7rem;font-size:.82rem;color:#efb0b0}
+    .lock-note{margin-top:1rem;text-align:center;color:var(--muted);font-size:.75rem}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:46px;padding:.78rem 1.35rem;border:1px solid transparent;border-radius:8px;text-decoration:none;font-size:.82rem;font-weight:500;letter-spacing:.04em;cursor:pointer;transition:.2s ease}
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{width:100%;background:var(--purple);color:var(--white)}
+    .btn-primary:hover{background:var(--purple-light);color:var(--navy)}
+    .btn-gold{background:var(--gold);color:var(--navy)}
+    .btn-gold:hover{background:#d79c64}
+    .btn-outline{background:transparent;border-color:var(--border);color:var(--white)}
+    .btn-outline:hover{border-color:var(--purple-light);background:rgba(114,80,154,.12)}
+    nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(13,15,43,.88);border-bottom:1px solid var(--border);backdrop-filter:blur(16px)}
+    .nav-brand{font-family:var(--font-display);font-size:.98rem;letter-spacing:.13em;text-decoration:none;text-transform:uppercase}
+    .nav-brand span{color:var(--gold)}
+    .nav-links{display:flex;align-items:center;gap:1.55rem;list-style:none}
+    .nav-links a{text-decoration:none;text-transform:uppercase;font-size:.72rem;letter-spacing:.1em;color:var(--muted)}
+    .nav-links a:hover{color:var(--white)}
+    .hero{max-width:var(--page-width);margin:0 auto;padding:5.5rem 2rem 4rem;border-bottom:1px solid var(--border)}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:2.5rem;align-items:end}
+    .eyebrow{margin-bottom:1rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+    .hero h1{font-family:var(--font-display);font-size:clamp(3rem,7vw,5.3rem);font-weight:400;line-height:.96}
+    .hero h1 em{color:var(--purple-light);font-weight:400}
+    .hero-copy{margin-top:1.3rem;max-width:660px;color:var(--muted);font-size:1rem}
+    .event-card{padding:1.5rem;background:linear-gradient(145deg,rgba(65,111,96,.16),rgba(114,80,154,.14)),var(--navy-mid);border:1px solid var(--border);border-radius:14px}
+    .event-card dl{display:grid;gap:1rem}
+    .event-card div{padding-bottom:.9rem;border-bottom:1px solid var(--border)}
+    .event-card div:last-child{padding-bottom:0;border-bottom:0}
+    .event-card dt{margin-bottom:.2rem;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+    .event-card dd{font-size:.9rem;color:var(--cream)}
+    .section{max-width:var(--page-width);margin:0 auto;padding:4.5rem 2rem;border-bottom:1px solid var(--border)}
+    .section:last-of-type{border-bottom:none}
+    .section-heading{display:grid;grid-template-columns:.8fr 1.2fr;gap:2rem;margin-bottom:2.5rem}
+    .section-title{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:400;line-height:1}
+    .section-intro{color:var(--muted);max-width:650px}
+    .checklist-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .check-card{min-height:190px;padding:1.4rem;background:var(--navy-mid);border:1px solid var(--border);border-radius:12px}
+    .check-number{display:inline-flex;width:30px;height:30px;align-items:center;justify-content:center;margin-bottom:1rem;border:1px solid rgba(196,138,84,.45);border-radius:999px;color:var(--gold);font-size:.76rem}
+    .check-card h3{margin-bottom:.45rem;font-family:var(--font-display);font-size:1.4rem;font-weight:500}
+    .check-card p{color:var(--muted);font-size:.84rem}
+    .action-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+    .action-card{padding:2rem;border:1px solid var(--border);border-radius:14px;overflow:hidden}
+    .action-card.speaker{background:linear-gradient(145deg,rgba(114,80,154,.24),rgba(13,15,43,.36)),var(--navy-mid)}
+    .action-card.media{background:linear-gradient(145deg,rgba(65,111,96,.24),rgba(13,15,43,.36)),var(--navy-mid)}
+    .action-card h3{margin:.5rem 0 .6rem;font-family:var(--font-display);font-size:2rem;font-weight:500}
+    .action-card>p{color:var(--muted);font-size:.9rem}
+    .clean-list{margin:1.3rem 0 1.6rem;list-style:none}
+    .clean-list li{display:flex;gap:.65rem;padding:.36rem 0;color:var(--muted);font-size:.83rem}
+    .clean-list li::before{content:"—";color:var(--gold)}
+    .button-row{display:flex;flex-wrap:wrap;gap:.7rem}
+    .kit-items{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin:1.3rem 0 1.5rem}
+    .kit-item{padding:.75rem .85rem;background:rgba(0,0,0,.14);border:1px solid rgba(255,255,255,.06);border-radius:8px;color:var(--muted);font-size:.78rem}
+    .schedule{display:grid;gap:.65rem}
+    .schedule-row{display:grid;grid-template-columns:150px 1fr;gap:1.2rem;padding:1rem 1.1rem;background:rgba(23,25,52,.74);border:1px solid var(--border);border-radius:10px}
+    .schedule-time{color:var(--gold);font-size:.78rem;letter-spacing:.06em}
+    .schedule-row h3{font-family:var(--font-display);font-size:1.15rem;font-weight:500}
+    .schedule-row p{color:var(--muted);font-size:.8rem}
+    .location-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:1.5rem;align-items:start}
+    .location-card,.transport-item,.info-card,.faq-item{background:var(--navy-mid);border:1px solid var(--border);border-radius:12px}
+    .location-card{padding:1.5rem}
+    .location-card address{margin-top:.7rem;font-style:normal;color:var(--muted)}
+    .location-card strong{color:var(--white);font-size:1rem}
+    .location-card p{margin-top:.85rem;color:var(--muted);font-size:.84rem}
+    .text-link{display:inline-block;margin-top:.9rem;color:var(--purple-light);text-decoration:none;font-size:.82rem}
+    .transport-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:.75rem}
+    .transport-item{padding:1rem}
+    .transport-item h3{margin-bottom:.3rem;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+    .transport-item p{color:var(--muted);font-size:.8rem}
+    .map-container{overflow:hidden;border:1px solid var(--border);border-radius:12px;background:var(--navy-mid)}
+    .map-container iframe{width:100%;height:505px;display:block;border:0;filter:grayscale(1) invert(.9) contrast(.92)}
+    .map-footer{display:flex;justify-content:space-between;gap:1rem;padding:.85rem 1rem;color:var(--muted);font-size:.75rem}
+    .notice{margin-bottom:1.4rem;padding:1rem 1.15rem;background:linear-gradient(135deg,rgba(65,111,96,.18),rgba(114,80,154,.12));border:1px solid var(--border);border-radius:10px;color:var(--muted);font-size:.84rem}
+    .notice strong{color:var(--white)}
+    .hotels-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .hotel-card{display:flex;flex-direction:column;min-height:310px;background:var(--navy-mid);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+    .hotel-top{min-height:112px;padding:1.3rem;display:flex;align-items:end;background:linear-gradient(rgba(13,15,43,.05),rgba(13,15,43,.88)),linear-gradient(135deg,rgba(65,111,96,.52),rgba(114,80,154,.44))}
+    .hotel-top h3{font-family:var(--font-display);font-size:1.7rem;font-weight:500}
+    .hotel-body{flex:1;padding:1.25rem}
+    .hotel-body address,.hotel-body p{color:var(--muted);font-style:normal;font-size:.8rem}
+    .hotel-body p{margin-top:.8rem}
+    .hotel-footer{padding:1rem 1.25rem;border-top:1px solid var(--border)}
+    .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .info-card{padding:1.35rem}
+    .info-card h3{margin:.4rem 0 .5rem;font-family:var(--font-display);font-size:1.4rem;font-weight:500}
+    .info-card p{color:var(--muted);font-size:.82rem}
+    .faq-list{display:grid;gap:.75rem}
+    .faq-item{overflow:hidden}
+    .faq-item summary{position:relative;padding:1rem 3rem 1rem 1.15rem;cursor:pointer;list-style:none;font-size:.9rem;color:var(--cream)}
+    .faq-item summary::-webkit-details-marker{display:none}
+    .faq-item summary::after{content:"+";position:absolute;right:1.15rem;top:50%;transform:translateY(-50%);color:var(--gold);font-size:1.2rem}
+    .faq-item[open] summary::after{content:"–"}
+    .faq-answer{padding:0 1.15rem 1rem;color:var(--muted);font-size:.83rem}
+    .contact-panel{display:grid;grid-template-columns:1.2fr .8fr;gap:1.5rem;padding:2rem;background:linear-gradient(135deg,rgba(65,111,96,.22),rgba(114,80,154,.18)),var(--navy-mid);border:1px solid var(--border);border-radius:14px}
+    .contact-panel h2{margin-top:.5rem;font-family:var(--font-display);font-size:2.4rem;font-weight:400;line-height:1}
+    .contact-panel p{margin-top:.7rem;color:var(--muted)}
+    .contact-actions{display:flex;flex-direction:column;justify-content:center;gap:.75rem}
+    footer{max-width:var(--page-width);margin:0 auto;padding:2.2rem 2rem 3rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-top:1px solid var(--border)}
+    .footer-brand{font-family:var(--font-display);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-size:.88rem}
+    .footer-links{display:flex;gap:1.2rem;flex-wrap:wrap}
+    .footer-links a{color:var(--muted);text-decoration:none;font-size:.76rem}
+    .footer-links a:hover{color:var(--white)}
+    @media(max-width:920px){
+      .hero-grid,.section-heading,.location-grid,.contact-panel{grid-template-columns:1fr}
+      .checklist-grid,.info-grid{grid-template-columns:1fr 1fr}
+      .hotels-grid{grid-template-columns:1fr}
+      .map-container iframe{height:420px}
+    }
+    @media(max-width:700px){
+      nav{padding:0 1rem}.nav-links{display:none}
+      .hero,.section{padding-left:1.15rem;padding-right:1.15rem}
+      .action-grid,.checklist-grid,.info-grid,.transport-grid,.kit-items{grid-template-columns:1fr}
+      .schedule-row{grid-template-columns:1fr;gap:.3rem}
+      .lock-card{padding:2rem 1.4rem}.map-footer{flex-direction:column}
+    }
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body class="portal-locked">
+  <!-- Lightweight front-end gate only. Use Netlify or Cloudflare Access for secure protection. -->
+  <div class="portal-lock" id="portal-lock">
+    <div class="lock-shell">
+      <div class="lock-brand">Sustainable Design <span>Impact Hub</span></div>
+      <form class="lock-card" id="lock-form">
+        <p class="lock-eyebrow">Private Access</p>
+        <h1>Speaker <em>Portal</em></h1>
+        <p class="lock-intro">Enter the password provided by the Sustainable Design Impact Hub to access event information, speaker registration, travel guidance, and media assets.</p>
+        <label for="portal-password">Password</label>
+        <input type="password" id="portal-password" name="portal-password" autocomplete="current-password" required>
+        <p class="lock-error" id="lock-error" aria-live="polite"></p>
+        <button class="btn btn-primary" type="submit">Enter Portal</button>
+      </form>
+      <p class="lock-note">For confirmed speakers and invited event partners only.</p>
+    </div>
+  </div>
+
+  <div id="portal-content" hidden>
+    <nav aria-label="Speaker portal navigation">
+      <a href="https://sustainabledesignimpacthub.com" class="nav-brand">Sustainable Design <span>Impact Hub</span></a>
+      <ul class="nav-links">
+        <li><a href="#checklist">Checklist</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#location">Location</a></li>
+        <li><a href="#hotels">Hotels</a></li>
+        <li><a href="https://sustainabledesignimpacthub.com">Main Site</a></li>
+      </ul>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">September 17, 2026 · Newlab, Brooklyn</p>
+          <h1>Speaker <em>Portal</em></h1>
+          <p class="hero-copy">Essential event information, travel guidance, registration materials, and media resources for confirmed speakers participating in the Sustainable Design Impact Hub: Fashion × Deep Tech Edition.</p>
+        </div>
+        <aside class="event-card" aria-label="Event details">
+          <dl>
+            <div><dt>Edition</dt><dd>Fashion × Deep Tech</dd></div>
+            <div><dt>Date</dt><dd>Thursday, September 17, 2026</dd></div>
+            <div><dt>Venue</dt><dd>Newlab, Building 128, Brooklyn Navy Yard</dd></div>
+            <div><dt>Speaker Arrival</dt><dd>Please refer to your individual call time.</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </header>
+
+    <main>
+      <section class="section" id="checklist">
+        <div class="section-heading">
+          <div><p class="section-label">Before the Event</p><h2 class="section-title">Speaker Checklist</h2></div>
+          <p class="section-intro">Please complete the following items so our team can prepare event materials, confirm production needs, and coordinate your participation smoothly.</p>
+        </div>
+        <div class="checklist-grid">
+          <article class="check-card"><span class="check-number">01</span><h3>Register</h3><p>Confirm your title, organization, contact details, dietary needs, and availability.</p></article>
+          <article class="check-card"><span class="check-number">02</span><h3>Submit Assets</h3><p>Upload a high-resolution headshot and a concise third-person biography.</p></article>
+          <article class="check-card"><span class="check-number">03</span><h3>Review Your Session</h3><p>Confirm the working title, format, moderator, and discussion focus with our team.</p></article>
+          <article class="check-card"><span class="check-number">04</span><h3>Share Requirements</h3><p>Let us know about presentation files, microphones, video, accessibility, or staging needs.</p></article>
+          <article class="check-card"><span class="check-number">05</span><h3>Promote</h3><p>Use the official media assets and suggested copy to announce your participation.</p></article>
+          <article class="check-card"><span class="check-number">06</span><h3>Plan Your Arrival</h3><p>Review venue access, transportation, hotel guidance, and your individual call time.</p></article>
+        </div>
+      </section>
+
+      <section class="section" id="resources">
+        <div class="section-heading">
+          <div><p class="section-label">Speaker Resources</p><h2 class="section-title">Registration & Media</h2></div>
+          <p class="section-intro">The buttons below are placeholders. Replace each <code>#</code> with your live registration form, upload folder, and media-kit links before publishing.</p>
+        </div>
+        <div class="action-grid">
+          <article class="action-card speaker">
+            <p class="mini-label">Required</p><h3>Speaker Registration</h3>
+            <p>Submit the information our team needs for event production, printed materials, digital communications, and day-of coordination.</p>
+            <ul class="clean-list">
+              <li>High-resolution headshot</li><li>50-word third-person biography</li>
+              <li>Preferred title and organization</li><li>Session details and AV requirements</li>
+              <li>Dietary and accessibility requirements</li><li>Announcement preferences</li>
+            </ul>
+            <div class="button-row"><a href="#" class="btn btn-gold">Complete Registration</a><a href="#" class="btn btn-outline">Upload Speaker Assets</a></div>
+          </article>
+          <article class="action-card media">
+            <p class="mini-label">Promotional Materials</p><h3>Media Kit</h3>
+            <p>Download official SDIH materials for announcements, social media, press, newsletters, and internal communications.</p>
+            <div class="kit-items">
+              <div class="kit-item">SDIH logos</div><div class="kit-item">Brand colors</div>
+              <div class="kit-item">Speaker graphics</div><div class="kit-item">Social captions</div>
+              <div class="kit-item">Event boilerplate</div><div class="kit-item">Press information</div>
+            </div>
+            <div class="button-row"><a href="#" class="btn btn-gold">Download Media Kit</a><a href="mailto:team@sustainabledesignimpacthub.com" class="btn btn-outline">Contact Communications</a></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="schedule">
+        <div class="section-heading">
+          <div><p class="section-label">Program Overview</p><h2 class="section-title">Event Schedule</h2></div>
+          <p class="section-intro">This high-level schedule is provided for planning. Each speaker will receive an individual call time and final session briefing separately.</p>
+        </div>
+        <div class="schedule">
+          <div class="schedule-row"><div class="schedule-time">9:00–9:30 AM</div><div><h3>Registration & Arrival</h3><p>Guest check-in, coffee, and opening networking.</p></div></div>
+          <div class="schedule-row"><div class="schedule-time">9:30–10:00 AM</div><div><h3>Opening Keynote</h3><p>Fashion × Deep Tech: Designing the Future of Industry.</p></div></div>
+          <div class="schedule-row"><div class="schedule-time">10:00 AM–1:00 PM</div><div><h3>Morning Panels & Masterclass</h3><p>Built in New York, the talent gap, and biomaterials commercialization.</p></div></div>
+          <div class="schedule-row"><div class="schedule-time">1:00–2:00 PM</div><div><h3>Networking Lunch</h3><p>Curated lunch experience on the Newlab mezzanine.</p></div></div>
+          <div class="schedule-row"><div class="schedule-time">2:00–5:00 PM</div><div><h3>Afternoon Panels</h3><p>Resources for founders, procurement, and industry × startup collaboration.</p></div></div>
+          <div class="schedule-row"><div class="schedule-time">5:00–6:00 PM</div><div><h3>Reception & Innovation Gallery</h3><p>Closing networking and curated technology showcase.</p></div></div>
+        </div>
+      </section>
+
+      <section class="section" id="location">
+        <div class="section-heading">
+          <div><p class="section-label">Getting There</p><h2 class="section-title">Venue & Directions</h2></div>
+          <p class="section-intro">Newlab is located inside the Brooklyn Navy Yard. Please allow additional time for entry, walking, and check-in.</p>
+        </div>
+        <div class="location-grid">
+          <div>
+            <div class="location-card">
+              <p class="mini-label">Venue</p>
+              <address><strong>Newlab — Building 128</strong><br>19 Morris Avenue at 6th Street<br>Brooklyn Navy Yard<br>Brooklyn, NY 11205</address>
+              <p>Enter through the Brooklyn Navy Yard and proceed to Newlab's main entrance at Building 128. Please have a government-issued photo ID available.</p>
+              <a class="text-link" href="https://maps.google.com/?q=Newlab+19+Morris+Ave+Brooklyn+NY" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a>
+            </div>
+            <div class="transport-grid">
+              <article class="transport-item"><h3>Subway</h3><p>F to York Street; A/C to High Street; additional connections via Navy Yard shuttle.</p></article>
+              <article class="transport-item"><h3>Bus</h3><p>B67, B48, B57, B62, and B69 serve the surrounding Navy Yard area.</p></article>
+              <article class="transport-item"><h3>NYC Ferry</h3><p>The Astoria route stops at the Brooklyn Navy Yard near Dock 72.</p></article>
+              <article class="transport-item"><h3>Rideshare</h3><p>Use Newlab, 19 Morris Avenue, Brooklyn Navy Yard as the destination.</p></article>
+            </div>
+            <div class="notice" style="margin-top:.75rem;margin-bottom:0"><strong>Brooklyn Navy Yard shuttle:</strong> Service details and live tracking are available at <a href="https://bny.transloc.com" target="_blank" rel="noopener noreferrer">bny.transloc.com</a>.</div>
+          </div>
+          <div class="map-container">
+            <iframe title="Map showing Newlab at Brooklyn Navy Yard" src="https://www.google.com/maps?q=Newlab%2C%2019%20Morris%20Ave%2C%20Brooklyn%2C%20NY%2011205&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            <div class="map-footer"><span>Newlab · Building 128 · Brooklyn Navy Yard</span><a href="https://maps.google.com/?q=Newlab+19+Morris+Ave+Brooklyn+NY" target="_blank" rel="noopener noreferrer">Open Maps →</a></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="hotels">
+        <div class="section-heading">
+          <div><p class="section-label">Where to Stay</p><h2 class="section-title">Recommended Hotels</h2></div>
+          <p class="section-intro">These hotels are convenient options for out-of-town guests. Confirm rates, availability, and any discount arrangements directly before publishing.</p>
+        </div>
+        <div class="notice"><strong>Important:</strong> The earlier draft referenced a universal “NEWLAB” hotel discount code. Do not publish a discount code unless each property has confirmed that it is valid for your event dates.</div>
+        <div class="hotels-grid">
+          <article class="hotel-card"><div class="hotel-top"><h3>Wythe Hotel</h3></div><div class="hotel-body"><address>80 Wythe Avenue<br>Brooklyn, NY 11249</address><p>A design-led Williamsburg hotel in a converted industrial building, with convenient access to the Brooklyn Navy Yard.</p></div><div class="hotel-footer"><a class="text-link" href="https://wythehotel.com" target="_blank" rel="noopener noreferrer">View Hotel →</a></div></article>
+          <article class="hotel-card"><div class="hotel-top"><h3>Arlo Williamsburg</h3></div><div class="hotel-body"><address>96 Wythe Avenue<br>Brooklyn, NY 11249</address><p>A contemporary Williamsburg option with rooftop spaces and straightforward rideshare access to Newlab.</p></div><div class="hotel-footer"><a class="text-link" href="https://arlohotels.com/williamsburg" target="_blank" rel="noopener noreferrer">View Hotel →</a></div></article>
+          <article class="hotel-card"><div class="hotel-top"><h3>Ace Hotel Brooklyn</h3></div><div class="hotel-body"><address>252 Schermerhorn Street<br>Brooklyn, NY 11217</address><p>A design-forward Downtown Brooklyn hotel with access to multiple subway lines and a direct rideshare route to the Navy Yard.</p></div><div class="hotel-footer"><a class="text-link" href="https://acehotel.com/brooklyn" target="_blank" rel="noopener noreferrer">View Hotel →</a></div></article>
+        </div>
+      </section>
+
+      <section class="section" id="day-of">
+        <div class="section-heading">
+          <div><p class="section-label">Day of Event</p><h2 class="section-title">Speaker Information</h2></div>
+          <p class="section-intro">Final room assignments, green-room details, Wi-Fi, and exact call times can be added here once production is confirmed.</p>
+        </div>
+        <div class="info-grid">
+          <article class="info-card"><p class="mini-label">Check-In</p><h3>Speaker Welcome</h3><p>Check in at the speaker desk upon arrival. A team member will provide your badge and direct you to the appropriate holding area.</p></article>
+          <article class="info-card"><p class="mini-label">Production</p><h3>AV & Presentations</h3><p>Submit presentation files in advance. Bring a backup copy on a USB drive and notify the team of any video or audio playback needs.</p></article>
+          <article class="info-card"><p class="mini-label">Hospitality</p><h3>Food & Dietary Needs</h3><p>Lunch and refreshments will be provided. Please include dietary restrictions in your registration form so the team can plan appropriately.</p></article>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="section-heading">
+          <div><p class="section-label">Frequently Asked</p><h2 class="section-title">Speaker FAQ</h2></div>
+          <p class="section-intro">Add or edit these answers as event details are finalized.</p>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item"><summary>When should I arrive?</summary><div class="faq-answer">Please follow the individual call time provided by the SDIH team. We generally recommend arriving at least 45 minutes before your session.</div></details>
+          <details class="faq-item"><summary>Can I bring a guest or colleague?</summary><div class="faq-answer">Guest access is subject to event capacity and your confirmed speaker allocation. Please contact the team before inviting additional attendees.</div></details>
+          <details class="faq-item"><summary>Will sessions be photographed or recorded?</summary><div class="faq-answer">Professional photography is planned. Recording details will be shared once the production plan is finalized.</div></details>
+          <details class="faq-item"><summary>Can I update my bio or headshot after submitting?</summary><div class="faq-answer">Yes. Email the communications team as soon as possible. Changes submitted after the print deadline may not appear in physical materials.</div></details>
+          <details class="faq-item"><summary>Who should I contact on the day of the event?</summary><div class="faq-answer">A day-of production contact and mobile number will be circulated to confirmed speakers shortly before the event.</div></details>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="contact-panel">
+          <div><p class="section-label">Need Assistance?</p><h2>Contact the SDIH Team</h2><p>For speaker logistics, registration, media assets, or session questions, contact our team and include your session title in the subject line.</p></div>
+          <div class="contact-actions"><a href="mailto:team@sustainabledesignimpacthub.com" class="btn btn-gold">Email the Team</a><a href="https://sustainabledesignimpacthub.com" class="btn btn-outline">Visit Main Website</a></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-brand">Sustainable Design Impact Hub · New York 2026</div>
+      <div class="footer-links"><a href="https://sustainabledesignimpacthub.com">Main Site</a><a href="mailto:team@sustainabledesignimpacthub.com">Contact</a><a href="#checklist">Checklist</a><a href="#location">Directions</a></div>
+    </footer>
+  </div>
+
+  <script>
+    const PORTAL_PASSWORD = "SDIH2026";
+    const lockForm = document.getElementById("lock-form");
+    const passwordInput = document.getElementById("portal-password");
+    const portalLock = document.getElementById("portal-lock");
+    const portalContent = document.getElementById("portal-content");
+    const lockError = document.getElementById("lock-error");
+
+    function unlockPortal(){
+      portalLock.hidden = true;
+      portalContent.hidden = false;
+      document.body.classList.remove("portal-locked");
+      sessionStorage.setItem("sdihSpeakerPortal","unlocked");
+    }
+
+    if(sessionStorage.getItem("sdihSpeakerPortal")==="unlocked"){unlockPortal()}
+
+    lockForm.addEventListener("submit",function(event){
+      event.preventDefault();
+      if(passwordInput.value===PORTAL_PASSWORD){
+        lockError.textContent="";
+        unlockPortal();
+      }else{
+        lockError.textContent="The password entered is incorrect.";
+        passwordInput.value="";
+        passwordInput.focus();
+      }
+    });
+  </script>
+</body>
+</html>
