@@ -583,7 +583,7 @@
       line-height: 1.5;
     }
 
-    /* ── PARTNERS ── */
+/* ── PARTNERS ── */
 
 .partners-section {
   padding: 110px 0;
@@ -646,7 +646,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.025);
+  background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.11);
   text-decoration: none;
   transition:
@@ -657,25 +657,35 @@
 
 .partner-logo-card:hover,
 .partner-logo-card:focus-visible {
-  background: rgba(255, 255, 255, 0.055);
+  background: rgba(255, 255, 255, 0.04);
   border-color: rgba(168, 85, 247, 0.55);
   transform: translateY(-3px);
 }
 
 .partner-logo-card img {
-  width: auto;
-  max-width: 78%;
-  max-height: 72px;
+  width: 160px;
+  height: 64px;
   object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+  display: block;
+  margin: 0 auto;
+  transition: opacity 0.25s ease;
 }
 
-/* Optional monochrome treatment for dark or multicolored logos */
+.partner-logo-card:hover img {
+  opacity: 1;
+}
+
 .partner-logo-card.logo-white img {
   filter: brightness(0) invert(1);
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
-/* Featured Innovation Partner — currently commented out in HTML */
+.partner-logo-card.logo-color img {
+  filter: none;
+  opacity: 0.9;
+}
 
 .featured-partner {
   margin-bottom: 76px;
@@ -697,10 +707,12 @@
 }
 
 .featured-partner-card img {
-  width: auto;
-  max-width: 420px;
-  max-height: 110px;
+  width: 260px;
+  height: 90px;
   object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+  display: block;
 }
 
 @media (max-width: 920px) {
@@ -728,9 +740,19 @@
     min-height: 145px;
   }
 
+  .partner-logo-card img {
+    width: 130px;
+    height: 52px;
+  }
+
   .featured-partner-card {
     min-height: 190px;
     padding: 36px 24px;
+  }
+
+  .featured-partner-card img {
+    width: 200px;
+    height: 70px;
   }
 }
 
