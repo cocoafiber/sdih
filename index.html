@@ -583,6 +583,157 @@
       line-height: 1.5;
     }
 
+    /* ── PARTNERS ── */
+
+.partners-section {
+  padding: 110px 0;
+  background: var(--navy-deep);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.partners-header {
+  max-width: 760px;
+  margin-bottom: 72px;
+}
+
+.partners-header .section-heading {
+  margin-bottom: 22px;
+}
+
+.partners-intro {
+  max-width: 680px;
+  color: var(--text-muted);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+.partner-group {
+  margin-top: 70px;
+}
+
+.partner-group:first-of-type {
+  margin-top: 0;
+}
+
+.partner-group-secondary {
+  margin-top: 86px;
+}
+
+.partner-category {
+  margin-bottom: 24px;
+  color: var(--purple-light);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.partner-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.partner-logo-grid-small {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.partner-logo-card {
+  min-height: 170px;
+  padding: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  text-decoration: none;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.partner-logo-card:hover,
+.partner-logo-card:focus-visible {
+  background: rgba(255, 255, 255, 0.055);
+  border-color: rgba(168, 85, 247, 0.55);
+  transform: translateY(-3px);
+}
+
+.partner-logo-card img {
+  width: auto;
+  max-width: 78%;
+  max-height: 72px;
+  object-fit: contain;
+}
+
+/* Optional monochrome treatment for dark or multicolored logos */
+.partner-logo-card.logo-white img {
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+/* Featured Innovation Partner — currently commented out in HTML */
+
+.featured-partner {
+  margin-bottom: 76px;
+}
+
+.featured-partner-card {
+  min-height: 240px;
+  padding: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(124, 58, 237, 0.08),
+      rgba(255, 255, 255, 0.02)
+    );
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.featured-partner-card img {
+  width: auto;
+  max-width: 420px;
+  max-height: 110px;
+  object-fit: contain;
+}
+
+@media (max-width: 920px) {
+  .partner-logo-grid,
+  .partner-logo-grid-small {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .partners-section {
+    padding: 80px 0;
+  }
+
+  .partners-header {
+    margin-bottom: 52px;
+  }
+
+  .partner-logo-grid,
+  .partner-logo-grid-small {
+    grid-template-columns: 1fr;
+  }
+
+  .partner-logo-card {
+    min-height: 145px;
+  }
+
+  .featured-partner-card {
+    min-height: 190px;
+    padding: 36px 24px;
+  }
+}
+
     /* ── INNOVATION GALLERY ── */
     #innovation-gallery {
       padding: 120px 0;
@@ -626,6 +777,7 @@
     .innovation-gallery-button {
       margin-top: 12px;
     }
+    
 
     /* ── PRESS ── */
     #press {
@@ -1575,6 +1727,14 @@
           <p class="speaker-role">Adjunct Professor &amp; Author</p>
           <p class="speaker-company">Fashion Institute of Technology</p>
         </article>
+        <article class="speaker-card">
+          <div class="speaker-photo">
+            <img src="images/tavisezell.jpg" alt="Tavis Ezell" />
+          </div>
+          <p class="speaker-name">Tavis Ezell</p>
+          <p class="speaker-role">Managing Director</p>
+          <p class="speaker-company">Advanced Science Research Center, CUNY</p>
+        </article>
 
         <article class="speaker-card">
           <div class="speaker-photo">
@@ -1605,6 +1765,136 @@
       </div>
     </div>
   </section>
+  <!-- PARTNERS -->
+<section id="partners" class="partners-section">
+  <div class="container">
+    <div class="partners-header reveal">
+      <p class="section-kicker">Our Community</p>
+      <h2 class="section-heading">Sponsors &amp; Partners</h2>
+      <p class="partners-intro">
+        The organizations supporting the Sustainable Design Impact Hub:
+        Fashion × Deep Tech Edition and our broader sustainable design community.
+      </p>
+    </div>
+
+    <!-- Keep this area hidden until the Innovation Partner is approved -->
+    <!--
+    <div class="featured-partner reveal">
+      <p class="partner-category">Innovation Partner</p>
+
+      <div class="featured-partner-card">
+        <img
+          src="images/innovation-partner-logo.png"
+          alt="Innovation Partner"
+        />
+      </div>
+    </div>
+    -->
+
+    <div class="partner-group reveal">
+      <p class="partner-category">Sponsors &amp; Partners</p>
+
+      <div class="partner-logo-grid">
+        <a
+          href="#"
+          class="partner-logo-card"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Partner name"
+        >
+          <img
+            src="images/partner-logo-1.png"
+            alt="Partner name"
+          />
+        </a>
+
+        <a
+          href="#"
+          class="partner-logo-card"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Partner name"
+        >
+          <img
+            src="images/partner-logo-2.png"
+            alt="Partner name"
+          />
+        </a>
+
+        <a
+          href="#"
+          class="partner-logo-card"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Partner name"
+        >
+          <img
+            src="images/partner-logo-3.png"
+            alt="Partner name"
+          />
+        </a>
+      </div>
+    </div>
+
+    <div class="partner-group partner-group-secondary reveal">
+      <p class="partner-category">Academic &amp; Ecosystem Partners</p>
+
+      <div class="partner-logo-grid partner-logo-grid-small">
+        <a
+          href="#"
+          class="partner-logo-card"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Academic partner name"
+        >
+          <img
+            src="images/academic-partner-1.png"
+            alt="Academic partner name"
+          />
+        </a>
+
+        <a
+          href="#"
+          class="partner-logo-card"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Ecosystem partner name"
+        >
+          <img
+            src="images/ecosystem-partner-1.png"
+            alt="Ecosystem partner name"
+          />
+        </a>
+
+        <a
+          href="#"
+          class="partner-logo-card"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Ecosystem partner name"
+        >
+          <img
+            src="images/ecosystem-partner-2.png"
+            alt="Ecosystem partner name"
+          />
+        </a>
+
+        <a
+          href="#"
+          class="partner-logo-card"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Ecosystem partner name"
+        >
+          <img
+            src="images/ecosystem-partner-3.png"
+            alt="Ecosystem partner name"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- AGENDA -->
   <section id="agenda">
