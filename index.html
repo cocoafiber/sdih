@@ -1,2504 +1,555 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="The Sustainable Design Impact Hub convenes designers, scientists, founders, investors, and industry leaders at the intersection of fashion and deep tech."
-  />
-  <title>Sustainable Design Impact Hub</title>
-
+  <title>The Kaylia Group</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
-    rel="stylesheet"
-  />
-
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy: #1a1a3a;
-      --navy-mid: #22224a;
-      --navy-deep: #12122a;
-      --purple: #7c3aed;
-      --purple-light: #a855f7;
-      --purple-accent: #9333ea;
+      --black: #0a0a0a;
       --white: #ffffff;
-      --off-white: #f5f4f8;
-      --text: #ffffff;
-      --text-muted: rgba(255, 255, 255, 0.62);
-      --border: rgba(255, 255, 255, 0.1);
-      --font-display: "Cormorant Garamond", serif;
-      --font-body: "Jost", sans-serif;
-      --content-width: 1200px;
+      --off-white: #f5f4f0;
+      --sky: #a8c4d4;
+      --sky-deep: #4a7a9b;
+      --slate: #5a6472;
+      --navy: #1e2d3d;
+      --text: #1a1a1a;
+      --text-muted: #6b6b6b;
+      --accent: #b8cdd8;
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body: 'Jost', sans-serif;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: var(--font-body);
-      color: var(--text);
-      background: var(--navy);
-      overflow-x: hidden;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    button,
-    input,
-    select,
-    textarea {
-      font: inherit;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    section {
-      scroll-margin-top: 68px;
-    }
-
-    .container {
-      width: min(var(--content-width), calc(100% - 96px));
-      margin: 0 auto;
-    }
-
-    .section-kicker {
-      font-size: 11px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--purple-light);
-      margin-bottom: 14px;
-    }
-
-    .section-heading {
-      font-family: var(--font-display);
-      font-size: clamp(36px, 5vw, 58px);
-      font-weight: 400;
-      line-height: 1.08;
-      color: var(--white);
-    }
-
-    .btn-purple {
-      display: inline-block;
-      padding: 16px 36px;
-      background: var(--purple);
-      color: var(--white);
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-align: center;
-      border: 1px solid var(--purple);
-      transition: background 0.25s ease, border-color 0.25s ease;
-    }
-
-    .btn-purple:hover,
-    .btn-purple:focus-visible {
-      background: var(--purple-accent);
-      border-color: var(--purple-accent);
-    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--text); background: var(--white); overflow-x: hidden; }
 
     /* ── NAV ── */
     nav {
-      position: fixed;
-      inset: 0 0 auto 0;
-      z-index: 100;
-      height: 68px;
-      padding: 0 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: var(--navy-deep);
-      border-bottom: 1px solid var(--border);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--black);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 64px;
     }
-
-    .nav-logo img {
-      height: 36px;
-      width: auto;
-      filter: invert(1);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--text);
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 300;
-      letter-spacing: 0.08em;
-      opacity: 0.72;
-      transition: opacity 0.2s ease, color 0.2s ease;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      opacity: 1;
-      color: var(--white);
-    }
-
-    .nav-sponsor {
-      padding: 10px 20px;
-      background: var(--purple);
-      color: var(--white) !important;
-      opacity: 1 !important;
-      font-size: 12px !important;
-      font-weight: 400 !important;
-      letter-spacing: 0.08em !important;
-      text-transform: uppercase;
-      transition: background 0.25s ease;
-    }
-
-    .nav-sponsor:hover {
-      background: var(--purple-accent);
-    }
-
-    .nav-social {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-    }
-
-    .nav-social a {
-      color: rgba(255, 255, 255, 0.5);
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.2s ease;
-    }
-
-    .nav-social a:hover {
-      color: var(--purple-light);
-    }
-
-    .mobile-menu-button {
-      display: none;
-      width: 42px;
-      height: 42px;
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--white);
-      cursor: pointer;
-      font-size: 20px;
-    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--white); }
+    .logo-mark { font-family: var(--font-display); font-weight: 400; font-size: 22px; letter-spacing: 0.05em; border-right: 1px solid rgba(255,255,255,0.4); padding-right: 12px; }
+    .logo-text { font-family: var(--font-body); font-weight: 300; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; line-height: 1.4; }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { color: var(--white); text-decoration: none; font-size: 13px; font-weight: 300; letter-spacing: 0.08em; opacity: 0.7; transition: opacity 0.2s; }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--accent); }
 
     /* ── HERO ── */
     #home {
-      min-height: 100vh;
-      padding-top: 68px;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+      height: 100vh; min-height: 600px;
+      background: linear-gradient(160deg, #6aabce 0%, #3a7fa8 30%, #1e4d6b 65%, #0f2a3d 100%);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    #home::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 60% 40%, rgba(255,255,255,0.06) 0%, transparent 60%);
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 700px; padding: 0 32px; animation: fadeUp 1.2s ease both; }
+    .hero-content p:first-child {
+      font-family: var(--font-display); font-style: italic;
+      font-size: clamp(20px, 3vw, 28px); color: rgba(255,255,255,0.9);
+      margin-bottom: 20px; font-weight: 300;
+    }
+    .hero-divider { width: 60px; height: 1px; background: rgba(255,255,255,0.4); margin: 28px auto; }
+    .hero-content p:last-child {
+      font-family: var(--font-display); font-style: italic;
+      font-size: clamp(16px, 2.2vw, 22px); color: rgba(255,255,255,0.72);
+      line-height: 1.75; font-weight: 300;
     }
 
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background-image: url("images/hero-fashion-deep-tech.jpg");
-      background-size: cover;
-      background-position: center;
+    /* ── ECOSYSTEM ── */
+    #group { padding: 100px 48px; background: var(--white); }
+    .section-title {
+      font-family: var(--font-display); font-size: clamp(32px, 4vw, 48px);
+      font-weight: 400; text-align: center; margin-bottom: 56px; color: var(--text);
     }
-
-    .hero-bg::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(18, 18, 42, 0.58),
-        rgba(18, 18, 42, 0.78)
-      );
+    .ecosystem-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0; max-width: 1300px; margin: 0 auto;
     }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 940px;
-      padding: 0 48px;
-      animation: fadeUp 1.2s ease both;
+    .eco-card {
+      aspect-ratio: 3/4; position: relative; overflow: hidden;
+      display: flex; align-items: flex-end; padding: 28px 24px;
+      text-decoration: none; transition: transform 0.3s ease;
     }
+    .eco-card:hover { transform: translateY(-4px); }
+    .eco-card-1 { background: #e8e6e2; }
+    .eco-card-2 { background: linear-gradient(145deg, #4a5a6a, #2a3a4a); }
+    .eco-card-3 { background: linear-gradient(145deg, #1e2d4a, #0f1a2e); }
+    .eco-card-4 { background: linear-gradient(145deg, #7a9ab0, #5a7a90); }
+    .eco-label { font-family: var(--font-display); font-size: 18px; font-weight: 400; line-height: 1.3; transition: transform 0.3s; }
+    .eco-card:hover .eco-label { transform: translateY(-4px); }
+    .eco-card-1 .eco-label { color: var(--text); }
+    .eco-card-2 .eco-label, .eco-card-3 .eco-label, .eco-card-4 .eco-label { color: var(--white); }
 
-    .hero-content h1 {
-      font-family: var(--font-display);
-      font-size: clamp(44px, 7vw, 88px);
-      font-weight: 400;
-      color: var(--white);
-      line-height: 1.06;
-      margin-bottom: 24px;
-    }
-
-    .hero-divider {
-      width: 60px;
-      height: 2px;
-      background: var(--purple-light);
-      margin: 0 auto 24px;
-    }
-
-    .hero-subtitle {
-      font-size: 16px;
-      color: rgba(255, 255, 255, 0.78);
-      font-weight: 300;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .hero-cta {
-      margin-top: 40px;
-    }
-
-    /* ── EVENT DETAILS ── */
-    #events {
-      background: var(--navy-mid);
-      padding: 88px 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .event-hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(32px, 4vw, 50px);
-      font-weight: 400;
-      color: var(--white);
-      margin-bottom: 8px;
-      line-height: 1.15;
-    }
-
-    .event-subtitle {
-      font-size: 14px;
-      color: var(--text-muted);
-      font-weight: 300;
-      letter-spacing: 0.1em;
-      margin-bottom: 48px;
-    }
-
-    .event-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 200px;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .event-col {
-      padding: 40px 32px;
-      border-right: 1px solid var(--border);
-    }
-
-    .event-col:last-child {
-      border-right: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .event-col-label {
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-    }
-
-    .event-col-value {
-      font-family: var(--font-display);
-      font-size: 22px;
-      font-weight: 400;
-      color: var(--white);
-      line-height: 1.4;
-    }
-
-    /* ── ABOUT ── */
+    /* ── OUR STORY ── */
     #about {
-      padding: 120px 0;
-      background: var(--navy);
+      padding: 120px 48px;
+      background: #dce8ef;
+      position: relative; overflow: hidden;
     }
+    .story-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; text-align: center; }
+    .story-inner h2 { font-family: var(--font-display); font-size: clamp(36px, 5vw, 56px); font-weight: 400; margin-bottom: 36px; color: var(--text); }
+    .story-inner p { font-size: 16px; line-height: 1.85; color: var(--text); font-weight: 300; margin-bottom: 48px; }
+    .btn-outline {
+      display: inline-block; padding: 14px 40px; border: 1px solid var(--text);
+      color: var(--text); text-decoration: none; font-size: 13px; font-weight: 400;
+      letter-spacing: 0.1em; transition: background 0.25s, color 0.25s;
+    }
+    .btn-outline:hover { background: var(--text); color: var(--white); }
 
-    .about-inner {
+
+    /* ── SUSTAINABLE PROPERTIES ── */
+    #properties {
+      padding: 120px 48px;
+      background: var(--off-white);
+    }
+    .properties-inner {
+      max-width: 1200px;
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 100px;
-      align-items: center;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 88px;
+      align-items: stretch;
     }
-
-    .about-left h2 {
-      font-family: var(--font-display);
-      font-size: clamp(34px, 4vw, 54px);
-      font-weight: 400;
-      color: var(--white);
-      line-height: 1.12;
-      margin-bottom: 16px;
-    }
-
-    .about-left h2 strong {
-      font-weight: 500;
-      color: var(--purple-light);
-    }
-
-    .about-date {
-      font-size: 16px;
-      color: var(--text-muted);
-      font-weight: 300;
-      margin-bottom: 40px;
-    }
-
-    .about-right p {
-      font-size: 16px;
-      line-height: 1.85;
-      color: rgba(255, 255, 255, 0.72);
-      font-weight: 300;
-      margin-bottom: 20px;
-    }
-
-    .about-right p strong {
-      color: var(--white);
-      font-weight: 500;
-    }
-
-    .read-more {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 13px;
-      letter-spacing: 0.1em;
-      color: var(--purple-light);
-      text-decoration: none;
-      margin-top: 8px;
-      transition: gap 0.2s ease;
-    }
-
-    .read-more::after {
-      content: "→";
-      font-size: 16px;
-    }
-
-    .read-more:hover {
-      gap: 20px;
-    }
-
-    /* ── LOGO MARQUEE ── */
-    #logo-marquee {
-      background: var(--navy-deep);
-      padding: 64px 0;
+    .properties-visual {
+      min-height: 560px;
+      position: relative;
       overflow: hidden;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      background:
+        linear-gradient(155deg, rgba(255,255,255,0.10), transparent 45%),
+        linear-gradient(145deg, #8ba8b8 0%, #58758a 42%, #243c4d 100%);
     }
-
-    .marquee-label {
-      text-align: center;
-      font-size: 11px;
-      letter-spacing: 0.24em;
+    .properties-visual::before {
+      content: '';
+      position: absolute;
+      left: 11%;
+      bottom: 0;
+      width: 42%;
+      height: 72%;
+      border: 1px solid rgba(255,255,255,0.34);
+      border-bottom: none;
+    }
+    .properties-visual::after {
+      content: '';
+      position: absolute;
+      right: 10%;
+      top: 13%;
+      width: 48%;
+      height: 54%;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+    .properties-visual-label {
+      position: absolute;
+      left: 28px;
+      bottom: 26px;
+      color: rgba(255,255,255,0.78);
+      font-size: 10px;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--purple-light);
-      margin-bottom: 36px;
-      padding: 0 24px;
+      z-index: 2;
     }
-
-    .marquee {
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .marquee-track {
-      display: flex;
-      width: max-content;
-      animation: scrollLogos 24s linear infinite;
-    }
-
-    .marquee-track span {
-      font-family: var(--font-display);
-      font-size: clamp(24px, 4vw, 44px);
-      color: rgba(255, 255, 255, 0.68);
-      margin: 0 42px;
-      white-space: nowrap;
-    }
-
-    @keyframes scrollLogos {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-
-    /* ── SPEAKERS ── */
-    #speakers {
-      padding: 120px 0;
-      background: var(--navy-deep);
-    }
-
-    .speakers-header {
-      text-align: center;
-      margin-bottom: 64px;
-    }
-
-    .speakers-header h2 {
-      font-family: var(--font-display);
-      font-size: clamp(36px, 5vw, 56px);
-      font-weight: 400;
-      color: var(--white);
-    }
-
-    .speakers-header p {
-      font-size: 15px;
-      color: var(--text-muted);
-      font-weight: 300;
-      max-width: 560px;
-      margin: 16px auto 0;
-      line-height: 1.7;
-    }
-
-    .speaker-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 42px 30px;
-    }
-
-    .speaker-card {
-      text-align: center;
-    }
-
-    .speaker-photo {
-      width: 100%;
-      max-width: 210px;
-      aspect-ratio: 1 / 1;
-      border-radius: 50%;
-      overflow: hidden;
-      margin: 0 auto 20px;
-      background: var(--navy-mid);
-      border: 1px solid var(--border);
-    }
-
-    .speaker-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: grayscale(100%);
-      transition: filter 0.35s ease, transform 0.35s ease;
-    }
-
-    .speaker-card:hover .speaker-photo img {
-      filter: grayscale(0%);
-      transform: scale(1.03);
-    }
-
-    .speaker-name {
-      font-family: var(--font-display);
-      font-size: 22px;
-      font-weight: 400;
-      color: var(--white);
-      margin-bottom: 5px;
-    }
-
-    .speaker-role {
-      font-size: 12px;
-      color: var(--purple-light);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 3px;
-      line-height: 1.45;
-    }
-
-    .speaker-company {
-      font-size: 13px;
-      color: var(--text-muted);
-      font-weight: 300;
-      line-height: 1.5;
-    }
-
-    /* ── AGENDA ── */
-    #agenda {
-      padding: 120px 0;
-      background: var(--navy);
-    }
-
-    .schedule-inner {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 100px;
-      align-items: start;
-    }
-
-    .agenda-intro .section-label {
-      font-size: 15px;
-      color: var(--text-muted);
-      font-weight: 300;
-      margin-bottom: 22px;
-    }
-
-    .schedule-title {
-      font-family: var(--font-display);
-      font-size: clamp(48px, 6vw, 78px);
-      font-weight: 400;
-      color: var(--white);
-      line-height: 1.05;
-    }
-
-    .schedule-title span {
-      color: var(--purple-light);
-    }
-
-    .schedule-list {
+    .properties-content {
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      justify-content: center;
+      padding: 28px 0;
     }
-
-    .schedule-item {
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 24px;
-    }
-
-    .schedule-time {
-      display: block;
-      font-size: 12px;
-      letter-spacing: 0.18em;
+    .properties-kicker {
+      font-size: 11px;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: var(--purple-light);
-      margin-bottom: 8px;
+      color: var(--sky-deep);
+      margin-bottom: 20px;
     }
-
-    .schedule-item h3 {
-      font-family: var(--font-body);
-      font-size: 22px;
-      font-weight: 300;
-      color: rgba(255, 255, 255, 0.8);
-      line-height: 1.5;
-    }
-
-/* ── PARTNERS ── */
-
-.partners-section {
-  padding: 110px 0;
-  background: var(--navy-deep);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.partners-header {
-  max-width: 760px;
-  margin-bottom: 72px;
-}
-
-.partners-header .section-heading {
-  margin-bottom: 22px;
-}
-
-.partners-intro {
-  max-width: 680px;
-  color: var(--text-muted);
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 1.8;
-}
-
-.partner-group {
-  margin-top: 70px;
-}
-
-.partner-group:first-of-type {
-  margin-top: 0;
-}
-
-.partner-group-secondary {
-  margin-top: 86px;
-}
-
-.partner-category {
-  margin-bottom: 24px;
-  color: var(--purple-light);
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-
-.partner-logo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.partner-logo-grid-small {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.partner-logo-card {
-  min-height: 170px;
-  padding: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.11);
-  text-decoration: none;
-  transition:
-    background 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.25s ease;
-}
-
-.partner-logo-card:hover,
-.partner-logo-card:focus-visible {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(168, 85, 247, 0.55);
-  transform: translateY(-3px);
-}
-
-.partner-logo-card img {
-  width: 160px;
-  height: 64px;
-  object-fit: contain;
-  opacity: 0.85;
-  display: block;
-  margin: 0 auto;
-  transition: opacity 0.25s ease;
-}
-
-.partner-logo-card:hover img {
-  opacity: 1;
-}
-
-.partner-logo-card.logo-white img {
-  filter: brightness(0) invert(1);
-  opacity: 0.85;
-}
-
-.partner-logo-card.logo-color img {
-  filter: none;
-  opacity: 0.9;
-}
-
-.featured-partner {
-  margin-bottom: 76px;
-}
-
-.featured-partner-card {
-  min-height: 240px;
-  padding: 54px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(124, 58, 237, 0.08),
-      rgba(255, 255, 255, 0.02)
-    );
-  border: 1px solid rgba(168, 85, 247, 0.3);
-}
-
-.featured-partner-card img {
-  width: 260px;
-  height: 90px;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-  opacity: 0.9;
-  display: block;
-}
-
-@media (max-width: 920px) {
-  .partner-logo-grid,
-  .partner-logo-grid-small {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 640px) {
-  .partners-section {
-    padding: 80px 0;
-  }
-
-  .partners-header {
-    margin-bottom: 52px;
-  }
-
-  .partner-logo-grid,
-  .partner-logo-grid-small {
-    grid-template-columns: 1fr;
-  }
-
-  .partner-logo-card {
-    min-height: 145px;
-  }
-
-  .partner-logo-card img {
-    width: 130px;
-    height: 52px;
-  }
-
-  .featured-partner-card {
-    min-height: 190px;
-    padding: 36px 24px;
-  }
-
-  .featured-partner-card img {
-    width: 200px;
-    height: 70px;
-  }
-}
-
-    /* ── INNOVATION GALLERY ── */
-    #innovation-gallery {
-      padding: 120px 0;
-      background: var(--navy-mid);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .innovation-gallery-content {
-      display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 100px;
-      align-items: start;
-    }
-
-    .innovation-gallery-copy h2 {
+    .properties-title {
       font-family: var(--font-display);
-      font-size: clamp(44px, 6vw, 72px);
+      font-size: clamp(40px, 5vw, 62px);
       font-weight: 400;
       line-height: 1.02;
-      color: var(--white);
+      margin-bottom: 28px;
+      color: var(--text);
     }
-
-    .innovation-gallery-intro {
-      margin-bottom: 24px;
-      font-family: var(--font-display);
-      font-size: 28px;
-      font-weight: 400;
-      line-height: 1.35;
-      color: var(--white);
-    }
-
-    .innovation-gallery-body p {
-      margin-bottom: 20px;
-      color: var(--text-muted);
+    .properties-copy {
       font-size: 15px;
+      line-height: 1.9;
+      color: var(--text-muted);
       font-weight: 300;
-      line-height: 1.8;
+      max-width: 600px;
+      margin-bottom: 40px;
     }
-
-    .innovation-gallery-button {
-      margin-top: 12px;
+    .properties-focus {
+      border-top: 1px solid rgba(26,26,26,0.14);
+      margin-bottom: 42px;
     }
-    
+    .property-focus-row {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 14px;
+      padding: 17px 0;
+      border-bottom: 1px solid rgba(26,26,26,0.14);
+    }
+    .property-focus-num {
+      font-family: var(--font-display);
+      color: var(--sky-deep);
+      font-size: 13px;
+    }
+    .property-focus-text {
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      font-weight: 300;
+    }
 
     /* ── PRESS ── */
-    #press {
-      padding: 100px 0;
-      background: var(--navy);
-    }
+    #press { padding: 80px 48px; background: var(--white); }
+    .press-label { text-align: center; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 48px; }
+    .press-logos { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 40px 64px; max-width: 1000px; margin: 0 auto; }
+    /* ── REPLACE EACH SPAN WITH: <img src="images/press-NAME.png" alt="NAME" class="press-img" />
+       .press-img { height: 36px; width: auto; opacity: 0.6; filter: grayscale(1); transition: opacity 0.2s, filter 0.2s; }
+       .press-img:hover { opacity: 1; filter: grayscale(0); }
+    ── */
+    .press-logo { font-family: var(--font-display); font-size: 22px; font-weight: 400; color: var(--text); opacity: 0.55; transition: opacity 0.2s; }
+    .press-logo:hover { opacity: 1; }
 
-    .press-header {
-      margin-bottom: 64px;
-    }
+    /* ── WORK WITH US ── */
+    #work-with-us { padding: 120px 48px; background: var(--off-white); }
+    .work-intro { max-width: 1200px; margin: 0 auto 72px; }
+    .work-intro .section-label { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+    .work-intro .section-heading { font-family: var(--font-display); font-size: clamp(36px, 5vw, 52px); font-weight: 400; color: var(--text); margin-bottom: 20px; line-height: 1.1; }
+    .work-intro .section-subtext { font-size: 15px; line-height: 1.85; color: var(--text-muted); font-weight: 300; max-width: 520px; }
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; max-width: 1200px; margin: 0 auto; }
+    .service-card { background: var(--white); padding: 48px 36px; display: flex; flex-direction: column; gap: 16px; transition: background 0.3s; }
+    .service-card:hover { background: var(--navy); }
+    .service-card:hover .service-num { color: var(--accent); }
+    .service-card:hover .service-card-title,
+    .service-card:hover .service-card-body { color: var(--white); }
+    .service-card:hover .service-card-cta { color: var(--accent); }
+    .service-num { font-family: var(--font-display); font-size: 13px; color: var(--sky-deep); letter-spacing: 0.1em; transition: color 0.3s; }
+    .service-card-title { font-family: var(--font-display); font-size: 28px; font-weight: 400; color: var(--text); line-height: 1.2; transition: color 0.3s; }
+    .service-card-body { font-size: 14px; line-height: 1.75; color: var(--text-muted); font-weight: 300; flex: 1; transition: color 0.3s; }
+    .service-card-cta { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sky-deep); text-decoration: none; transition: color 0.3s; display: flex; align-items: center; gap: 8px; }
+    .service-card-cta::after { content: '→'; }
 
-    .press-header h2 {
-      font-family: var(--font-display);
-      font-size: clamp(36px, 5vw, 56px);
-      font-weight: 400;
-      color: var(--white);
-      position: relative;
-      display: inline-block;
-    }
-
-    .press-header h2::after {
-      content: "";
-      display: block;
-      width: 60px;
-      height: 2px;
-      background: var(--purple-light);
-      margin-top: 16px;
-    }
-
-    .press-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2px;
-    }
-
-    .press-card {
-      background: var(--navy-mid);
-      padding: 40px 36px;
-      transition: background 0.3s ease;
-      text-decoration: none;
-      display: block;
-      min-height: 100%;
-    }
-
-    .press-card:hover {
-      background: rgba(124, 58, 237, 0.15);
-    }
-
-    .press-source {
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--purple-light);
-      margin-bottom: 14px;
-    }
-
-    .press-title {
-      font-family: var(--font-display);
-      font-size: 22px;
-      font-weight: 400;
-      color: var(--white);
-      line-height: 1.3;
-      margin-bottom: 16px;
-    }
-
-    .press-excerpt {
-      font-size: 14px;
-      color: var(--text-muted);
-      font-weight: 300;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-
-    .press-link {
-      font-size: 12px;
-      letter-spacing: 0.1em;
-      color: var(--purple-light);
-      text-transform: uppercase;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .press-link::after {
-      content: "→";
-    }
-
-    /* ── AWARD ── */
-    #award {
-      padding: 120px 0;
-      background: var(--navy-deep);
-      text-align: center;
-    }
-
-    .award-inner {
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    .award-label {
-      font-size: 11px;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--purple-light);
-      margin-bottom: 24px;
-    }
-
-    .award-title {
-      font-family: var(--font-display);
-      font-size: clamp(36px, 5vw, 64px);
-      font-weight: 400;
-      color: var(--white);
-      margin-bottom: 24px;
-      line-height: 1.1;
-    }
-
-    .award-body {
-      font-size: 16px;
-      color: var(--text-muted);
-      font-weight: 300;
-      line-height: 1.85;
-      margin-bottom: 48px;
-    }
-
-    /* ── PHOTO GALLERY ── */
-    #gallery {
-      padding: 80px 0;
-      background: var(--navy-deep);
-    }
-
-    .gallery-label {
-      text-align: center;
-      font-size: 11px;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--purple-light);
-      margin-bottom: 48px;
-      padding: 0 48px;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-auto-rows: minmax(220px, 1fr);
-      gap: 4px;
-    }
-
-    .gallery-item {
-      overflow: hidden;
-      position: relative;
-      background: var(--navy-mid);
-      min-height: 260px;
-    }
-
-    .gallery-item:first-child {
-      grid-column: span 2;
-      grid-row: span 2;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.04);
-    }
-
-    /* ── TEAM ── */
-    #team {
-      padding: 120px 0;
-      background: var(--navy);
-      border-top: 1px solid var(--border);
-    }
-
-    .team-section .section-header {
-      margin-bottom: 64px;
-    }
-
-    .team-section .section-header h2 {
-      font-family: var(--font-display);
-      font-size: clamp(36px, 5vw, 56px);
-      font-weight: 400;
-      line-height: 1.1;
-      color: var(--white);
-      margin-bottom: 16px;
-    }
-
-    .team-section .section-header p {
-      max-width: 640px;
-      color: var(--text-muted);
-      font-size: 15px;
-      font-weight: 300;
-      line-height: 1.75;
-    }
-
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 32px;
-    }
-
-    .team-card {
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
-      text-align: left;
-    }
-
-    .team-card img {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      margin-bottom: 22px;
-      filter: grayscale(100%);
-      transition: filter 0.35s ease, opacity 0.35s ease;
-    }
-
-    .team-card:hover img {
-      filter: grayscale(0%);
-      opacity: 0.96;
-    }
-
-    .team-card h3 {
-      font-family: var(--font-display);
-      font-size: 24px;
-      font-weight: 400;
-      color: var(--white);
-      margin-bottom: 6px;
-    }
-
-    .team-role {
-      min-height: 42px;
-      color: var(--purple-light);
-      font-size: 12px;
-      font-weight: 400;
-      letter-spacing: 0.06em;
-      line-height: 1.5;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    .team-email {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 12px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: color 0.25s ease;
-    }
-
-    .team-email:hover {
-      color: var(--purple-light);
-    }
+    /* ── AFFILIATIONS ── */
+    #affiliations { background: var(--black); padding: 80px 48px; }
+    .affiliations-label { text-align: center; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 56px; }
+    .affiliations-logos { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 48px 72px; max-width: 1000px; margin: 0 auto; }
+    /* ── REPLACE EACH DIV WITH: <img src="images/affil-NAME.png" alt="NAME" class="affil-img" />
+       .affil-img { height: 44px; width: auto; opacity: 0.5; filter: brightness(0) invert(1); transition: opacity 0.2s; }
+       .affil-img:hover { opacity: 1; }
+    ── */
+    .affil-logo { color: rgba(255,255,255,0.5); font-family: var(--font-body); font-size: 13px; font-weight: 300; letter-spacing: 0.06em; text-align: center; line-height: 1.5; max-width: 140px; transition: color 0.2s; }
+    .affil-logo:hover { color: white; }
+    .affil-icon { display: block; font-size: 22px; margin-bottom: 8px; opacity: 0.7; }
 
     /* ── CONTACT ── */
-    #contact {
-      padding: 100px 0;
-      background: var(--navy-mid);
+    #contact { background: var(--black); padding: 100px 48px; }
+    .contact-title { font-family: var(--font-display); font-size: clamp(36px, 5vw, 56px); font-weight: 400; color: var(--white); text-align: center; margin-bottom: 16px; }
+    .contact-subtitle { text-align: center; font-size: 15px; color: rgba(255,255,255,0.45); font-weight: 300; margin-bottom: 64px; }
+    .contact-form { max-width: 860px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; }
+    .form-group { padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.12); }
+    .form-group:nth-child(odd) { padding-right: 40px; border-right: 1px solid rgba(255,255,255,0.08); }
+    .form-group:nth-child(even) { padding-left: 40px; }
+    .form-group.full { grid-column: 1/-1; padding-left: 0; padding-right: 0; border-right: none; }
+    .form-group label { display: block; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 10px; }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; background: transparent; border: none; outline: none;
+      color: var(--white); font-family: var(--font-body); font-size: 15px; font-weight: 300; padding: 0; resize: none;
     }
-
-    .contact-inner {
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
-    .contact-inner h2 {
-      font-family: var(--font-display);
-      font-size: clamp(36px, 5vw, 52px);
-      font-weight: 400;
-      color: var(--white);
-      margin-bottom: 12px;
-    }
-
-    .contact-inner > p {
-      font-size: 15px;
-      color: var(--text-muted);
-      font-weight: 300;
-      margin-bottom: 36px;
-      line-height: 1.7;
-    }
-
-    .email-form {
-      display: flex;
-      gap: 0;
-      margin-bottom: 16px;
-    }
-
-    .email-input {
-      flex: 1;
-      padding: 16px 20px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--border);
-      color: var(--white);
-      font-family: var(--font-body);
-      font-size: 14px;
-      font-weight: 300;
-      outline: none;
-    }
-
-    .email-input::placeholder {
-      color: rgba(255, 255, 255, 0.35);
-    }
-
-    .email-submit {
-      padding: 16px 32px;
-      background: var(--purple);
-      color: var(--white);
-      border: 1px solid var(--purple);
-      font-size: 13px;
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background 0.25s ease;
-    }
-
-    .email-submit:hover {
-      background: var(--purple-accent);
-    }
-
-    .contact-direct {
-      font-size: 13px !important;
-      color: var(--text-muted) !important;
-      margin-top: 16px !important;
-      margin-bottom: 0 !important;
-    }
-
-    .contact-direct a {
-      color: var(--purple-light);
-    }
+    .form-group select option { background: var(--black); }
+    .form-group textarea { height: 100px; }
+    .form-submit { grid-column: 2; display: flex; justify-content: flex-end; padding-top: 32px; }
+    .btn-send { background: var(--white); color: var(--black); border: none; padding: 16px 48px; font-family: var(--font-body); font-size: 13px; font-weight: 500; letter-spacing: 0.1em; cursor: pointer; transition: background 0.25s; }
+    .btn-send:hover { background: var(--accent); }
 
     /* ── FOOTER ── */
-    footer {
-      background: var(--navy-deep);
-      border-top: 1px solid var(--border);
-      padding: 48px;
-    }
-
-    .footer-inner {
-      max-width: var(--content-width);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 24px;
-    }
-
-    .footer-logo img {
-      height: 28px;
-      width: auto;
-      filter: invert(1);
-      opacity: 0.6;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 28px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.42);
-      text-decoration: none;
-      letter-spacing: 0.06em;
-      transition: color 0.2s ease;
-    }
-
-    .footer-links a:hover {
-      color: var(--purple-light);
-    }
-
-    .footer-social {
-      display: flex;
-      gap: 16px;
-    }
-
-    .footer-social a {
-      color: rgba(255, 255, 255, 0.42);
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.2s ease;
-    }
-
-    .footer-social a:hover {
-      color: var(--purple-light);
-    }
-
-    .footer-copy {
-      width: 100%;
-      font-size: 11px;
-      color: rgba(255, 255, 255, 0.22);
-      letter-spacing: 0.06em;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .footer-copy a {
-      color: inherit;
-    }
-
-    /* ── SPONSOR MODAL ── */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(18, 18, 42, 0.9);
-      z-index: 999;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-
-    .modal-overlay.active {
-      display: flex;
-    }
-
-    .modal-box {
-      position: relative;
-      width: 100%;
-      max-width: 540px;
-      max-height: 90vh;
-      overflow-y: auto;
-      background: var(--navy-mid);
-      border: 1px solid var(--border);
-      padding: 44px;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 16px;
-      right: 18px;
-      background: none;
-      border: none;
-      color: var(--white);
-      font-size: 28px;
-      cursor: pointer;
-    }
-
-    .modal-box h2 {
-      font-family: var(--font-display);
-      font-size: 42px;
-      font-weight: 400;
-      color: var(--white);
-      margin-bottom: 12px;
-    }
-
-    .modal-box p {
-      color: var(--text-muted);
-      font-size: 15px;
-      line-height: 1.6;
-      margin-bottom: 28px;
-    }
-
-    .modal-box input,
-    .modal-box select,
-    .modal-box textarea {
-      width: 100%;
-      margin-bottom: 14px;
-      padding: 14px 16px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--border);
-      color: var(--white);
-      font-family: var(--font-body);
-      font-size: 14px;
-    }
-
-    .modal-box select option {
-      color: #111;
-    }
-
-    .modal-box input::placeholder,
-    .modal-box textarea::placeholder {
-      color: rgba(255, 255, 255, 0.45);
-    }
-
-    .modal-box button[type="submit"] {
-      width: 100%;
-      padding: 15px 24px;
-      background: var(--purple);
-      color: var(--white);
-      border: none;
-      font-size: 13px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      cursor: pointer;
-    }
+    footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.08); padding: 56px 48px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; }
+    .footer-brand .brand-name { font-family: var(--font-display); font-size: 22px; font-weight: 400; color: var(--white); margin-bottom: 16px; }
+    .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.8; font-weight: 300; }
+    .footer-nav h5, .footer-social h5 { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 24px; }
+    .footer-nav ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-nav a { font-size: 14px; color: rgba(255,255,255,0.55); text-decoration: none; font-weight: 300; transition: color 0.2s; }
+    .footer-nav a:hover { color: var(--accent); }
+    .social-links { display: flex; gap: 12px; margin-bottom: 32px; }
+    .social-link { width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; transition: border-color 0.2s, color 0.2s; }
+    .social-link:hover { border-color: rgba(255,255,255,0.6); color: white; }
+    .footer-founder-link { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.45); text-decoration: none; font-weight: 300; transition: color 0.2s; margin-top: 8px; }
+    .footer-founder-link:hover { color: var(--accent); }
+    .footer-bottom { background: var(--black); border-top: 1px solid rgba(255,255,255,0.05); padding: 20px 48px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.2); letter-spacing: 0.06em; }
 
     /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    .reveal-delay-1 {
-      transition-delay: 0.1s;
-    }
-
-    .reveal-delay-2 {
-      transition-delay: 0.2s;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 1100px) {
-      .nav-links {
-        gap: 20px;
-      }
-
-      .speaker-grid,
-      .team-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
+    /* ── MOBILE ── */
     @media (max-width: 900px) {
-      .container {
-        width: min(100% - 48px, var(--content-width));
-      }
-
-      nav {
-        padding: 0 24px;
-      }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 68px;
-        left: 0;
-        right: 0;
-        padding: 24px;
-        background: var(--navy-deep);
-        border-bottom: 1px solid var(--border);
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-social {
-        display: none;
-      }
-
-      .mobile-menu-button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .hero-content {
-        padding: 0 24px;
-      }
-
-      .event-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .event-col:nth-child(2) {
-        border-right: none;
-      }
-
-      .event-col:nth-child(3),
-      .event-col:nth-child(4) {
-        border-top: 1px solid var(--border);
-      }
-
-      .about-inner,
-      .schedule-inner,
-      .innovation-gallery-content {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-
-      .speaker-grid,
-      .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .press-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .gallery-item:first-child {
-        grid-column: span 2;
-      }
-
-      footer {
-        padding: 40px 24px;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        width: min(100% - 32px, var(--content-width));
-      }
-
-      #events,
-      #about,
-      #speakers,
-      #agenda,
-      #innovation-gallery,
-      #press,
-      #award,
-      #team,
-      #contact {
-        padding-top: 80px;
-        padding-bottom: 80px;
-      }
-
-      .event-grid,
-      .speaker-grid,
-      .team-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .event-col {
-        border-right: none;
-        border-top: 1px solid var(--border);
-      }
-
-      .event-col:first-child {
-        border-top: none;
-      }
-
-      .event-col:last-child {
-        justify-content: flex-start;
-      }
-
-      .gallery-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-item:first-child {
-        grid-column: span 1;
-        grid-row: span 1;
-      }
-
-      .email-form {
-        flex-direction: column;
-      }
-
-      .email-submit {
-        width: 100%;
-      }
-
-      .team-role {
-        min-height: auto;
-      }
-
-      .innovation-gallery-intro {
-        font-size: 24px;
-      }
-
-      .modal-box {
-        padding: 36px 24px 24px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      #group, #about, #properties, #press, #work-with-us, #affiliations, #contact { padding-left: 24px; padding-right: 24px; }
+      .properties-inner { grid-template-columns: 1fr; gap: 48px; }
+      .properties-visual { min-height: 420px; }
+      .ecosystem-grid { grid-template-columns: 1fr 1fr; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .contact-form { grid-template-columns: 1fr; }
+      .form-group:nth-child(odd) { padding-right: 0; border-right: none; }
+      .form-group:nth-child(even) { padding-left: 0; }
+      .form-submit { grid-column: 1; }
+      footer { grid-template-columns: 1fr; padding: 40px 24px; }
+      .footer-bottom { flex-direction: column; gap: 8px; padding: 16px 24px; }
     }
   </style>
 </head>
-
 <body>
+
   <!-- NAV -->
   <nav>
-    <a class="nav-logo" href="#home" aria-label="Sustainable Design Impact Hub home">
-      <img src="images/sdih-logo.jpg" alt="Sustainable Design Impact Hub" />
+    <a class="nav-logo" href="#home">
+      <span class="logo-mark">KG</span>
+      <span class="logo-text">KAYLIA<br>GROUP</span>
     </a>
-
-    <ul class="nav-links" id="nav-links">
+    <ul class="nav-links">
+      <li><a href="#group">Group</a></li>
       <li><a href="#home" class="active">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#events">Event</a></li>
-      <li><a href="#speakers">Speakers</a></li>
-      <li><a href="#agenda">Agenda</a></li>
-      <li><a href="#innovation-gallery">Gallery</a></li>
-      <li><a href="#press">Press</a></li>
-      <li>
-        <a href="#" class="nav-sponsor" onclick="openSponsorForm(event)">
-          Become a Sponsor
-        </a>
-      </li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#work-with-us">Services</a></li>
+      <li><a href="#properties">Properties</a></li>
+      <li><a href="shannen/">Meet the Founder</a></li>
     </ul>
-
-    <div class="nav-social">
-      <a href="#" aria-label="Instagram">●</a>
-      <a href="#" aria-label="LinkedIn">in</a>
-    </div>
-
-    <button
-      class="mobile-menu-button"
-      type="button"
-      aria-label="Open navigation"
-      aria-expanded="false"
-      aria-controls="nav-links"
-      onclick="toggleMobileMenu(this)"
-    >
-      ☰
-    </button>
   </nav>
 
   <!-- HERO -->
   <section id="home">
-    <div class="hero-bg" aria-hidden="true"></div>
-
     <div class="hero-content">
-      <h1>Fostering Innovation<br />&amp; Collaboration 2026</h1>
+      <p>Welcome to Kaylia Group!</p>
       <div class="hero-divider"></div>
-      <p class="hero-subtitle">Stay Ahead of the Sustainable Fashion Industry</p>
-      <a
-        href="https://luma.com/upsdshbs"
-        target="_blank"
-        rel="noopener"
-        class="btn-purple hero-cta"
-      >
-        Register Now
+      <p>We are an ecosystem of impact-driven entities working toward people and planet friendly solutions across creative sectors.</p>
+    </div>
+  </section>
+
+  <!-- ECOSYSTEM -->
+  <section id="group">
+    <h2 class="section-title reveal">Kaylia Group Ecosystem</h2>
+    <div class="ecosystem-grid reveal">
+      <a href="#" class="eco-card eco-card-1">
+        <span class="eco-label">CocoaFiber™</span>
+      </a>
+      <a href="#" class="eco-card eco-card-2">
+        <span class="eco-label">Sustainable Design<br>Impact Hub™</span>
+      </a>
+      <a href="#" class="eco-card eco-card-3">
+        <span class="eco-label">Kaylia Group<br>Consulting</span>
+      </a>
+      <a href="#" class="eco-card eco-card-4">
+        <span class="eco-label">Council on Sustainable Fashion<br>and Design of Grenada</span>
       </a>
     </div>
   </section>
 
-  <!-- EVENT DETAILS -->
-  <section id="events">
-    <div class="container">
-      <p class="section-kicker">
-        Fostering Innovation &amp; Collaboration 2026
-      </p>
-
-      <h2 class="event-hero-title reveal">
-        The Sustainable Design Impact Hub<br />in New York
-      </h2>
-
-      <p class="event-subtitle reveal">
-        17 September 2026 | Newlab, Brooklyn
-      </p>
-
-      <div class="event-grid reveal">
-        <div class="event-col">
-          <p class="event-col-label">What</p>
-          <p class="event-col-value">
-            Sustainable Design Impact Hub: Fashion x Deep Tech
-          </p>
-        </div>
-
-        <div class="event-col">
-          <p class="event-col-label">When</p>
-          <p class="event-col-value">September 17, 2026</p>
-        </div>
-
-        <div class="event-col">
-          <p class="event-col-label">Where</p>
-          <p class="event-col-value">Newlab, Brooklyn, New York</p>
-        </div>
-
-        <div class="event-col">
-          <a href="#contact" class="btn-purple">Details</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
+  <!-- OUR STORY -->
   <section id="about">
-    <div class="container about-inner">
-      <div class="about-left reveal">
-        <h2>
-          The <strong>Sustainable Design Impact Hub</strong> in New York
-        </h2>
-        <p class="about-date">17 September 2026 | Newlab</p>
-        <a href="#contact" class="read-more">Read More</a>
-      </div>
-
-      <div class="about-right reveal">
-        <p>
-          With an emphasis on the
-          <strong>intersection of Fashion &amp; Deep Tech</strong>, the
-          Sustainable Design Impact Hub in New York bridges the gap between lab
-          and market while offering fresh insight into New York's fashion and
-          innovation ecosystem.
-        </p>
-
-        <p>
-          We believe New York City is not only a runway, but a hub for deep-tech
-          fashion innovation. Join us as we convene designers, scientists,
-          entrepreneurs, investors, and industry leaders to shape the future of
-          sustainable fashion.
-        </p>
-      </div>
+    <div class="story-inner reveal">
+      <h2>Our Story</h2>
+      <p>Kaylia Group is a comprehensive ecosystem; we consult with businesses in fashion, lifestyle, and travel to transition them to more environmentally and socially sustainable practices. From groundbreaking innovations in bio-based materials to strategic consultancy services, we're leading the charge toward a more regenerative future.</p>
+      <a href="shannen/" class="btn-outline">Meet the Founder</a>
     </div>
   </section>
 
-  <!-- LOGO MARQUEE -->
-  <section id="logo-marquee" aria-label="Past speakers, partners, and institutions">
-    <p class="marquee-label">Past speakers, partners, and institutions include</p>
 
-    <div class="marquee">
-      <div class="marquee-track">
-        <span>Zegna Group</span>
-        <span>Banca Sella</span>
-        <span>United Nations Fashion and Lifestyle Network</span>
-        <span>Swarovski</span>
-        <span>Biomimicry Institute</span>
-        <span>North Sails</span>
-        <span>Lauretana</span>
-        <span>Menabrea</span>
-        <span>Silversands</span>
-        <span>Orange Fiber</span>
-
-        <span>Zegna Group</span>
-        <span>Banca Sella</span>
-        <span>United Nations Fashion and Lifestyle Network</span>
-        <span>Swarovski</span>
-        <span>Biomimicry Institute</span>
-        <span>North Sails</span>
-        <span>Lauretana</span>
-        <span>Menabrea</span>
-        <span>Silversands</span>
-        <span>Orange Fiber</span>
+  <!-- SUSTAINABLE PROPERTIES -->
+  <section id="properties">
+    <div class="properties-inner">
+      <div class="properties-visual reveal">
+        <span class="properties-visual-label">The Built Environment · Kaylia Group</span>
       </div>
-    </div>
-  </section>
-
-  <!-- SPEAKERS -->
-  <section id="speakers">
-    <div class="container">
-      <div class="speakers-header reveal">
-        <h2>Featured Speakers 2026</h2>
-        <p>
-          Meet the designers, scientists, founders, and industry leaders shaping
-          the future of materials.
+      <div class="properties-content reveal">
+        <p class="properties-kicker">The Built Environment</p>
+        <h2 class="properties-title">Sustainable Properties<br>&amp; Real Estate</h2>
+        <p class="properties-copy">
+          Kaylia Group brings its sustainability lens beyond products and into the places we inhabit.
+          Our approach to property considers environmental performance, material choices, adaptive reuse,
+          local character, and long-term value from the earliest stages of a project. We are interested in
+          thoughtful residential, hospitality, and creative spaces where design quality and lower-impact
+          decisions can exist together.
         </p>
-      </div>
-      <div class="speaker-grid reveal">
-        
-       
-
-        <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/KarenPearson.jpg" alt="Karen Pearson" />
+        <div class="properties-focus">
+          <div class="property-focus-row">
+            <span class="property-focus-num">01</span>
+            <span class="property-focus-text">Adaptive reuse &amp; thoughtful repositioning</span>
           </div>
-          <p class="speaker-name">Karen Pearson</p>
-          <p class="speaker-role">Chair, FIT Sustainability Council</p>
-          <p class="speaker-company">Fashion Institute of Technology</p>
-        </article>
-
-        <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/adambent.jpg" alt="Adam Bent" />
+          <div class="property-focus-row">
+            <span class="property-focus-num">02</span>
+            <span class="property-focus-text">Lower-impact materials, interiors &amp; building strategies</span>
           </div>
-          <p class="speaker-name">Adam Bent</p>
-          <p class="speaker-role">Chief Executive Officer</p>
-          <p class="speaker-company">Lonely Whale</p>
-        </article>
-
-        <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/LarissaShepherd.jpg" alt="Larissa Shepherd" />
+          <div class="property-focus-row">
+            <span class="property-focus-num">03</span>
+            <span class="property-focus-text">Residential, hospitality &amp; creative property concepts</span>
           </div>
-          <p class="speaker-name">Larissa Shepherd</p>
-          <p class="speaker-role">Professor, Fiber Science &amp; Apparel Design</p>
-          <p class="speaker-company">Cornell University</p>
-        </article>
-
-        <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/michellegabriel.jpg" alt="Michelle Gabriel" />
-          </div>
-          <p class="speaker-name">Michelle Gabriel</p>
-          <p class="speaker-role">Resident Fellow</p>
-          <p class="speaker-company">Yale Center for Business &amp; Environment</p>
-        </article>
-
-         <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/Vanessa.jpg" alt="Vanessa Barboni Hallik" />
-          </div>
-          <p class="speaker-name">Vanessa Barboni Hallik </p>
-          <p class="speaker-role">Founder and Co-CEO</p>
-          <p class="speaker-company">Another Tomorrow</p>
-        </article>
-
-        <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/victoriasmith.jpg" alt="Victoria Smith" />
-          </div>
-          <p class="speaker-name">Victoria Smith</p>
-          <p class="speaker-role">Founder</p>
-          <p class="speaker-company">Fashion & Founders</p>
-        </article>
-
-        <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/RazGodelink.jpg" alt="Raz Godelnik" />
-          </div>
-          <p class="speaker-name">Raz Godelnik</p>
-          <p class="speaker-role">Professor</p>
-          <p class="speaker-company">Parsons School of Design</p>
-        </article>
-
-        <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/martinstübler.jpg" alt="Martin Stübler" />
-          </div>
-          <p class="speaker-name">Martin Stübler</p>
-          <p class="speaker-role">Founder</p>
-          <p class="speaker-company">BioFluff / Savian</p>
-        </article>
-
-
-        <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/joshuakatcher.jpg" alt="Joshua Katcher" />
-          </div>
-          <p class="speaker-name">Joshua Katcher</p>
-          <p class="speaker-role">Strategic Initiatives Lead</p>
-          <p class="speaker-company">Canopy</p>
-        </article>
-
-        <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/francescabelluomini.jpg" alt="Francesca Belluomini" />
-          </div>
-          <p class="speaker-name">Francesca Belluomini</p>
-          <p class="speaker-role">Adjunct Professor &amp; Author</p>
-          <p class="speaker-company">Fashion Institute of Technology</p>
-        </article>
-
-        <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/jessehenry.jpg" alt="Jesse Henry" />
-          </div>
-          <p class="speaker-name">Jesse Henry</p>
-          <p class="speaker-role">Founder & CEO </p>
-          <p class="speaker-company">ALT LABS</p>
-        </article>
-
-         <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/theanneschiros.jpg" alt="Dr.Theanne Schiros" />
-          </div>
-          <p class="speaker-name">Theanne Schiros</p>
-          <p class="speaker-role">Professor of Material Science & Research Scientist </p>
-          <p class="speaker-company">FIT & Columbia University</p>
-        </article>
-
-        <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/marygrinnell.jpg" alt="Mary Grinnell" />
-          </div>
-          <p class="speaker-name">Mary Grinnell</p>
-          <p class="speaker-role">Vice President, Start-Up Banking </p>
-          <p class="speaker-company">Western Alliance Bank</p>
-        </article>
-
-         <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/martinsauber.jpg" alt="Martin Sauber" />
-          </div>
-          <p class="speaker-name">Martin Sauber</p>
-          <p class="speaker-role">Head of Strategy, Pioneering & Operations</p>
-          <p class="speaker-company">Mercedes Benz Research & Development North America</p>
-        </article>
-
-         <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/lizalessi.jpg.png" alt="Liz Alessi" />
-          </div>
-          <p class="speaker-name">Liz Alessi</p>
-          <p class="speaker-role">Founder </p>
-          <p class="speaker-company">The Crisis of Stuff</p>
-        </article>
-        <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/DANADAVIS.jpg" alt="Dana Davis" />
-          </div>
-          <p class="speaker-name">Dana Davis</p>
-          <p class="speaker-role">Brand Strategist </p>
-          <p class="speaker-company">Consultant</p>
-        </article>
-        
-        <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/tavisezell.jpg" alt="Tavis Ezell" />
-          </div>
-          <p class="speaker-name">Tavis Ezell</p>
-          <p class="speaker-role">Managing Director</p>
-          <p class="speaker-company">Advanced Science Research Center, CUNY</p>
-        </article>
-
-        <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/stephaniedowns.jpg" alt="Stephanie Downs" />
-          </div>
-          <p class="speaker-name">Stephanie Downs</p>
-          <p class="speaker-role">Founder &amp; CEO</p>
-          <p class="speaker-company">Uncaged Innovations</p>
-        </article>
-
-        <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/ambrielpouncy.jpg" alt="Ambriel Pouncy" />
-          </div>
-          <p class="speaker-name">Ambriel Pouncy</p>
-          <p class="speaker-role">Founder</p>
-          <p class="speaker-company">Fusion Fashion Tech Society</p>
-        </article>
-
-        <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/serenawessely.jpg" alt="Serena Wessely" />
-          </div>
-          <p class="speaker-name">Serena Wessely</p>
-          <p class="speaker-role">Lab Manager</p>
-          <p class="speaker-company">Genspace</p>
-        </article>
-
-        <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/shannenhenry.jpg" alt="Shannen Henry" />
-          </div>
-          <p class="speaker-name">Shannen Henry</p>
-          <p class="speaker-role">Founder &amp; CEO</p>
-          <p class="speaker-company">CocoaFiber</p>
-        </article>
-      </div>
-    </div>
-  </section>
-  <!-- PARTNERS -->
-<section id="partners" class="partners-section">
-  <div class="container">
-    <div class="partners-header reveal">
-      <p class="section-kicker">Our Community</p>
-      <h2 class="section-heading">Sponsors &amp; Partners</h2>
-      <p class="partners-intro">
-        The organizations supporting the Sustainable Design Impact Hub:
-        Fashion × Deep Tech Edition and our broader sustainable design community.
-      </p>
-    </div>
-
-    <!-- Keep this area hidden until the Innovation Partner is approved -->
-    <!--
-    <div class="featured-partner reveal">
-      <p class="partner-category">Innovation Partner</p>
-
-      <div class="featured-partner-card">
-        <img
-          src="images/innovation-partner-logo.png"
-          alt="Innovation Partner"
-        />
-      </div>
-    </div>
-    -->
-
-
-    <div class="partner-group partner-group-secondary reveal">
-      <p class="partner-category">Academic Partners</p>
-
-      <div class="partner-logo-grid partner-logo-grid-small">
-        <a
-          href="https://cbey.yale.edu"
-          class="partner-logo-card"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Yale Center for Business and the Environment"
-        >
-          <img
-            src="images/cbey.jpg"
-            alt="Yale Center for Business and the Environment"
-          />
-        </a>
-
-        <a
-          href="https://www.fitnyc.edu"
-          class="partner-logo-card"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Fashion Institute of Technology"
-        >
-          <img
-            src="images/FIT.jpg"
-            alt="Fashion Institute of Technology"
-          />
-        </a>
-
-        <a
-          href="https://www.asrccat.com"
-          class="partner-logo-card"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Advanced Science Research Center, CUNY"
-        >
-          <img
-            src="images/ASRC.jpg"
-            alt="Advanced Science Research Center, CUNY"
-          />
-        </a>
-      </div>
-    </div>
-
-     <div class="partner-group reveal">
-      <p class="partner-category">Sponsors</p>
-
-      <div class="partner-logo-grid">
-        <a
-          href="https://www.westernalliancebancorporation.com"
-          class="partner-logo-card"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Western Alliance Bank"
-        >
-          <img
-            src="images/westernalliancebank.jpg"
-            alt="Western Alliance Bank"
-      <div class="partner-logo-grid">
-        <a
-          href="https://www.lonelywhale.org"
-          class="partner-logo-card"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Lonely Whale"
-        >
-          <img
-            src="images/lonelywhale.jpg"
-            alt="Lonely Whale"
-          />
-        </a>
-
-        <a
-          href="https://bjornqorn.com"
-          class="partner-logo-card"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Bjorn Qorn"
-        >
-          <img
-            src="images/bjornqorn.jpg"
-            alt="Bjorn Qorn"
-          />
-        </a>
-
-        <a
-          href="https://drinkesspo.com"
-          class="partner-logo-card"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Esspo"
-        >
-          <img
-            src="images/esspo.jpg"
-            alt="Esspo"
-          />
-        </a>
-      </div>
-    </div>
-
-    
-   <div class="partner-group partner-group-secondary reveal">
-      <p class="partner-category">Venue Partner</p>
-
-      <div class="partner-logo-grid partner-logo-grid-small">
-        <a
-          href="https://www.newlab.com"
-          class="partner-logo-card"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Newlab"
-        >
-          <img
-            src="images/newlab.jpg"
-            alt="Newlab"
-          />
-        </a>
-
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- AGENDA -->
-  <section id="agenda">
-    <div class="container schedule-inner">
-      <div class="agenda-intro reveal">
-        <p class="section-label">September 17, 2026</p>
-        <h2 class="schedule-title">Event <span>Agenda</span></h2>
-      </div>
-
-      <div class="schedule-list reveal">
-        <div class="schedule-item">
-          <span class="schedule-time">9:00 AM</span>
-          <h3>Registration &amp; Welcome</h3>
         </div>
-
-        <div class="schedule-item">
-          <span class="schedule-time">9:30 AM</span>
-          <h3>Opening Keynote</h3>
-        </div>
-
-        <div class="schedule-item">
-          <span class="schedule-time">10:00 AM – 1:00 PM</span>
-          <h3>Panel Discussions, Workshops &amp; Masterclasses</h3>
-        </div>
-
-        <div class="schedule-item">
-          <span class="schedule-time">1:00 PM</span>
-          <h3>Lunch &amp; Structured Networking</h3>
-        </div>
-
-        <div class="schedule-item">
-          <span class="schedule-time">2:00 PM – 6:00 PM</span>
-          <h3>Panel Discussions, Startup Pitches &amp; Fireside Chats</h3>
-        </div>
-
-        <div class="schedule-item">
-          <span class="schedule-time">6:00 PM</span>
-          <h3>Closing Remarks</h3>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- INNOVATION GALLERY -->
-  <section id="innovation-gallery">
-    <div class="container innovation-gallery-content">
-      <div class="innovation-gallery-copy reveal">
-        <p class="section-kicker">Fashion x Deep Tech</p>
-        <h2>Innovation Gallery</h2>
-      </div>
-
-      <div class="innovation-gallery-body reveal">
-        <p class="innovation-gallery-intro">
-          A curated presentation of design-forward deep tech built in New York.
-        </p>
-
-        <p>
-          The gallery will spotlight emerging companies, materials, products,
-          and technologies shaping the future of fashion, manufacturing,
-          mobility, and the built environment. Designed as an elevated
-          exhibition rather than a traditional trade show, the space will bring
-          founders and their work into direct conversation with investors,
-          brands, designers, researchers, and industry leaders.
-        </p>
-
-        <p>
-          We are especially interested in New York-based innovations that
-          demonstrate strong design thinking, technical ambition, and the
-          potential to create meaningful environmental or social impact.
-        </p>
-
-        <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSeA992Pg5FnnjsybR61m_HUV6cVfFHvEkqzyfHIzVHhrK3vAg/viewform?usp=header"
-          class="btn-purple innovation-gallery-button"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Exhibitor Application
-        </a>
+        <a href="#contact" class="btn-outline">Discuss a Property Project</a>
       </div>
     </div>
   </section>
 
   <!-- PRESS -->
   <section id="press">
-    <div class="container">
-      <div class="press-header reveal">
-        <h2>Press</h2>
+    <p class="press-label reveal">As Seen In</p>
+    <div class="press-logos reveal">
+      <!-- REPLACE EACH SPAN WITH: <img src="images/press-NAME.png" alt="NAME" class="press-img" /> -->
+      <span class="press-logo" style="font-style:italic; font-size:28px; line-height:1.1;">marie<br>claire</span>
+      <span class="press-logo" style="font-size:16px;">✦ clam</span>
+      <span class="press-logo" style="font-size:20px;">● tocco</span>
+      <span class="press-logo" style="font-size:24px; font-weight:500; letter-spacing:0.1em; font-family:var(--font-body);">EBONY</span>
+      <span class="press-logo" style="font-size:13px; font-weight:500; border:1.5px solid currentColor; padding:5px 9px;">no kill<br><small style="font-size:9px; letter-spacing:0.1em;">MAGAZINE</small></span>
+      <span class="press-logo" style="font-size:12px; text-align:center; line-height:1.5;">◆ SAMUEL<br>LAWRENCE<br>FOUNDATION</span>
+    </div>
+  </section>
+
+  <!-- WORK WITH US -->
+  <section id="work-with-us">
+    <div class="work-intro">
+      <p class="section-label reveal">What We Do</p>
+      <h2 class="section-heading reveal">Work With Us</h2>
+      <p class="section-subtext reveal">Whether you need strategic guidance, an event produced, a speaker on sustainable futures, or a long-term ecosystem partner — we're ready.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <span class="service-num">01</span>
+        <h3 class="service-card-title">Consulting</h3>
+        <p class="service-card-body">Strategic sustainability consulting for brands in fashion, lifestyle, and travel. We connect you with ethical producers, artisans, and partners to bring your people-and-planet-positive vision to life.</p>
+        <a href="#contact" class="service-card-cta">Get in touch</a>
       </div>
-
-      <div class="press-grid">
-        <a href="#" class="press-card reveal">
-          <p class="press-source">Exibart</p>
-          <h3 class="press-title">
-            Sustainable Design Impact Hub | Next Generation Materials Edition
-          </h3>
-          <p class="press-excerpt">
-            Dal 29 al 30 maggio 2025 — Fondazione Sella, Lanificio Maurizio
-            Sella, Biella, Italy.
-          </p>
-          <span class="press-link">Read More</span>
-        </a>
-
-        <a href="#" class="press-card reveal reveal-delay-1">
-          <p class="press-source">The Biomimicry Institute</p>
-          <h3 class="press-title">
-            Sustainable Design Impact Hub in Grenada — Virtual Presentation
-          </h3>
-          <p class="press-excerpt">
-            Exploring how biomimicry can transform fashion systems in Small
-            Island Developing States.
-          </p>
-          <span class="press-link">Read More</span>
-        </a>
-
-        <a href="#" class="press-card reveal">
-          <p class="press-source">Ebony Magazine</p>
-          <h3 class="press-title">
-            Untapped, Unbothered, Unapologetic: Grenada's Creative Economy Is
-            Having a Global Moment
-          </h3>
-          <p class="press-excerpt">
-            On Grenada's Spice Island, the Sustainable Design Impact Hub merges
-            heritage, innovation, and couture.
-          </p>
-          <span class="press-link">Read More</span>
-        </a>
-
-        <a href="#" class="press-card reveal reveal-delay-1">
-          <p class="press-source">Caribbean Beat Magazine</p>
-          <h3 class="press-title">
-            Shannen Henry: Sustainable Impact
-          </h3>
-          <p class="press-excerpt">
-            Through sustainable practices and circular product development,
-            Shannen Henry is helping preserve and uplift Caribbean creative
-            industries.
-          </p>
-          <span class="press-link">Read More</span>
-        </a>
+      <div class="service-card reveal reveal-delay-1">
+        <span class="service-num">02</span>
+        <h3 class="service-card-title">Events &amp; Summits</h3>
+        <p class="service-card-body">End-to-end production of high-impact sustainability events and conferences — from concept to execution. We bring together industry leaders, innovators, and change-makers on a global stage.</p>
+        <a href="#contact" class="service-card-cta">Get in touch</a>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <span class="service-num">03</span>
+        <h3 class="service-card-title">Speaking</h3>
+        <p class="service-card-body">Invite our founder to your conference, university, or corporate event. She speaks on sustainable fashion, ecosystem building, circular economy, and the future of the creative industries.</p>
+        <a href="#contact" class="service-card-cta">Book a speaker</a>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <span class="service-num">04</span>
+        <h3 class="service-card-title">Partnerships</h3>
+        <p class="service-card-body">Long-term ecosystem partnerships for organisations seeking to embed sustainability at their core. We co-design frameworks, programs, and initiatives that create lasting impact.</p>
+        <a href="#contact" class="service-card-cta">Explore partnership</a>
       </div>
     </div>
   </section>
 
-  <!-- AWARD -->
-  <section id="award">
-    <div class="container">
-      <div class="award-inner reveal">
-        <p class="award-label">Award</p>
-        <h2 class="award-title">
-          Recognizing Excellence in Sustainable Design
-        </h2>
-        <p class="award-body">
-          The Sustainable Design Impact Hub Award celebrates pioneering work at
-          the intersection of fashion, technology, and sustainability. We honor
-          individuals and organizations driving meaningful change across the
-          creative industries.
-        </p>
-        <a href="#contact" class="btn-purple">Learn More</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- PHOTO GALLERY -->
-  <section id="gallery">
-    <p class="gallery-label reveal">Materials Edition — Biella, Italy 2025</p>
-
-    <div class="gallery-grid reveal">
-      <div class="gallery-item">
-        <img src="images/biella-113.jpg" alt="SDIH Biella event" />
-      </div>
-
-      <div class="gallery-item">
-        <img src="images/biella-269.jpg" alt="SDIH Biella event" />
-      </div>
-
-      <div class="gallery-item">
-        <img src="images/biella-359.jpg" alt="SDIH Biella event" />
-      </div>
-
-      <div class="gallery-item">
-        <img src="images/biella-367.jpg" alt="SDIH Biella event" />
-      </div>
-
-      <div class="gallery-item">
-        <img src="images/biella-538.jpg" alt="SDIH Biella event" />
-      </div>
-
-      <div class="gallery-item">
-        <img src="images/biella-544.jpg" alt="SDIH Biella event" />
-      </div>
-
-      <div class="gallery-item">
-        <img src="images/BIELLA-412.jpg" alt="SDIH Biella event" />
-      </div>
-    </div>
-  </section>
-
-  <!-- TEAM -->
-  <section id="team" class="team-section">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2>Meet the New York Team</h2>
-        <p>
-          The team curating and delivering the 2026 Sustainable Design Impact
-          Hub: Fashion x Deep Tech at Newlab.
-        </p>
-      </div>
-
-      <div class="team-grid reveal">
-        <article class="team-card">
-          <img src="images/ShannenHenry.jpg" alt="Shannen Henry" />
-          <h3>Shannen Henry</h3>
-          <p class="team-role">Founder &amp; Executive Director</p>
-          <a
-            href="mailto:shannen@sustainabledesignimpacthub.com"
-            class="team-email"
-          >
-            Email
-          </a>
-        </article>
-
-        <article class="team-card">
-          <img src="images/annaho.jpg" alt="Anna Ho" />
-          <h3>Anna Ho</h3>
-          <p class="team-role">Partnerships</p>
-          <a
-            href="mailto:anna.ho@sustainabledesignimpacthub.com"
-            class="team-email"
-          >
-            Email
-          </a>
-        </article>
-
-        <article class="team-card">
-          <img src="images/jesseadler.jpg" alt="Jesse Adler" />
-          <h3>Jesse Adler</h3>
-          <p class="team-role">Innovation Gallery Coordinator</p>
-          <a
-            href="mailto:jesse@sustainabledesignimpacthub.com"
-            class="team-email"
-          >
-            Email
-          </a>
-        </article>
-
-        <article class="team-card">
-          <img src="images/alysiacharles.jpg" alt="Alysia Charles" />
-          <h3>Alysia Charles</h3>
-          <p class="team-role">Assistant, Spatial &amp; Experience Design</p>
-          <a
-            href="mailto:alysia.charles@sustainabledesignimpacthub.com"
-            class="team-email"
-          >
-            Email
-          </a>
-        </article>
-      </div>
+  <!-- AFFILIATIONS -->
+  <section id="affiliations">
+    <p class="affiliations-label reveal">Affiliations</p>
+    <div class="affiliations-logos reveal">
+      <!-- REPLACE EACH DIV WITH: <img src="images/affil-NAME.png" alt="NAME" class="affil-img" /> -->
+      <div class="affil-logo"><span class="affil-icon">◎</span>The Mercedes-Benz Fellowship<br><strong>beVisioneers community</strong></div>
+      <div class="affil-logo"><span class="affil-icon">✦</span>United Nations<br>Fashion &amp; Lifestyle Network</div>
+      <div class="affil-logo"><span class="affil-icon">🕊</span>Halcyon</div>
+      <div class="affil-logo"><span class="affil-icon">▲▽</span>International Society<br>for Industrial Ecology</div>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact">
-    <div class="container">
-      <div class="contact-inner">
-        <h2 class="reveal">Contact Us</h2>
-        <p class="reveal">
-          To learn more about attending, speaking, exhibiting, or partnering,
-          please get in touch.
-        </p>
-
-        <form
-          class="email-form reveal"
-          name="general-inquiry"
-          method="POST"
-          data-netlify="true"
-        >
-          <input type="hidden" name="form-name" value="general-inquiry" />
-          <input
-            class="email-input"
-            type="email"
-            name="email"
-            placeholder="Your Email Address"
-            aria-label="Your email address"
-            required
-          />
-          <button class="email-submit" type="submit">Submit</button>
-        </form>
-
-        <p class="contact-direct">
-          Or email us directly:
-          <a href="mailto:team@sustainabledesignimpacthub.com">
-            team@sustainabledesignimpacthub.com
-          </a>
-        </p>
+    <h2 class="contact-title reveal">Get in Touch</h2>
+    <p class="contact-subtitle reveal">Tell us what you're working on and how we can help.</p>
+    <div class="contact-form reveal">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" />
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" />
+      </div>
+      <div class="form-group">
+        <label>Email *</label>
+        <input type="email" />
+      </div>
+      <div class="form-group">
+        <label>I'm interested in *</label>
+        <select>
+          <option value="">Select a service</option>
+          <option>Consulting</option>
+          <option>Event Production</option>
+          <option>Speaking Engagement</option>
+          <option>Partnership</option>
+          <option>Sustainable Properties &amp; Real Estate</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group full">
+        <label>Message *</label>
+        <textarea placeholder="Tell us about your project..."></textarea>
+      </div>
+      <div class="form-submit">
+        <button class="btn-send">Send Message</button>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-inner">
-      <div class="footer-logo">
-        <img src="images/sdih-logo.jpg" alt="Sustainable Design Impact Hub" />
+    <div class="footer-brand">
+      <p class="brand-name">The Kaylia Group</p>
+      <p>New York, NY 10001<br>info@kayliaofficial.com<br>thekayliagroup.com</p>
+    </div>
+    <div class="footer-nav">
+      <h5>Navigation</h5>
+      <ul>
+        <li><a href="#group">Group</a></li>
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#work-with-us">Services</a></li>
+        <li><a href="#properties">Properties</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="shannen/">Meet the Founder</a></li>
+      </ul>
+    </div>
+    <div class="footer-social">
+      <h5>Connect</h5>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/company/the-kaylia-group" target="_blank" class="social-link" aria-label="LinkedIn">in</a>
+        <a href="#" class="social-link" aria-label="Instagram">&#9679;</a>
       </div>
-
-      <div class="footer-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#events">Event</a>
-        <a href="#speakers">Speakers</a>
-        <a href="#agenda">Agenda</a>
-        <a href="#press">Press</a>
-        <a href="#contact">Contact</a>
-      </div>
-
-      <div class="footer-social">
-        <a href="#" aria-label="Instagram">●</a>
-        <a href="#" aria-label="LinkedIn">in</a>
-      </div>
-
-      <p class="footer-copy">
-        © 2026 Sustainable Design Impact Hub. All Rights Reserved. |
-        <a href="#">Privacy Policy</a>
-      </p>
+      <a href="shannen/" class="footer-founder-link">Meet the Founder →</a>
     </div>
   </footer>
-
-  <!-- SPONSOR MODAL -->
-  <div
-    id="sponsor-modal"
-    class="modal-overlay"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="sponsor-modal-title"
-    onclick="closeSponsorFormOnOverlay(event)"
-  >
-    <div class="modal-box">
-      <button
-        class="modal-close"
-        type="button"
-        onclick="closeSponsorForm()"
-        aria-label="Close sponsor form"
-      >
-        ×
-      </button>
-
-      <h2 id="sponsor-modal-title">Become a Sponsor</h2>
-      <p>
-        Share your details and our team will follow up with the partnership deck
-        and next steps.
-      </p>
-
-      <form
-        name="sponsor-inquiry"
-        method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-      >
-        <input type="hidden" name="form-name" value="sponsor-inquiry" />
-
-        <p style="display: none;">
-          <label>
-            Do not fill this out:
-            <input name="bot-field" />
-          </label>
-        </p>
-
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Email Address" required />
-        <input
-          type="text"
-          name="organization"
-          placeholder="Organization"
-          required
-        />
-
-        <select name="sponsorship-level" required>
-          <option value="">Interested Sponsorship Level</option>
-          <option value="$500">$500</option>
-          <option value="$1,000">$1,000</option>
-          <option value="$3,000">$3,000</option>
-          <option value="$5,000">$5,000</option>
-          <option value="$10,000">$10,000</option>
-          <option value="Not sure yet">Not sure yet</option>
-        </select>
-
-        <textarea
-          name="message"
-          placeholder="Tell us a little about your interest"
-          rows="4"
-        ></textarea>
-
-        <button type="submit">Submit Inquiry</button>
-      </form>
-    </div>
+  <div class="footer-bottom">
+    <p>© 2025 The Kaylia Group. All rights reserved.</p>
+    <p>New York · Biella · Grenada</p>
   </div>
 
   <script>
-    function openSponsorForm(event) {
-      event.preventDefault();
-      const modal = document.getElementById("sponsor-modal");
-      modal.classList.add("active");
-      document.body.style.overflow = "hidden";
-    }
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => observer.observe(el));
 
-    function closeSponsorForm() {
-      const modal = document.getElementById("sponsor-modal");
-      modal.classList.remove("active");
-      document.body.style.overflow = "";
-    }
-
-    function closeSponsorFormOnOverlay(event) {
-      if (event.target.id === "sponsor-modal") {
-        closeSponsorForm();
-      }
-    }
-
-    function toggleMobileMenu(button) {
-      const navLinks = document.getElementById("nav-links");
-      const isOpen = navLinks.classList.toggle("open");
-      button.setAttribute("aria-expanded", String(isOpen));
-      button.textContent = isOpen ? "×" : "☰";
-    }
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
-        closeSponsorForm();
-      }
-    });
-
-    const reveals = document.querySelectorAll(".reveal");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.08 }
-    );
-
-    reveals.forEach((element) => observer.observe(element));
-
-    const sections = document.querySelectorAll("section[id]");
-    const navLinks = document.querySelectorAll(".nav-links a[href^='#']");
-
-    window.addEventListener("scroll", () => {
-      let current = "";
-
-      sections.forEach((section) => {
-        if (window.scrollY >= section.offsetTop - 120) {
-          current = section.id;
-        }
-      });
-
-      navLinks.forEach((link) => {
-        link.classList.toggle(
-          "active",
-          link.getAttribute("href") === "#" + current
-        );
-      });
-    });
-
-    document.querySelectorAll(".nav-links a").forEach((link) => {
-      link.addEventListener("click", () => {
-        const nav = document.getElementById("nav-links");
-        const button = document.querySelector(".mobile-menu-button");
-
-        if (nav.classList.contains("open")) {
-          nav.classList.remove("open");
-          button.setAttribute("aria-expanded", "false");
-          button.textContent = "☰";
-        }
-      });
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+      navLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
     });
   </script>
 </body>
