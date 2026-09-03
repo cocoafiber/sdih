@@ -1502,24 +1502,6 @@
         transition-duration: 0.01ms !important;
       }
     }
-/* FORCE MERCEDES PARTNER CARD TO MATCH OTHER LOGOS */
-.partner-card img[alt*="Mercedes-Benz"] {
-  width: 140px !important;
-  height: 140px !important;
-  max-width: 140px !important;
-  max-height: 140px !important;
-  object-fit: contain !important;
-  margin: 0 auto !important;
-}
-
-.partner-card:has(img[alt*="Mercedes-Benz"]) {
-  width: 100%;
-  max-width: 370px;
-  min-height: 160px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
   </style>
 </head>
 
@@ -1909,17 +1891,38 @@
       </p>
     </div>
 
-<div class="partner-category reveal">
-  <p class="partner-category-title">Innovation Partner</p>
+<!-- INNOVATION PARTNER -->
+<div style="margin-top: 56px; margin-bottom: 72px;">
 
-  <div class="partner-grid">
-    <div class="partner-card mercedes-card">
-      <img
-        src="images/mercedes-benz.jpg"
-        alt="Mercedes-Benz Research & Development North America"
-      />
-    </div>
+  <p class="partner-category-title" style="margin-bottom: 32px;">
+    Innovation Partner
+  </p>
+
+  <div
+    style="
+      width: 100%;
+      max-width: 430px;
+      height: 255px;
+      border: 1px solid rgba(255,255,255,0.14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    "
+  >
+    <img
+      src="images/mercedes-benz.jpg"
+      alt="Mercedes-Benz Research & Development North America"
+      style="
+        width: 110px !important;
+        height: 110px !important;
+        max-width: 110px !important;
+        max-height: 110px !important;
+        object-fit: contain !important;
+        margin: 0 !important;
+      "
+    />
   </div>
+
 </div>
 
     <div class="partner-group partner-group-secondary reveal">
