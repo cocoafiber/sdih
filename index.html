@@ -1502,6 +1502,24 @@
         transition-duration: 0.01ms !important;
       }
     }
+    /* FORCE MERCEDES PARTNER CARD TO MATCH OTHER LOGOS */
+.partner-card img[alt*="Mercedes-Benz"] {
+  width: 140px !important;
+  height: 140px !important;
+  max-width: 140px !important;
+  max-height: 140px !important;
+  object-fit: contain !important;
+  margin: 0 auto !important;
+}
+
+.partner-card:has(img[alt*="Mercedes-Benz"]) {
+  width: 100%;
+  max-width: 370px;
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
   </style>
 </head>
 
