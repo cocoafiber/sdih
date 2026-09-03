@@ -582,39 +582,20 @@
       color: rgba(255, 255, 255, 0.8);
       line-height: 1.5;
     }
+/* ── FEATURED INNOVATION PARTNER ── */
 
-/* ── INNOVATION PARTNER ── */
-#innovation-partner {
-  padding: 84px 0;
-  background: var(--navy);
-  border-top: 1px solid var(--border);
+.partner-grid-featured {
+  grid-template-columns: minmax(280px, 520px);
+  justify-content: center;
 }
 
-.innovation-partner-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+.partner-card-featured {
+  min-height: 180px;
 }
 
-.innovation-partner-label {
-  margin-bottom: 26px;
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--purple-light);
-}
-
-.innovation-partner-logo {
-  width: min(380px, 78vw);
-}
-
-.innovation-partner-logo img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
+.partner-card-featured img {
+  max-width: 360px;
+  max-height: 100px;
 }
 /* ── PARTNERS ── */
 
@@ -1912,21 +1893,7 @@
       </div>
     </div>
   </section>
-  <!-- INNOVATION PARTNER -->
-<section id="innovation-partner">
-  <div class="container">
-    <div class="innovation-partner-inner reveal">
-      <p class="innovation-partner-label">Innovation Partner</p>
-
-      <div class="innovation-partner-logo">
-        <img
-          src="images/mercedes-benz.jpg"
-          alt="Mercedes-Benz Research & Development North America"
-        />
-      </div>
-    </div>
-  </div>
-</section>
+  
   <!-- PARTNERS -->
 <section id="partners" class="partners-section">
   <div class="container">
@@ -1939,20 +1906,18 @@
       </p>
     </div>
 
-    <!-- Keep this area hidden until the Innovation Partner is approved -->
-    <!--
-    <div class="featured-partner reveal">
-      <p class="partner-category">Innovation Partner</p>
-
-      <div class="featured-partner-card">
-        <img
-          src="images/innovation-partner-logo.png"
-          alt="Innovation Partner"
-        />
+    <!-- INNOVATION PARTNER -->
+    <div class="partner-category reveal">
+      <p class="partner-category-title">Innovation Partner</p>
+      <div class="partner-grid partner-grid-featured">
+        <div class="partner-card partner-card-featured">
+          <img
+            src="images/mercedes-benz-.jpg"
+            alt="Mercedes-Benz Research & Development North America"
+          />
+        </div>
       </div>
     </div>
-    -->
-
 
     <div class="partner-group partner-group-secondary reveal">
       <p class="partner-category">Academic Partners</p>
