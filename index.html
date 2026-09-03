@@ -583,6 +583,39 @@
       line-height: 1.5;
     }
 
+/* ── INNOVATION PARTNER ── */
+#innovation-partner {
+  padding: 84px 0;
+  background: var(--navy);
+  border-top: 1px solid var(--border);
+}
+
+.innovation-partner-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.innovation-partner-label {
+  margin-bottom: 26px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--purple-light);
+}
+
+.innovation-partner-logo {
+  width: min(380px, 78vw);
+}
+
+.innovation-partner-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
 /* ── PARTNERS ── */
 
 .partners-section {
@@ -1708,6 +1741,15 @@
 
         <article class="speaker-card">
           <div class="speaker-photo">
+            <img src="images/Rebeccamink.jpg" alt="Rebecca Mink" />
+          </div>
+          <p class="speaker-name">Rebecca Mink</p>
+          <p class="speaker-role">Founder & CEO </p>
+          <p class="speaker-company">PLHYDE</p>
+        </article>
+
+        <article class="speaker-card">
+          <div class="speaker-photo">
             <img src="images/michellegabriel.jpg" alt="Michelle Gabriel" />
           </div>
           <p class="speaker-name">Michelle Gabriel</p>
@@ -1870,6 +1912,21 @@
       </div>
     </div>
   </section>
+  <!-- INNOVATION PARTNER -->
+<section id="innovation-partner">
+  <div class="container">
+    <div class="innovation-partner-inner reveal">
+      <p class="innovation-partner-label">Innovation Partner</p>
+
+      <div class="innovation-partner-logo">
+        <img
+          src="images/mercedes-benz.png"
+          alt="Mercedes-Benz Research & Development North America"
+        />
+      </div>
+    </div>
+  </div>
+</section>
   <!-- PARTNERS -->
 <section id="partners" class="partners-section">
   <div class="container">
