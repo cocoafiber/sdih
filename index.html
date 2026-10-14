@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="The Sustainable Design Impact Hub convenes designers, scientists, founders, investors, and industry leaders at the intersection of fashion and deep tech."
+    content="Sustainable Design Impact Hub convenes fashion, science, design and industry through curated gatherings in New York, Paris and beyond."
   />
   <title>Sustainable Design Impact Hub</title>
 
@@ -582,177 +582,6 @@
       color: rgba(255, 255, 255, 0.8);
       line-height: 1.5;
     }
-/* ── PARTNERS ── */
-
-.partners-section {
-  padding: 110px 0;
-  background: var(--navy-deep);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.partners-header {
-  max-width: 760px;
-  margin-bottom: 72px;
-}
-
-.partners-header .section-heading {
-  margin-bottom: 22px;
-}
-
-.partners-intro {
-  max-width: 680px;
-  color: var(--text-muted);
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 1.8;
-}
-
-.partner-group {
-  margin-top: 70px;
-}
-
-.partner-group:first-of-type {
-  margin-top: 0;
-}
-
-.partner-group-secondary {
-  margin-top: 86px;
-}
-
-.partner-category {
-  margin-bottom: 24px;
-  color: var(--purple-light);
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-
-.partner-logo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.partner-logo-grid-small {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.partner-logo-card {
-  min-height: 170px;
-  padding: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.11);
-  text-decoration: none;
-  transition:
-    background 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.25s ease;
-}
-
-.partner-logo-card:hover,
-.partner-logo-card:focus-visible {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(168, 85, 247, 0.55);
-  transform: translateY(-3px);
-}
-
-.partner-logo-card img {
-  width: 160px;
-  height: 64px;
-  object-fit: contain;
-  opacity: 0.85;
-  display: block;
-  margin: 0 auto;
-  transition: opacity 0.25s ease;
-}
-
-.partner-logo-card:hover img {
-  opacity: 1;
-}
-
-.partner-logo-card.logo-white img {
-  filter: brightness(0) invert(1);
-  opacity: 0.85;
-}
-
-.partner-logo-card.logo-color img {
-  filter: none;
-  opacity: 0.9;
-}
-
-.featured-partner {
-  margin-bottom: 76px;
-}
-
-.featured-partner-card {
-  min-height: 240px;
-  padding: 54px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(124, 58, 237, 0.08),
-      rgba(255, 255, 255, 0.02)
-    );
-  border: 1px solid rgba(168, 85, 247, 0.3);
-}
-
-.featured-partner-card img {
-  width: 260px;
-  height: 90px;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-  opacity: 0.9;
-  display: block;
-}
-
-@media (max-width: 920px) {
-  .partner-logo-grid,
-  .partner-logo-grid-small {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 640px) {
-  .partners-section {
-    padding: 80px 0;
-  }
-
-  .partners-header {
-    margin-bottom: 52px;
-  }
-
-  .partner-logo-grid,
-  .partner-logo-grid-small {
-    grid-template-columns: 1fr;
-  }
-
-  .partner-logo-card {
-    min-height: 145px;
-  }
-
-  .partner-logo-card img {
-    width: 130px;
-    height: 52px;
-  }
-
-  .featured-partner-card {
-    min-height: 190px;
-    padding: 36px 24px;
-  }
-
-  .featured-partner-card img {
-    width: 200px;
-    height: 70px;
-  }
-}
 
     /* ── INNOVATION GALLERY ── */
     #innovation-gallery {
@@ -797,7 +626,6 @@
     .innovation-gallery-button {
       margin-top: 12px;
     }
-    
 
     /* ── PRESS ── */
     #press {
@@ -1323,6 +1151,51 @@
       transition-delay: 0.2s;
     }
 
+
+    /* ── PARIS / EDITIONS ── */
+    .hero-eyebrow {font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:#d6b8ff;margin-bottom:24px}
+    .hero-secondary {display:inline-block;margin-left:20px;color:#fff;text-decoration:none;font-size:12px;letter-spacing:.13em;text-transform:uppercase;border-bottom:1px solid #a855f7;padding-bottom:8px}
+    #paris {padding:120px 0;background:#19152e;position:relative;overflow:hidden;border-block:1px solid var(--border)}
+    #paris:before {content:'PARIS';position:absolute;right:-30px;top:-60px;font:300 clamp(140px,24vw,350px)/1 var(--font-display);color:rgba(168,85,247,.055);pointer-events:none}
+    .paris-layout {position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:100px;align-items:center}
+    .paris-title {font:400 clamp(65px,10vw,136px)/.85 var(--font-display);letter-spacing:-.035em;margin:22px 0 28px}
+    .paris-title em {color:#cba7ff;font-weight:300}
+    .paris-deck {font:400 clamp(23px,3vw,34px)/1.3 var(--font-display);max-width:540px;margin-bottom:22px}
+    .paris-description {font-size:15px;line-height:1.9;color:var(--text-muted);font-weight:300;max-width:520px}
+    .paris-meta {display:grid;grid-template-columns:1fr 1fr;gap:24px;border-block:1px solid var(--border);padding:26px 0;margin:35px 0}
+    .paris-meta span {display:block;color:var(--purple-light);font-size:10px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px}
+    .paris-meta strong {font:400 24px var(--font-display)}
+    .paris-art {min-height:530px;border:1px solid rgba(255,255,255,.18);position:relative;overflow:hidden;background:linear-gradient(145deg,#382c52,#17132a 65%)}
+    .paris-art img {width:100%;height:100%;position:absolute;inset:0;object-fit:cover}
+    .paris-art:after {content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(12,9,28,.75))}
+    .paris-art-caption {position:absolute;bottom:30px;left:30px;z-index:1;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#fff}
+    .paris-art-placeholder {position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;color:rgba(255,255,255,.34);font:italic 32px var(--font-display)}
+    .paris-actions {display:flex;align-items:center;gap:25px;flex-wrap:wrap}
+    .paris-note {font-size:12px;color:var(--text-muted)}
+    #gallery {padding:120px 0;background:var(--navy-deep)}
+    .editions-head {display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:65px}
+    .editions-head p:last-child {font-size:15px;color:var(--text-muted);line-height:1.8;max-width:400px}
+    .edition {margin-bottom:100px}
+    .edition:last-child {margin-bottom:0}
+    .edition-top {display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;padding-bottom:28px;border-bottom:1px solid var(--border);margin-bottom:22px}
+    .edition-number {font-size:11px;color:var(--purple-light);letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px}
+    .edition-title {font:400 clamp(38px,5vw,65px)/1 var(--font-display)}
+    .edition-info {justify-self:end;text-align:right}
+    .edition-info p {font-size:12px;letter-spacing:.08em;color:var(--text-muted);margin-top:7px}
+    .edition-info strong {font-weight:400;color:#fff}
+    .edition-description {font-size:15px;line-height:1.8;color:var(--text-muted);max-width:750px;margin:0 0 28px}
+    .edition-photos {display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:7px}
+    .edition-photos figure {position:relative;aspect-ratio:4/3;overflow:hidden;background:linear-gradient(145deg,#34304f,#1c1934);margin:0}
+    .edition-photos figure:first-child {aspect-ratio:auto;grid-row:span 2}
+    .edition-photos img {width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .4s ease}
+    .edition-photos figure:hover img {transform:scale(1.04)}
+    .edition-photos figcaption {position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;font:italic 23px var(--font-display);color:rgba(255,255,255,.34)}
+    .edition-photos figure:has(img) figcaption {display:none}
+    .edition-photos figure:first-child img {height:100%}
+    .edition-credit {font-size:11px;color:var(--text-muted);margin-top:12px}
+    @media(max-width:900px) {.paris-layout{grid-template-columns:1fr;gap:42px}.paris-art{min-height:360px}.edition-top{grid-template-columns:1fr;gap:12px}.edition-info{justify-self:start;text-align:left}.editions-head{display:block}.editions-head p:last-child{margin-top:16px}.edition-photos{grid-template-columns:1fr 1fr}.edition-photos figure:first-child{grid-column:span 2;grid-row:auto;aspect-ratio:16/9}}
+    @media(max-width:600px) {#paris,#gallery{padding:80px 0}.paris-title{font-size:85px}.paris-meta{grid-template-columns:1fr 1fr}.hero-secondary{display:block;margin:25px auto 0;width:max-content}.edition-photos{gap:5px}.edition-photos figure{aspect-ratio:1/1}.edition-photos figure:first-child{aspect-ratio:4/3}.edition{margin-bottom:75px}}
+
     /* ── RESPONSIVE ── */
     @media (max-width: 1100px) {
       .nav-links {
@@ -1515,10 +1388,9 @@
     <ul class="nav-links" id="nav-links">
       <li><a href="#home" class="active">Home</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#events">Event</a></li>
-      <li><a href="#speakers">Speakers</a></li>
-      <li><a href="#agenda">Agenda</a></li>
-      <li><a href="#innovation-gallery">Gallery</a></li>
+      <li><a href="#paris">Paris 2027</a></li>
+      <li><a href="#gallery">Past Editions</a></li>
+      <li><a href="#speakers">NYC Speakers</a></li>
       <li><a href="#press">Press</a></li>
       <li>
         <a href="#" class="nav-sponsor" onclick="openSponsorForm(event)">
@@ -1549,87 +1421,44 @@
     <div class="hero-bg" aria-hidden="true"></div>
 
     <div class="hero-content">
-      <h1>Fostering Innovation<br />&amp; Collaboration 2026</h1>
+      <p class="hero-eyebrow">Sustainable Design Impact Hub · Next Edition</p>
+      <h1>Paris.<br />Haute Couture Week.</h1>
       <div class="hero-divider"></div>
-      <p class="hero-subtitle">Stay Ahead of the Sustainable Fashion Industry</p>
-      <a
-        href="https://luma.com/upsdshbs"
-        target="_blank"
-        rel="noopener"
-        class="btn-purple hero-cta"
-      >
-        Register Now
-      </a>
+      <p class="hero-subtitle">28 January 2027 · Paris, France</p>
+      <a href="#paris" class="btn-purple hero-cta">Discover the Paris Edition</a>
+      <a href="#gallery" class="hero-secondary">Explore Past Editions ↗</a>
     </div>
   </section>
 
-  <!-- EVENT DETAILS -->
-  <section id="events">
-    <div class="container">
-      <p class="section-kicker">
-        Fostering Innovation &amp; Collaboration 2026
-      </p>
-
-      <h2 class="event-hero-title reveal">
-        The Sustainable Design Impact Hub<br />in New York
-      </h2>
-
-      <p class="event-subtitle reveal">
-        17 September 2026 | Newlab, Brooklyn
-      </p>
-
-      <div class="event-grid reveal">
-        <div class="event-col">
-          <p class="event-col-label">What</p>
-          <p class="event-col-value">
-            Sustainable Design Impact Hub: Fashion x Deep Tech
-          </p>
+  <!-- UPCOMING PARIS EDITION -->
+  <section id="paris">
+    <div class="container paris-layout">
+      <div class="reveal">
+        <p class="section-kicker">The Fifth Edition · Coming Soon</p>
+        <h2 class="paris-title">Paris<br /><em>2027.</em></h2>
+        <p class="paris-deck">Where material innovation meets the art of couture.</p>
+        <p class="paris-description">On January 28, the Sustainable Design Impact Hub arrives in Paris during Haute Couture Week. An intimate convening exploring the relationship between emerging materials, exceptional craftsmanship, and the future of luxury fashion.</p>
+        <div class="paris-meta">
+          <div><span>Date</span><strong>28 January 2027</strong></div>
+          <div><span>Location</span><strong>Paris, France</strong></div>
+          <div><span>Occasion</span><strong>Haute Couture Week</strong></div>
+          <div><span>Venue</span><strong>To be announced</strong></div>
         </div>
-
-        <div class="event-col">
-          <p class="event-col-label">When</p>
-          <p class="event-col-value">September 17, 2026</p>
-        </div>
-
-        <div class="event-col">
-          <p class="event-col-label">Where</p>
-          <p class="event-col-value">Newlab, Brooklyn, New York</p>
-        </div>
-
-        <div class="event-col">
-          <a href="#contact" class="btn-purple">Details</a>
-        </div>
+        <div class="paris-actions"><a class="btn-purple" href="mailto:team@sustainabledesignimpacthub.com?subject=Paris%202027%20Inquiry">Inquire About Paris</a><span class="paris-note">Partnerships · Innovation Gallery · Attendance</span></div>
+      </div>
+      <div class="paris-art reveal">
+        <!-- OPTIONAL: Add images/paris-couture.jpg to replace the placeholder -->
+        <div class="paris-art-placeholder">Material · Craft · Couture</div>
+        <span class="paris-art-caption">Sustainable Design Impact Hub / Paris</span>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
+    <!-- ABOUT -->
   <section id="about">
     <div class="container about-inner">
-      <div class="about-left reveal">
-        <h2>
-          The <strong>Sustainable Design Impact Hub</strong> in New York
-        </h2>
-        <p class="about-date">17 September 2026 | Newlab</p>
-        <a href="#contact" class="read-more">Read More</a>
-      </div>
-
-      <div class="about-right reveal">
-        <p>
-          With an emphasis on the
-          <strong>intersection of Fashion &amp; Deep Tech</strong>, the
-          Sustainable Design Impact Hub in New York bridges the gap between lab
-          and market while offering fresh insight into New York's fashion and
-          innovation ecosystem.
-        </p>
-
-        <p>
-          We believe New York City is not only a runway, but a hub for deep-tech
-          fashion innovation. Join us as we convene designers, scientists,
-          entrepreneurs, investors, and industry leaders to shape the future of
-          sustainable fashion.
-        </p>
-      </div>
+      <div class="about-left reveal"><p class="section-kicker">About the Hub</p><h2>Curating the conversations that <strong>move industries forward.</strong></h2><a href="#gallery" class="read-more">Explore Our Editions</a></div>
+      <div class="about-right reveal"><p>The Sustainable Design Impact Hub is a curated convening series bringing together the people shaping the future of materials, design, and industry.</p><p>Across cities and disciplines, we connect founders, scientists, designers, investors, and established industry to exchange knowledge, challenge assumptions, and explore how innovation moves from idea to application.</p><p>From <strong>Biella</strong> to <strong>New York</strong> and next <strong>Paris</strong>, each edition responds to the distinct creative and industrial culture of its host city.</p></div>
     </div>
   </section>
 
@@ -1668,16 +1497,14 @@
   <section id="speakers">
     <div class="container">
       <div class="speakers-header reveal">
-        <h2>Featured Speakers 2026</h2>
+        <h2>New York 2026 · Featured Speakers</h2>
         <p>
           Meet the designers, scientists, founders, and industry leaders shaping
-          the future of materials.
+          the future of sustainable fashion.
         </p>
       </div>
-      <div class="speaker-grid reveal">
-        
-       
 
+      <div class="speaker-grid reveal">
         <article class="speaker-card">
           <div class="speaker-photo">
             <img src="images/KarenPearson.jpg" alt="Karen Pearson" />
@@ -1705,24 +1532,6 @@
           <p class="speaker-company">Cornell University</p>
         </article>
 
-         <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/rossmcbee.jpg" alt="Ross McBee" />
-          </div>
-          <p class="speaker-name">Ross McBee</p>
-          <p class="speaker-role">Founder & Chief Science Officer</p>
-          <p class="speaker-company">Tomtex</p>
-        </article>
-
-        <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/Rebeccamink.jpg" alt="Rebecca Mink" />
-          </div>
-          <p class="speaker-name">Rebecca Mink</p>
-          <p class="speaker-role">Founder & CEO </p>
-          <p class="speaker-company">PLHYDE</p>
-        </article>
-
         <article class="speaker-card">
           <div class="speaker-photo">
             <img src="images/michellegabriel.jpg" alt="Michelle Gabriel" />
@@ -1730,24 +1539,6 @@
           <p class="speaker-name">Michelle Gabriel</p>
           <p class="speaker-role">Resident Fellow</p>
           <p class="speaker-company">Yale Center for Business &amp; Environment</p>
-        </article>
-
-         <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/Vanessa.jpg" alt="Vanessa Barboni Hallik" />
-          </div>
-          <p class="speaker-name">Vanessa Barboni Hallik </p>
-          <p class="speaker-role">Founder and Co-CEO</p>
-          <p class="speaker-company">Another Tomorrow</p>
-        </article>
-
-        <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/victoriasmith.jpg" alt="Victoria Smith" />
-          </div>
-          <p class="speaker-name">Victoria Smith</p>
-          <p class="speaker-role">Founder</p>
-          <p class="speaker-company">Fashion & Founders</p>
         </article>
 
         <article class="speaker-card">
@@ -1767,7 +1558,6 @@
           <p class="speaker-role">Founder</p>
           <p class="speaker-company">BioFluff / Savian</p>
         </article>
-
 
         <article class="speaker-card">
           <div class="speaker-photo">
@@ -1789,82 +1579,11 @@
 
         <article class="speaker-card">
           <div class="speaker-photo">
-            <img src="images/jessehenry.jpg" alt="Jesse Henry" />
-          </div>
-          <p class="speaker-name">Jesse Henry</p>
-          <p class="speaker-role">Founder & CEO </p>
-          <p class="speaker-company">ALT LABS</p>
-        </article>
-
-         <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/theanneschiros.jpg" alt="Dr.Theanne Schiros" />
-          </div>
-          <p class="speaker-name">Theanne Schiros</p>
-          <p class="speaker-role">Professor of Material Science & Research Scientist </p>
-          <p class="speaker-company">FIT & Columbia University</p>
-        </article>
-
-        <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/marygrinnell.jpg" alt="Mary Grinnell" />
-          </div>
-          <p class="speaker-name">Mary Grinnell</p>
-          <p class="speaker-role">Vice President, Start-Up Banking </p>
-          <p class="speaker-company">Western Alliance Bank</p>
-        </article>
-
-         <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/martinsauber.jpg" alt="Martin Sauber" />
-          </div>
-          <p class="speaker-name">Martin Sauber</p>
-          <p class="speaker-role">Head of Strategy, Pioneering & Operations</p>
-          <p class="speaker-company">Mercedes Benz Research & Development North America</p>
-        </article>
-
-         <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/lizalessi.jpg.png" alt="Liz Alessi" />
-          </div>
-          <p class="speaker-name">Liz Alessi</p>
-          <p class="speaker-role">Founder </p>
-          <p class="speaker-company">The Crisis of Stuff</p>
-        </article>
-        <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/DANADAVIS.jpg" alt="Dana Davis" />
-          </div>
-          <p class="speaker-name">Dana Davis</p>
-          <p class="speaker-role">Brand Strategist </p>
-          <p class="speaker-company">Consultant</p>
-        </article>
-        
-        <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/tavisezell.jpg" alt="Tavis Ezell" />
-          </div>
-          <p class="speaker-name">Tavis Ezell</p>
-          <p class="speaker-role">Managing Director</p>
-          <p class="speaker-company">Advanced Science Research Center, CUNY</p>
-        </article>
-
-        <article class="speaker-card">
-          <div class="speaker-photo">
             <img src="images/stephaniedowns.jpg" alt="Stephanie Downs" />
           </div>
           <p class="speaker-name">Stephanie Downs</p>
           <p class="speaker-role">Founder &amp; CEO</p>
           <p class="speaker-company">Uncaged Innovations</p>
-        </article>
-
-        <article class="speaker-card">
-          <div class="speaker-photo">
-            <img src="images/ambrielpouncy.jpg" alt="Ambriel Pouncy" />
-          </div>
-          <p class="speaker-name">Ambriel Pouncy</p>
-          <p class="speaker-role">Founder</p>
-          <p class="speaker-company">Fusion Fashion Tech Society</p>
         </article>
 
         <article class="speaker-card">
@@ -1887,177 +1606,6 @@
       </div>
     </div>
   </section>
-  
-  <!-- PARTNERS -->
-<section id="partners" class="partners-section">
-  <div class="container">
-    <div class="partners-header reveal">
-      <p class="section-kicker">Our Community</p>
-      <h2 class="section-heading">Sponsors &amp; Partners</h2>
-      <p class="partners-intro">
-        The organizations supporting the Sustainable Design Impact Hub:
-        Fashion × Deep Tech Edition and our broader sustainable design community.
-      </p>
-    </div>
-
-<!-- INNOVATION PARTNER -->
-<div style="margin-top: 56px; margin-bottom: 72px;">
-
-  <p class="partner-category-title" style="margin-bottom: 32px;">
-    Innovation Partner
-  </p>
-
-  <div
-    style="
-      width: 100%;
-      max-width: 430px;
-      height: 255px;
-      border: 1px solid rgba(255,255,255,0.14);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    "
-  >
-    <img
-      src="images/mercedes-benz.jpg"
-      alt="Mercedes-Benz Research & Development North America"
-      style="
-        width: 110px !important;
-        height: 110px !important;
-        max-width: 110px !important;
-        max-height: 110px !important;
-        object-fit: contain !important;
-        margin: 0 !important;
-      "
-    />
-  </div>
-
-</div>
-
-    <div class="partner-group partner-group-secondary reveal">
-      <p class="partner-category">Academic Partners</p>
-
-      <div class="partner-logo-grid partner-logo-grid-small">
-        <a
-          href="https://cbey.yale.edu"
-          class="partner-logo-card"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Yale Center for Business and the Environment"
-        >
-          <img
-            src="images/cbey.jpg"
-            alt="Yale Center for Business and the Environment"
-          />
-        </a>
-
-        <a
-          href="https://www.fitnyc.edu"
-          class="partner-logo-card"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Fashion Institute of Technology"
-        >
-          <img
-            src="images/FIT.jpg"
-            alt="Fashion Institute of Technology"
-          />
-        </a>
-
-        <a
-          href="https://www.asrccat.com"
-          class="partner-logo-card"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Advanced Science Research Center, CUNY"
-        >
-          <img
-            src="images/ASRC.jpg"
-            alt="Advanced Science Research Center, CUNY"
-          />
-        </a>
-      </div>
-    </div>
-
-     <div class="partner-group reveal">
-      <p class="partner-category">Sponsors</p>
-
-      <div class="partner-logo-grid">
-        <a
-          href="https://www.westernalliancebancorporation.com"
-          class="partner-logo-card"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Western Alliance Bank"
-        >
-          <img
-            src="images/westernalliancebank.jpg"
-            alt="Western Alliance Bank"
-      <div class="partner-logo-grid">
-        <a
-          href="https://www.lonelywhale.org"
-          class="partner-logo-card"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Lonely Whale"
-        >
-          <img
-            src="images/lonelywhale.jpg"
-            alt="Lonely Whale"
-          />
-        </a>
-
-        <a
-          href="https://bjornqorn.com"
-          class="partner-logo-card"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Bjorn Qorn"
-        >
-          <img
-            src="images/bjornqorn.jpg"
-            alt="Bjorn Qorn"
-          />
-        </a>
-
-        <a
-          href="https://drinkesspo.com"
-          class="partner-logo-card"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Esspo"
-        >
-          <img
-            src="images/esspo.jpg"
-            alt="Esspo"
-          />
-        </a>
-      </div>
-    </div>
-
-    
-   <div class="partner-group partner-group-secondary reveal">
-      <p class="partner-category">Venue Partner</p>
-
-      <div class="partner-logo-grid partner-logo-grid-small">
-        <a
-          href="https://www.newlab.com"
-          class="partner-logo-card"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Newlab"
-        >
-          <img
-            src="images/newlab.jpg"
-            alt="Newlab"
-          />
-        </a>
-
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
 
   <!-- AGENDA -->
   <section id="agenda">
@@ -2115,27 +1663,25 @@
         </p>
 
         <p>
-          The gallery will spotlight emerging companies, materials, products,
+          The New York gallery spotlighted emerging companies, materials, products,
           and technologies shaping the future of fashion, manufacturing,
           mobility, and the built environment. Designed as an elevated
-          exhibition rather than a traditional trade show, the space will bring
+          exhibition rather than a traditional trade show, the space brought
           founders and their work into direct conversation with investors,
           brands, designers, researchers, and industry leaders.
         </p>
 
         <p>
-          We are especially interested in New York-based innovations that
-          demonstrate strong design thinking, technical ambition, and the
-          potential to create meaningful environmental or social impact.
+          The exhibition emphasized design thinking, technical ambition, and the potential for meaningful environmental and social impact.
         </p>
 
         <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSeA992Pg5FnnjsybR61m_HUV6cVfFHvEkqzyfHIzVHhrK3vAg/viewform?usp=header"
+          href="YOUR-APPLICATION-LINK-HERE"
           class="btn-purple innovation-gallery-button"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Exhibitor Application
+          2026 Application Closed
         </a>
       </div>
     </div>
@@ -2221,49 +1767,40 @@
     </div>
   </section>
 
-  <!-- PHOTO GALLERY -->
+  <!-- PAST EDITIONS / PHOTO ARCHIVE -->
   <section id="gallery">
-    <p class="gallery-label reveal">Materials Edition — Biella, Italy 2025</p>
-
-    <div class="gallery-grid reveal">
-      <div class="gallery-item">
-        <img src="images/biella-113.jpg" alt="SDIH Biella event" />
-      </div>
-
-      <div class="gallery-item">
-        <img src="images/biella-269.jpg" alt="SDIH Biella event" />
-      </div>
-
-      <div class="gallery-item">
-        <img src="images/biella-359.jpg" alt="SDIH Biella event" />
-      </div>
-
-      <div class="gallery-item">
-        <img src="images/biella-367.jpg" alt="SDIH Biella event" />
-      </div>
-
-      <div class="gallery-item">
-        <img src="images/biella-538.jpg" alt="SDIH Biella event" />
-      </div>
-
-      <div class="gallery-item">
-        <img src="images/biella-544.jpg" alt="SDIH Biella event" />
-      </div>
-
-      <div class="gallery-item">
-        <img src="images/BIELLA-412.jpg" alt="SDIH Biella event" />
-      </div>
+    <div class="container">
+      <div class="editions-head reveal"><div><p class="section-kicker">An Evolving Global Series</p><h2 class="section-heading">Past Editions</h2></div><p>Each city brings a different perspective. Explore the conversations, spaces, and material innovations that have shaped the Hub.</p></div>
+      <article class="edition reveal" id="new-york-2026">
+        <div class="edition-top"><div><p class="edition-number">Fourth Edition · 2026</p><h3 class="edition-title">New York</h3></div><div class="edition-info"><p><strong>Fashion × Deep Tech</strong></p><p>17 September 2026 · Newlab, Brooklyn Navy Yard</p></div></div>
+        <p class="edition-description">An official Climate Week NYC convening exploring what it takes to move the next generation of materials from lab to market. Founders, researchers, designers, investors, and industry leaders gathered for six curated conversations and a tactile Innovation Gallery.</p>
+        <div class="edition-photos"><figure><figcaption>New York photo 1<br />images/nyc-2026-01.jpg</figcaption></figure>
+<figure><figcaption>New York photo 2<br />images/nyc-2026-02.jpg</figcaption></figure>
+<figure><figcaption>New York photo 3<br />images/nyc-2026-03.jpg</figcaption></figure>
+<figure><figcaption>New York photo 4<br />images/nyc-2026-04.jpg</figcaption></figure>
+<figure><figcaption>New York photo 5<br />images/nyc-2026-05.jpg</figcaption></figure></div><p class="edition-credit">Add your New York photos using the filenames shown in the placeholders, or replace the figure elements with your preferred images.</p>
+      </article>
+      <article class="edition reveal" id="biella-2025">
+        <div class="edition-top"><div><p class="edition-number">2025 Edition</p><h3 class="edition-title">Biella, Italy</h3></div><div class="edition-info"><p><strong>Next Generation Materials</strong></p><p>29–30 May 2025 · Fondazione Sella, Lanificio Maurizio Sella</p></div></div>
+        <p class="edition-description">Set within Biella’s textile heritage, this edition explored the intersection of material innovation, design, and the future of textile production.</p>
+        <div class="edition-photos"><figure><img loading="lazy" src="images/biella-113.jpg" alt="Sustainable Design Impact Hub, Biella 2025" /></figure>
+<figure><img loading="lazy" src="images/biella-269.jpg" alt="Sustainable Design Impact Hub, Biella 2025" /></figure>
+<figure><img loading="lazy" src="images/biella-359.jpg" alt="Sustainable Design Impact Hub, Biella 2025" /></figure>
+<figure><img loading="lazy" src="images/biella-367.jpg" alt="Sustainable Design Impact Hub, Biella 2025" /></figure>
+<figure><img loading="lazy" src="images/biella-538.jpg" alt="Sustainable Design Impact Hub, Biella 2025" /></figure>
+<figure><img loading="lazy" src="images/biella-544.jpg" alt="Sustainable Design Impact Hub, Biella 2025" /></figure>
+<figure><img loading="lazy" src="images/BIELLA-412.jpg" alt="Sustainable Design Impact Hub, Biella 2025" /></figure></div>
+      </article>
     </div>
   </section>
 
-  <!-- TEAM -->
+    <!-- TEAM -->
   <section id="team" class="team-section">
     <div class="container">
       <div class="section-header reveal">
-        <h2>Meet the New York Team</h2>
+        <h2>New York 2026 · The Team</h2>
         <p>
-          The team curating and delivering the 2026 Sustainable Design Impact
-          Hub: Fashion x Deep Tech at Newlab.
+          The team behind the September 2026 Fashion × Deep Tech edition at Newlab.
         </p>
       </div>
 
@@ -2367,9 +1904,10 @@
       <div class="footer-links">
         <a href="#home">Home</a>
         <a href="#about">About</a>
-        <a href="#events">Event</a>
+        <a href="#paris">Paris 2027</a>
+        <a href="#gallery">Past Editions</a>
         <a href="#speakers">Speakers</a>
-        <a href="#agenda">Agenda</a>
+        <a href="#new-york-2026">New York 2026</a>
         <a href="#press">Press</a>
         <a href="#contact">Contact</a>
       </div>
@@ -2435,15 +1973,7 @@
           required
         />
 
-        <select name="sponsorship-level" required>
-          <option value="">Interested Sponsorship Level</option>
-          <option value="$500">$500</option>
-          <option value="$1,000">$1,000</option>
-          <option value="$3,000">$3,000</option>
-          <option value="$5,000">$5,000</option>
-          <option value="$10,000">$10,000</option>
-          <option value="Not sure yet">Not sure yet</option>
-        </select>
+        <select name="sponsorship-level" required><option value="">Partnership Interest</option><option value="Paris 2027">Paris 2027</option><option value="Future editions">Future Editions</option><option value="Impact Talks">Impact Talks</option><option value="Other">Other / Not Sure Yet</option></select>
 
         <textarea
           name="message"
