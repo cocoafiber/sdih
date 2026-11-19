@@ -8,7 +8,6 @@
     content="Sustainable Design Impact Hub convenes fashion, science, design and industry through curated gatherings in New York, Paris and beyond."
   />
   <title>Sustainable Design Impact Hub</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -711,59 +710,6 @@
 
     .press-link::after {
       content: "→";
-    }
-
-    /* ── AWARD ── */
-    #award {
-      padding: 120px 0;
-      background: var(--navy-deep);
-      text-align: center;
-    }
-
-    .award-inner {
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    .award-label {
-      font-size: 11px;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--purple-light);
-      margin-bottom: 24px;
-    }
-
-    .award-title {
-      font-family: var(--font-display);
-      font-size: clamp(36px, 5vw, 64px);
-      font-weight: 400;
-      color: var(--white);
-      margin-bottom: 24px;
-      line-height: 1.1;
-    }
-
-    .award-body {
-      font-size: 16px;
-      color: var(--text-muted);
-      font-weight: 300;
-      line-height: 1.85;
-      margin-bottom: 48px;
-    }
-
-    /* ── PHOTO GALLERY ── */
-    #gallery {
-      padding: 80px 0;
-      background: var(--navy-deep);
-    }
-
-    .gallery-label {
-      text-align: center;
-      font-size: 11px;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--purple-light);
-      margin-bottom: 48px;
-      padding: 0 48px;
     }
 
     .gallery-grid {
@@ -1549,7 +1495,8 @@
       <li><a href="#about">About</a></li>
       <li><a href="#paris">Paris 2027</a></li>
       <li><a href="#gallery">Past Editions</a></li>
-      <li><a href="#speakers">NYC Speakers</a></li>
+      <li><a href="#speakers">Featured Speakers</a></li>
+      <li><a href="#press">Publcations</a></li>
       <li><a href="#press">Press</a></li>
       <li>
         <a href="#" class="nav-sponsor" onclick="openSponsorForm(event)">
@@ -1581,11 +1528,42 @@
 
     <div class="hero-content">
       <p class="hero-eyebrow">Sustainable Design Impact Hub · Next Edition</p>
-      <h1>Staying Ahead of the Sustainable Design Industries</h1>
+      <h1>Moving Sustainable Design Forward </h1>
       <div class="hero-divider"></div>
       <p class="hero-subtitle">28 January 2027 · Paris, France</p>
       <a href="#paris" class="btn-purple hero-cta">Discover the Paris Edition</a>
       <a href="#gallery" class="hero-secondary">Explore Past Editions ↗</a>
+    </div>
+  </section>
+
+   <!-- LOGO MARQUEE -->
+  <section id="logo-marquee" aria-label="Powered by">
+    <p class="marquee-label">Past speakers, partners, and institutions include</p>
+
+    <div class="marquee">
+      <div class="marquee-track">
+        <span>Mercedes Benz Research & Development North America</span>
+        <span>Banca Sella</span>
+        <span>Yale , FIT , & CUNY</span>
+        <span>Swarovski</span>
+        <span>Biomimicry Institute</span>
+        <span>North Sails</span>
+        <span>Lauretana</span>
+        <span>Menabrea</span>
+        <span>Silversands</span>
+        <span>Orange Fiber</span>
+
+        <span>Mercedes Benz Research & Development North America</span>
+        <span>Banca Sella</span>
+        <span>United Nations Fashion and Lifestyle Network</span>
+        <span>Swarovski</span>
+        <span>Biomimicry Institute</span>
+        <span>North Sails</span>
+        <span>Lauretana</span>
+        <span>Menabrea</span>
+        <span>Silversands</span>
+        <span>Orange Fiber</span>
+      </div>
     </div>
   </section>
 
@@ -1618,6 +1596,32 @@
     </div>
   </section>
 
+  <!-- PAST EDITIONS / PHOTO ARCHIVE -->
+  <section id="gallery">
+    <div class="container">
+      <div class="editions-head reveal"><div><p class="section-kicker">An Evolving Global Series</p><h2 class="section-heading">Past Editions</h2></div><p>Each city brings a different perspective. Explore the conversations, spaces, and material innovations that have shaped the Hub.</p></div>
+      <article class="edition reveal" id="new-york-2026">
+        <div class="edition-top"><div><p class="edition-number">Fourth Edition · 2026</p><h3 class="edition-title">New York</h3></div><div class="edition-info"><p><strong>Fashion × Deep Tech</strong></p><p>17 September 2026 · Newlab, Brooklyn Navy Yard</p></div></div>
+        <p class="edition-description">An official Climate Week NYC convening exploring what it takes to move the next generation of materials from lab to market. Founders, researchers, designers, investors, and industry leaders gathered for six curated conversations and a tactile Innovation Gallery.</p>
+        <div class="edition-photos"><figure><img src="images/sdih-nyc1.jpg" alt="SDIH New York"></figure>
+<figure><img src="images/sdih-nyc2.jpg" alt="SDIH New York"></figure>
+<figure><img src="images/sdih-nyc3.jpg" alt="SDIH New York"></figure>
+<figure><img src="images/sdih-nyc4.jpg" alt="SDIH New York"></figure>
+<figure><img src="images/sdih-nyc5.jpg" alt="SDIH New York"></figure></div><p class="edition-credit">New York, Fashion x Deep Tech Ediiton September 2026</p>
+      </article>
+      <article class="edition reveal" id="biella-2025">
+        <div class="edition-top"><div><p class="edition-number">2025 Edition</p><h3 class="edition-title">Biella, Italy</h3></div><div class="edition-info"><p><strong>Next Generation Materials</strong></p><p>29–30 May 2025 · Fondazione Sella, Lanificio Maurizio Sella</p></div></div>
+        <p class="edition-description">Set within Biella’s textile heritage, this edition explored the intersection of material innovation, design, and the future of textile production.</p>
+        <div class="edition-photos"><figure><img loading="lazy" src="images/biella-113.jpg" alt="Sustainable Design Impact Hub, Biella 2025" /></figure>
+<figure><img loading="lazy" src="images/biella-269.jpg" alt="Sustainable Design Impact Hub, Biella 2025" /></figure>
+<figure><img loading="lazy" src="images/biella-359.jpg" alt="Sustainable Design Impact Hub, Biella 2025" /></figure>
+<figure><img loading="lazy" src="images/biella-367.jpg" alt="Sustainable Design Impact Hub, Biella 2025" /></figure>
+<figure><img loading="lazy" src="images/biella-538.jpg" alt="Sustainable Design Impact Hub, Biella 2025" /></figure>
+</div>
+      </article>
+    </div>
+  </section>
+
     <!-- ABOUT -->
   <section id="about">
     <div class="container about-inner">
@@ -1626,36 +1630,7 @@
     </div>
   </section>
 
-  <!-- LOGO MARQUEE -->
-  <section id="logo-marquee" aria-label="Past speakers, partners, and institutions">
-    <p class="marquee-label">Past speakers, partners, and institutions include</p>
-
-    <div class="marquee">
-      <div class="marquee-track">
-        <span>Mercedes Benz Research & Development North America</span>
-        <span>Banca Sella</span>
-        <span>United Nations Fashion and Lifestyle Network</span>
-        <span>Swarovski</span>
-        <span>Biomimicry Institute</span>
-        <span>North Sails</span>
-        <span>Lauretana</span>
-        <span>Menabrea</span>
-        <span>Silversands</span>
-        <span>Orange Fiber</span>
-
-        <span>Mercedes Benz Research & Development North America</span>
-        <span>Banca Sella</span>
-        <span>United Nations Fashion and Lifestyle Network</span>
-        <span>Swarovski</span>
-        <span>Biomimicry Institute</span>
-        <span>North Sails</span>
-        <span>Lauretana</span>
-        <span>Menabrea</span>
-        <span>Silversands</span>
-        <span>Orange Fiber</span>
-      </div>
-    </div>
-  </section>
+ 
   <!-- ── SDIH IMPACT TALKS ── -->
 
 <section id="impact-talks" aria-labelledby="impact-talks-heading">
@@ -1959,47 +1934,6 @@
     </div>
   </section>
 
-  <!-- AGENDA -->
-  <section id="agenda">
-    <div class="container schedule-inner">
-      <div class="agenda-intro reveal">
-        <p class="section-label">September 17, 2026</p>
-        <h2 class="schedule-title">Event <span>Agenda</span></h2>
-      </div>
-
-      <div class="schedule-list reveal">
-        <div class="schedule-item">
-          <span class="schedule-time">9:00 AM</span>
-          <h3>Registration &amp; Welcome</h3>
-        </div>
-
-        <div class="schedule-item">
-          <span class="schedule-time">9:30 AM</span>
-          <h3>Opening Keynote</h3>
-        </div>
-
-        <div class="schedule-item">
-          <span class="schedule-time">10:00 AM – 1:00 PM</span>
-          <h3>Panel Discussions, Workshops &amp; Masterclasses</h3>
-        </div>
-
-        <div class="schedule-item">
-          <span class="schedule-time">1:00 PM</span>
-          <h3>Lunch &amp; Structured Networking</h3>
-        </div>
-
-        <div class="schedule-item">
-          <span class="schedule-time">2:00 PM – 6:00 PM</span>
-          <h3>Panel Discussions, Startup Pitches &amp; Fireside Chats</h3>
-        </div>
-
-        <div class="schedule-item">
-          <span class="schedule-time">6:00 PM</span>
-          <h3>Closing Remarks</h3>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- INNOVATION GALLERY -->
   <section id="innovation-gallery">
@@ -2039,7 +1973,58 @@
     </div>
   </section>
 
-  <!-- PRESS -->
+
+    <!-- TEAM -->
+  <section id="team" class="team-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>New York 2026 · The Team</h2>
+        <p>
+          The team behind the September 2026 Fashion × Deep Tech edition at Newlab.
+        </p>
+      </div>
+
+      <div class="team-grid reveal">
+        <article class="team-card">
+          <img src="images/ShannenHenry.jpg" alt="Shannen Henry" />
+          <h3>Shannen Henry</h3>
+          <p class="team-role">Founder &amp; Executive Director</p>
+          <a
+            href="mailto:shannen@sustainabledesignimpacthub.com"
+            class="team-email"
+          >
+            Email
+          </a>
+        </article>
+
+        <article class="team-card">
+          <img src="images/annaho.jpg" alt="Anna Ho" />
+          <h3>Anna Ho</h3>
+          <p class="team-role">Partnerships</p>
+          <a
+            href="mailto:anna.ho@sustainabledesignimpacthub.com"
+            class="team-email"
+          >
+            Email
+          </a>
+        </article>
+
+        <article class="team-card">
+          <img src="images/jesseadler.jpg" alt="Jesse Adler" />
+          <h3>Jesse Adler</h3>
+          <p class="team-role">Innovation Gallery Coordinator</p>
+          <a
+            href="mailto:jesse@sustainabledesignimpacthub.com"
+            class="team-email"
+          >
+            Email
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+   <!-- PRESS -->
   <section id="press">
     <div class="container">
       <div class="press-header reveal">
@@ -2096,102 +2081,6 @@
           </p>
           <span class="press-link">Read More</span>
         </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- AWARD -->
-  <section id="award">
-    <div class="container">
-      <div class="award-inner reveal">
-        <p class="award-label">Award</p>
-        <h2 class="award-title">
-          Recognizing Excellence in Sustainable Design
-        </h2>
-        <p class="award-body">
-          The Sustainable Design Impact Hub Award celebrates pioneering work at
-          the intersection of fashion, technology, and sustainability. We honor
-          individuals and organizations driving meaningful change across the
-          creative industries.
-        </p>
-        <a href="#contact" class="btn-purple">Learn More</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- PAST EDITIONS / PHOTO ARCHIVE -->
-  <section id="gallery">
-    <div class="container">
-      <div class="editions-head reveal"><div><p class="section-kicker">An Evolving Global Series</p><h2 class="section-heading">Past Editions</h2></div><p>Each city brings a different perspective. Explore the conversations, spaces, and material innovations that have shaped the Hub.</p></div>
-      <article class="edition reveal" id="new-york-2026">
-        <div class="edition-top"><div><p class="edition-number">Fourth Edition · 2026</p><h3 class="edition-title">New York</h3></div><div class="edition-info"><p><strong>Fashion × Deep Tech</strong></p><p>17 September 2026 · Newlab, Brooklyn Navy Yard</p></div></div>
-        <p class="edition-description">An official Climate Week NYC convening exploring what it takes to move the next generation of materials from lab to market. Founders, researchers, designers, investors, and industry leaders gathered for six curated conversations and a tactile Innovation Gallery.</p>
-        <div class="edition-photos"><figure><img src="images/sdih-nyc1.jpg" alt="SDIH New York"></figure>
-<figure><img src="images/sdih-nyc2.jpg" alt="SDIH New York"></figure>
-<figure><img src="images/sdih-nyc3.jpg" alt="SDIH New York"></figure>
-<figure><img src="images/sdih-nyc4.jpg" alt="SDIH New York"></figure>
-<figure><img src="images/sdih-nyc5.jpg" alt="SDIH New York"></figure></div><p class="edition-credit">New York, Fashion x Deep Tech Ediiton September 2026</p>
-      </article>
-      <article class="edition reveal" id="biella-2025">
-        <div class="edition-top"><div><p class="edition-number">2025 Edition</p><h3 class="edition-title">Biella, Italy</h3></div><div class="edition-info"><p><strong>Next Generation Materials</strong></p><p>29–30 May 2025 · Fondazione Sella, Lanificio Maurizio Sella</p></div></div>
-        <p class="edition-description">Set within Biella’s textile heritage, this edition explored the intersection of material innovation, design, and the future of textile production.</p>
-        <div class="edition-photos"><figure><img loading="lazy" src="images/biella-113.jpg" alt="Sustainable Design Impact Hub, Biella 2025" /></figure>
-<figure><img loading="lazy" src="images/biella-269.jpg" alt="Sustainable Design Impact Hub, Biella 2025" /></figure>
-<figure><img loading="lazy" src="images/biella-359.jpg" alt="Sustainable Design Impact Hub, Biella 2025" /></figure>
-<figure><img loading="lazy" src="images/biella-367.jpg" alt="Sustainable Design Impact Hub, Biella 2025" /></figure>
-<figure><img loading="lazy" src="images/biella-538.jpg" alt="Sustainable Design Impact Hub, Biella 2025" /></figure>
-<figure><img loading="lazy" src="images/biella-544.jpg" alt="Sustainable Design Impact Hub, Biella 2025" /></figure>
-<figure><img loading="lazy" src="images/BIELLA-412.jpg" alt="Sustainable Design Impact Hub, Biella 2025" /></figure></div>
-      </article>
-    </div>
-  </section>
-
-    <!-- TEAM -->
-  <section id="team" class="team-section">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2>New York 2026 · The Team</h2>
-        <p>
-          The team behind the September 2026 Fashion × Deep Tech edition at Newlab.
-        </p>
-      </div>
-
-      <div class="team-grid reveal">
-        <article class="team-card">
-          <img src="images/ShannenHenry.jpg" alt="Shannen Henry" />
-          <h3>Shannen Henry</h3>
-          <p class="team-role">Founder &amp; Executive Director</p>
-          <a
-            href="mailto:shannen@sustainabledesignimpacthub.com"
-            class="team-email"
-          >
-            Email
-          </a>
-        </article>
-
-        <article class="team-card">
-          <img src="images/annaho.jpg" alt="Anna Ho" />
-          <h3>Anna Ho</h3>
-          <p class="team-role">Partnerships</p>
-          <a
-            href="mailto:anna.ho@sustainabledesignimpacthub.com"
-            class="team-email"
-          >
-            Email
-          </a>
-        </article>
-
-        <article class="team-card">
-          <img src="images/jesseadler.jpg" alt="Jesse Adler" />
-          <h3>Jesse Adler</h3>
-          <p class="team-role">Innovation Gallery Coordinator</p>
-          <a
-            href="mailto:jesse@sustainabledesignimpacthub.com"
-            class="team-email"
-          >
-            Email
-          </a>
-        </article>
       </div>
     </div>
   </section>
